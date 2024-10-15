@@ -1,0 +1,28 @@
+.ion-page {
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .devices {
+      padding: 1rem;
+
+      .device {
+        .device-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .actions {
+      margin-top: auto;
+
+      ion-item {
+        --padding-top: 0.5rem;
+        --padding-bottom: 0.5rem;
+      }
+      padding-bottom: 2rem;
+    }
+  }
+}

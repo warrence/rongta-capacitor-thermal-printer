@@ -1,0 +1,1005 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
+		50ADFF97201F53D600D50D53 /* BluetoothPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */; };
+		5FC74701905566BCE65B0125 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C687F51650BFA7DCD97DF1FF /* Pods_PluginTests.framework */; };
+		6CF63A3B9EFEE4BC48EEC560 /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116312F9F8331B8A8207136D /* Pods_Plugin.framework */; };
+		D086E0DF2BE245B7006C7E71 /* BluetoothPrintPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */; };
+		D086E0E12BE245B7006C7E71 /* BluetoothPrintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */; };
+		D086E0E72BE245B7006C7E71 /* BluetoothPrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */; };
+		D086E2742BE24984006C7E71 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2502BE24984006C7E71 /* AppDelegate.h */; };
+		D086E2752BE24984006C7E71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2512BE24984006C7E71 /* AppDelegate.m */; };
+		D086E2762BE24984006C7E71 /* CDV.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2522BE24984006C7E71 /* CDV.h */; };
+		D086E2772BE24984006C7E71 /* CDVAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2532BE24984006C7E71 /* CDVAvailability.h */; };
+		D086E2782BE24984006C7E71 /* CDVCommandDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2542BE24984006C7E71 /* CDVCommandDelegate.h */; };
+		D086E2792BE24984006C7E71 /* CDVCommandDelegateImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2552BE24984006C7E71 /* CDVCommandDelegateImpl.h */; };
+		D086E27A2BE24984006C7E71 /* CDVCommandDelegateImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2562BE24984006C7E71 /* CDVCommandDelegateImpl.m */; };
+		D086E27B2BE24984006C7E71 /* CDVConfigParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2572BE24984006C7E71 /* CDVConfigParser.h */; };
+		D086E27C2BE24984006C7E71 /* CDVConfigParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2582BE24984006C7E71 /* CDVConfigParser.m */; };
+		D086E27D2BE24984006C7E71 /* CDVInvokedUrlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2592BE24984006C7E71 /* CDVInvokedUrlCommand.h */; };
+		D086E27E2BE24984006C7E71 /* CDVInvokedUrlCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E25A2BE24984006C7E71 /* CDVInvokedUrlCommand.m */; };
+		D086E27F2BE24984006C7E71 /* CDVPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E25B2BE24984006C7E71 /* CDVPlugin.h */; };
+		D086E2802BE24984006C7E71 /* CDVPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E25C2BE24984006C7E71 /* CDVPlugin.m */; };
+		D086E2812BE24984006C7E71 /* CDVPlugin+Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E25D2BE24984006C7E71 /* CDVPlugin+Resources.h */; };
+		D086E2822BE24984006C7E71 /* CDVPlugin+Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E25E2BE24984006C7E71 /* CDVPlugin+Resources.m */; };
+		D086E2832BE24984006C7E71 /* CDVPluginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E25F2BE24984006C7E71 /* CDVPluginManager.h */; };
+		D086E2842BE24984006C7E71 /* CDVPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2602BE24984006C7E71 /* CDVPluginManager.m */; };
+		D086E2852BE24984006C7E71 /* CDVPluginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2612BE24984006C7E71 /* CDVPluginResult.h */; };
+		D086E2862BE24984006C7E71 /* CDVPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2622BE24984006C7E71 /* CDVPluginResult.m */; };
+		D086E2872BE24984006C7E71 /* CDVScreenOrientationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2632BE24984006C7E71 /* CDVScreenOrientationDelegate.h */; };
+		D086E2882BE24984006C7E71 /* CDVURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2642BE24984006C7E71 /* CDVURLProtocol.h */; };
+		D086E2892BE24984006C7E71 /* CDVURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2652BE24984006C7E71 /* CDVURLProtocol.m */; };
+		D086E28A2BE24984006C7E71 /* CDVViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2662BE24984006C7E71 /* CDVViewController.h */; };
+		D086E28B2BE24984006C7E71 /* CDVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2672BE24984006C7E71 /* CDVViewController.m */; };
+		D086E28C2BE24984006C7E71 /* CDVWebViewProcessPoolFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2682BE24984006C7E71 /* CDVWebViewProcessPoolFactory.h */; };
+		D086E28D2BE24984006C7E71 /* CDVWebViewProcessPoolFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2692BE24984006C7E71 /* CDVWebViewProcessPoolFactory.m */; };
+		D086E28E2BE24984006C7E71 /* NSDictionary+CordovaPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E26A2BE24984006C7E71 /* NSDictionary+CordovaPreferences.h */; };
+		D086E28F2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E26B2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m */; };
+		D086E2902BE24984006C7E71 /* CapacitorCordova.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E26E2BE24984006C7E71 /* CapacitorCordova.h */; };
+		D0A574F42BFE204800F1D97B /* PrinterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00834FD2BFCF04500E507E3 /* PrinterManager.swift */; };
+		D0B45D362BF8A5EA0071901E /* libz.1.2.11.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B45D332BF8A5EA0071901E /* libz.1.2.11.tbd */; };
+		D0B45D372BF8A5EA0071901E /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B45D342BF8A5EA0071901E /* libz.1.1.3.tbd */; };
+		D0B45D382BF8A5EA0071901E /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B45D352BF8A5EA0071901E /* libz.1.2.8.tbd */; };
+		D0B8EF202C7E022B003510D7 /* BarcodeSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEEF2C7E022A003510D7 /* BarcodeSetting.h */; };
+		D0B8EF212C7E022B003510D7 /* BitmapSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF02C7E022A003510D7 /* BitmapSetting.h */; };
+		D0B8EF222C7E022B003510D7 /* BlueToothFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF12C7E022A003510D7 /* BlueToothFactory.h */; };
+		D0B8EF232C7E022B003510D7 /* Cmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF22C7E022A003510D7 /* Cmd.h */; };
+		D0B8EF242C7E022B003510D7 /* CmdFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF32C7E022A003510D7 /* CmdFactory.h */; };
+		D0B8EF252C7E022B003510D7 /* CommonSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF42C7E022A003510D7 /* CommonSetting.h */; };
+		D0B8EF262C7E022B003510D7 /* CPCLCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF52C7E022A003510D7 /* CPCLCmd.h */; };
+		D0B8EF272C7E022B003510D7 /* CPCLFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF62C7E022A003510D7 /* CPCLFactory.h */; };
+		D0B8EF282C7E022B003510D7 /* EnumTypeDef.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF72C7E022A003510D7 /* EnumTypeDef.h */; };
+		D0B8EF292C7E022B003510D7 /* ESCCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF82C7E022A003510D7 /* ESCCmd.h */; };
+		D0B8EF2A2C7E022B003510D7 /* ESCFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEF92C7E022A003510D7 /* ESCFactory.h */; };
+		D0B8EF2B2C7E022B003510D7 /* EscpCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFA2C7E022A003510D7 /* EscpCmd.h */; };
+		D0B8EF2C2C7E022B003510D7 /* EscpFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFB2C7E022A003510D7 /* EscpFactory.h */; };
+		D0B8EF2D2C7E022B003510D7 /* Header.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFC2C7E022A003510D7 /* Header.h */; };
+		D0B8EF2E2C7E022B003510D7 /* LabelCommonSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFD2C7E022A003510D7 /* LabelCommonSetting.h */; };
+		D0B8EF2F2C7E022B003510D7 /* LabelPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFE2C7E022A003510D7 /* LabelPrinter.h */; };
+		D0B8EF302C7E022B003510D7 /* LabelPrinterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EEFF2C7E022A003510D7 /* LabelPrinterFactory.h */; };
+		D0B8EF312C7E022B003510D7 /* NetworkPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF002C7E022A003510D7 /* NetworkPrinter.h */; };
+		D0B8EF322C7E022B003510D7 /* ObserverObj.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF012C7E022A003510D7 /* ObserverObj.h */; };
+		D0B8EF332C7E022B003510D7 /* PIFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF022C7E022A003510D7 /* PIFactory.h */; };
+		D0B8EF342C7E022B003510D7 /* PinCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF032C7E022A003510D7 /* PinCmd.h */; };
+		D0B8EF352C7E022B003510D7 /* PinCmdFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF042C7E022A003510D7 /* PinCmdFactory.h */; };
+		D0B8EF362C7E022B003510D7 /* PinPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF052C7E022A003510D7 /* PinPrinter.h */; };
+		D0B8EF372C7E022B003510D7 /* PinPrinterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF062C7E022A003510D7 /* PinPrinterFactory.h */; };
+		D0B8EF382C7E022B003510D7 /* PlistUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF072C7E022A003510D7 /* PlistUtils.h */; };
+		D0B8EF392C7E022B003510D7 /* Printer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF082C7E022A003510D7 /* Printer.h */; };
+		D0B8EF3A2C7E022B003510D7 /* PrinterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF092C7E022A003510D7 /* PrinterFactory.h */; };
+		D0B8EF3B2C7E022B003510D7 /* PrinterInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0A2C7E022A003510D7 /* PrinterInterface.h */; };
+		D0B8EF3C2C7E022B003510D7 /* PrinterStatusObj.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0B2C7E022A003510D7 /* PrinterStatusObj.h */; };
+		D0B8EF3D2C7E022B003510D7 /* RTBlueToothPI.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0C2C7E022A003510D7 /* RTBlueToothPI.h */; };
+		D0B8EF3E2C7E022B003510D7 /* RTDeviceinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0D2C7E022A003510D7 /* RTDeviceinfo.h */; };
+		D0B8EF3F2C7E022B003510D7 /* SafeMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0E2C7E022A003510D7 /* SafeMutableArray.h */; };
+		D0B8EF402C7E022B003510D7 /* TextSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF0F2C7E022A003510D7 /* TextSetting.h */; };
+		D0B8EF412C7E022B003510D7 /* ThermalPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF102C7E022A003510D7 /* ThermalPrinter.h */; };
+		D0B8EF422C7E022B003510D7 /* ThermalPrinterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF112C7E022A003510D7 /* ThermalPrinterFactory.h */; };
+		D0B8EF432C7E022B003510D7 /* TSCCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF122C7E022A003510D7 /* TSCCmd.h */; };
+		D0B8EF442C7E022B003510D7 /* TSCFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF132C7E022A003510D7 /* TSCFactory.h */; };
+		D0B8EF452C7E022B003510D7 /* WIFIFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF142C7E022A003510D7 /* WIFIFactory.h */; };
+		D0B8EF462C7E022B003510D7 /* WifiInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF152C7E022A003510D7 /* WifiInterface.h */; };
+		D0B8EF472C7E022B003510D7 /* XsimCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF162C7E022A003510D7 /* XsimCmd.h */; };
+		D0B8EF482C7E022B003510D7 /* XsimFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF172C7E022A003510D7 /* XsimFactory.h */; };
+		D0B8EF492C7E022B003510D7 /* ZPLCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF182C7E022A003510D7 /* ZPLCmd.h */; };
+		D0B8EF4A2C7E022B003510D7 /* ZPLFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B8EF192C7E022A003510D7 /* ZPLFactory.h */; };
+		D0B8EF4B2C7E022B003510D7 /* ble_serial.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B8EF1C2C7E022A003510D7 /* ble_serial.plist */; };
+		D0B8EF852C7E203D003510D7 /* libRTPrinterSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B8EF1E2C7E022A003510D7 /* libRTPrinterSDK.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50ADFF93201F53D600D50D53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50ADFF7F201F53D600D50D53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50ADFF87201F53D600D50D53;
+			remoteInfo = Plugin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		116312F9F8331B8A8207136D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ADFF91201F53D600D50D53 /* PluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPrintTests.swift; sourceTree = "<group>"; };
+		50ADFF98201F53D600D50D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
+		91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
+		96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C687F51650BFA7DCD97DF1FF /* Pods_PluginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PluginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00834FD2BFCF04500E507E3 /* PrinterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterManager.swift; sourceTree = "<group>"; };
+		D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothPrintPlugin.h; sourceTree = "<group>"; };
+		D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothPrintPlugin.m; sourceTree = "<group>"; };
+		D086E0DC2BE245B7006C7E71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothPrintPlugin.swift; sourceTree = "<group>"; };
+		D086E2502BE24984006C7E71 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D086E2512BE24984006C7E71 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D086E2522BE24984006C7E71 /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
+		D086E2532BE24984006C7E71 /* CDVAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
+		D086E2542BE24984006C7E71 /* CDVCommandDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegate.h; sourceTree = "<group>"; };
+		D086E2552BE24984006C7E71 /* CDVCommandDelegateImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegateImpl.h; sourceTree = "<group>"; };
+		D086E2562BE24984006C7E71 /* CDVCommandDelegateImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVCommandDelegateImpl.m; sourceTree = "<group>"; };
+		D086E2572BE24984006C7E71 /* CDVConfigParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVConfigParser.h; sourceTree = "<group>"; };
+		D086E2582BE24984006C7E71 /* CDVConfigParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVConfigParser.m; sourceTree = "<group>"; };
+		D086E2592BE24984006C7E71 /* CDVInvokedUrlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVInvokedUrlCommand.h; sourceTree = "<group>"; };
+		D086E25A2BE24984006C7E71 /* CDVInvokedUrlCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVInvokedUrlCommand.m; sourceTree = "<group>"; };
+		D086E25B2BE24984006C7E71 /* CDVPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVPlugin.h; sourceTree = "<group>"; };
+		D086E25C2BE24984006C7E71 /* CDVPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVPlugin.m; sourceTree = "<group>"; };
+		D086E25D2BE24984006C7E71 /* CDVPlugin+Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDVPlugin+Resources.h"; sourceTree = "<group>"; };
+		D086E25E2BE24984006C7E71 /* CDVPlugin+Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDVPlugin+Resources.m"; sourceTree = "<group>"; };
+		D086E25F2BE24984006C7E71 /* CDVPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVPluginManager.h; sourceTree = "<group>"; };
+		D086E2602BE24984006C7E71 /* CDVPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVPluginManager.m; sourceTree = "<group>"; };
+		D086E2612BE24984006C7E71 /* CDVPluginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVPluginResult.h; sourceTree = "<group>"; };
+		D086E2622BE24984006C7E71 /* CDVPluginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVPluginResult.m; sourceTree = "<group>"; };
+		D086E2632BE24984006C7E71 /* CDVScreenOrientationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVScreenOrientationDelegate.h; sourceTree = "<group>"; };
+		D086E2642BE24984006C7E71 /* CDVURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVURLProtocol.h; sourceTree = "<group>"; };
+		D086E2652BE24984006C7E71 /* CDVURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVURLProtocol.m; sourceTree = "<group>"; };
+		D086E2662BE24984006C7E71 /* CDVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVViewController.h; sourceTree = "<group>"; };
+		D086E2672BE24984006C7E71 /* CDVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVViewController.m; sourceTree = "<group>"; };
+		D086E2682BE24984006C7E71 /* CDVWebViewProcessPoolFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVWebViewProcessPoolFactory.h; sourceTree = "<group>"; };
+		D086E2692BE24984006C7E71 /* CDVWebViewProcessPoolFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVWebViewProcessPoolFactory.m; sourceTree = "<group>"; };
+		D086E26A2BE24984006C7E71 /* NSDictionary+CordovaPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CordovaPreferences.h"; sourceTree = "<group>"; };
+		D086E26B2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CordovaPreferences.m"; sourceTree = "<group>"; };
+		D086E26E2BE24984006C7E71 /* CapacitorCordova.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapacitorCordova.h; sourceTree = "<group>"; };
+		D086E26F2BE24984006C7E71 /* CapacitorCordova.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = CapacitorCordova.modulemap; sourceTree = "<group>"; };
+		D086E2702BE24984006C7E71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D086E2712BE24984006C7E71 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D0B45D332BF8A5EA0071901E /* libz.1.2.11.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.11.tbd; path = usr/lib/libz.1.2.11.tbd; sourceTree = SDKROOT; };
+		D0B45D342BF8A5EA0071901E /* libz.1.1.3.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		D0B45D352BF8A5EA0071901E /* libz.1.2.8.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		D0B8EEEF2C7E022A003510D7 /* BarcodeSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeSetting.h; sourceTree = "<group>"; };
+		D0B8EEF02C7E022A003510D7 /* BitmapSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapSetting.h; sourceTree = "<group>"; };
+		D0B8EEF12C7E022A003510D7 /* BlueToothFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothFactory.h; sourceTree = "<group>"; };
+		D0B8EEF22C7E022A003510D7 /* Cmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cmd.h; sourceTree = "<group>"; };
+		D0B8EEF32C7E022A003510D7 /* CmdFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdFactory.h; sourceTree = "<group>"; };
+		D0B8EEF42C7E022A003510D7 /* CommonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSetting.h; sourceTree = "<group>"; };
+		D0B8EEF52C7E022A003510D7 /* CPCLCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCLCmd.h; sourceTree = "<group>"; };
+		D0B8EEF62C7E022A003510D7 /* CPCLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCLFactory.h; sourceTree = "<group>"; };
+		D0B8EEF72C7E022A003510D7 /* EnumTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumTypeDef.h; sourceTree = "<group>"; };
+		D0B8EEF82C7E022A003510D7 /* ESCCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESCCmd.h; sourceTree = "<group>"; };
+		D0B8EEF92C7E022A003510D7 /* ESCFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESCFactory.h; sourceTree = "<group>"; };
+		D0B8EEFA2C7E022A003510D7 /* EscpCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EscpCmd.h; sourceTree = "<group>"; };
+		D0B8EEFB2C7E022A003510D7 /* EscpFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EscpFactory.h; sourceTree = "<group>"; };
+		D0B8EEFC2C7E022A003510D7 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		D0B8EEFD2C7E022A003510D7 /* LabelCommonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCommonSetting.h; sourceTree = "<group>"; };
+		D0B8EEFE2C7E022A003510D7 /* LabelPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelPrinter.h; sourceTree = "<group>"; };
+		D0B8EEFF2C7E022A003510D7 /* LabelPrinterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelPrinterFactory.h; sourceTree = "<group>"; };
+		D0B8EF002C7E022A003510D7 /* NetworkPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPrinter.h; sourceTree = "<group>"; };
+		D0B8EF012C7E022A003510D7 /* ObserverObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObserverObj.h; sourceTree = "<group>"; };
+		D0B8EF022C7E022A003510D7 /* PIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIFactory.h; sourceTree = "<group>"; };
+		D0B8EF032C7E022A003510D7 /* PinCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinCmd.h; sourceTree = "<group>"; };
+		D0B8EF042C7E022A003510D7 /* PinCmdFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinCmdFactory.h; sourceTree = "<group>"; };
+		D0B8EF052C7E022A003510D7 /* PinPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinPrinter.h; sourceTree = "<group>"; };
+		D0B8EF062C7E022A003510D7 /* PinPrinterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinPrinterFactory.h; sourceTree = "<group>"; };
+		D0B8EF072C7E022A003510D7 /* PlistUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistUtils.h; sourceTree = "<group>"; };
+		D0B8EF082C7E022A003510D7 /* Printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Printer.h; sourceTree = "<group>"; };
+		D0B8EF092C7E022A003510D7 /* PrinterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterFactory.h; sourceTree = "<group>"; };
+		D0B8EF0A2C7E022A003510D7 /* PrinterInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterInterface.h; sourceTree = "<group>"; };
+		D0B8EF0B2C7E022A003510D7 /* PrinterStatusObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterStatusObj.h; sourceTree = "<group>"; };
+		D0B8EF0C2C7E022A003510D7 /* RTBlueToothPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTBlueToothPI.h; sourceTree = "<group>"; };
+		D0B8EF0D2C7E022A003510D7 /* RTDeviceinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDeviceinfo.h; sourceTree = "<group>"; };
+		D0B8EF0E2C7E022A003510D7 /* SafeMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeMutableArray.h; sourceTree = "<group>"; };
+		D0B8EF0F2C7E022A003510D7 /* TextSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSetting.h; sourceTree = "<group>"; };
+		D0B8EF102C7E022A003510D7 /* ThermalPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThermalPrinter.h; sourceTree = "<group>"; };
+		D0B8EF112C7E022A003510D7 /* ThermalPrinterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThermalPrinterFactory.h; sourceTree = "<group>"; };
+		D0B8EF122C7E022A003510D7 /* TSCCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCCmd.h; sourceTree = "<group>"; };
+		D0B8EF132C7E022A003510D7 /* TSCFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCFactory.h; sourceTree = "<group>"; };
+		D0B8EF142C7E022A003510D7 /* WIFIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WIFIFactory.h; sourceTree = "<group>"; };
+		D0B8EF152C7E022A003510D7 /* WifiInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiInterface.h; sourceTree = "<group>"; };
+		D0B8EF162C7E022A003510D7 /* XsimCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XsimCmd.h; sourceTree = "<group>"; };
+		D0B8EF172C7E022A003510D7 /* XsimFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XsimFactory.h; sourceTree = "<group>"; };
+		D0B8EF182C7E022A003510D7 /* ZPLCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPLCmd.h; sourceTree = "<group>"; };
+		D0B8EF192C7E022A003510D7 /* ZPLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPLFactory.h; sourceTree = "<group>"; };
+		D0B8EF1C2C7E022A003510D7 /* ble_serial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ble_serial.plist; sourceTree = "<group>"; };
+		D0B8EF1E2C7E022A003510D7 /* libRTPrinterSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTPrinterSDK.a; sourceTree = "<group>"; };
+		D0D10CDB2BE38355004F93EF /* Plugin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plugin-Bridging-Header.h"; sourceTree = "<group>"; };
+		F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50ADFF84201F53D600D50D53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B8EF852C7E203D003510D7 /* libRTPrinterSDK.a in Frameworks */,
+				D0B45D372BF8A5EA0071901E /* libz.1.1.3.tbd in Frameworks */,
+				6CF63A3B9EFEE4BC48EEC560 /* Pods_Plugin.framework in Frameworks */,
+				D0B45D382BF8A5EA0071901E /* libz.1.2.8.tbd in Frameworks */,
+				D0B45D362BF8A5EA0071901E /* libz.1.2.11.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ADFF8E201F53D600D50D53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */,
+				5FC74701905566BCE65B0125 /* Pods_PluginTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50ADFF7E201F53D600D50D53 = {
+			isa = PBXGroup;
+			children = (
+				D0D10CDB2BE38355004F93EF /* Plugin-Bridging-Header.h */,
+				50ADFF8A201F53D600D50D53 /* Plugin */,
+				50ADFF95201F53D600D50D53 /* PluginTests */,
+				50ADFF89201F53D600D50D53 /* Products */,
+				8C8E7744173064A9F6D438E3 /* Pods */,
+				A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		50ADFF89201F53D600D50D53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50ADFF88201F53D600D50D53 /* Plugin.framework */,
+				50ADFF91201F53D600D50D53 /* PluginTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50ADFF8A201F53D600D50D53 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8EF1F2C7E022A003510D7 /* SDK */,
+				D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */,
+				D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */,
+				D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */,
+				D086E0DC2BE245B7006C7E71 /* Info.plist */,
+				D00834FD2BFCF04500E507E3 /* PrinterManager.swift */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
+		50ADFF95201F53D600D50D53 /* PluginTests */ = {
+			isa = PBXGroup;
+			children = (
+				50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */,
+				50ADFF98201F53D600D50D53 /* Info.plist */,
+			);
+			path = PluginTests;
+			sourceTree = "<group>";
+		};
+		8C8E7744173064A9F6D438E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */,
+				91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */,
+				96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */,
+				F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0B45D342BF8A5EA0071901E /* libz.1.1.3.tbd */,
+				D0B45D352BF8A5EA0071901E /* libz.1.2.8.tbd */,
+				D0B45D332BF8A5EA0071901E /* libz.1.2.11.tbd */,
+				D086E2732BE24984006C7E71 /* CapacitorCordova */,
+				D086E24F2BE24967006C7E71 /* Capacitor */,
+				116312F9F8331B8A8207136D /* Pods_Plugin.framework */,
+				C687F51650BFA7DCD97DF1FF /* Pods_PluginTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D086E24B2BE24967006C7E71 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		D086E24C2BE24967006C7E71 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		D086E24D2BE24967006C7E71 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		D086E24E2BE24967006C7E71 /* Capacitor */ = {
+			isa = PBXGroup;
+			children = (
+				D086E24B2BE24967006C7E71 /* assets */,
+				D086E24C2BE24967006C7E71 /* Codable */,
+				D086E24D2BE24967006C7E71 /* Plugins */,
+			);
+			path = Capacitor;
+			sourceTree = "<group>";
+		};
+		D086E24F2BE24967006C7E71 /* Capacitor */ = {
+			isa = PBXGroup;
+			children = (
+				D086E24E2BE24967006C7E71 /* Capacitor */,
+			);
+			name = Capacitor;
+			path = "../node_modules/@capacitor/ios/Capacitor";
+			sourceTree = "<group>";
+		};
+		D086E26C2BE24984006C7E71 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				D086E2502BE24984006C7E71 /* AppDelegate.h */,
+				D086E2512BE24984006C7E71 /* AppDelegate.m */,
+				D086E2522BE24984006C7E71 /* CDV.h */,
+				D086E2532BE24984006C7E71 /* CDVAvailability.h */,
+				D086E2542BE24984006C7E71 /* CDVCommandDelegate.h */,
+				D086E2552BE24984006C7E71 /* CDVCommandDelegateImpl.h */,
+				D086E2562BE24984006C7E71 /* CDVCommandDelegateImpl.m */,
+				D086E2572BE24984006C7E71 /* CDVConfigParser.h */,
+				D086E2582BE24984006C7E71 /* CDVConfigParser.m */,
+				D086E2592BE24984006C7E71 /* CDVInvokedUrlCommand.h */,
+				D086E25A2BE24984006C7E71 /* CDVInvokedUrlCommand.m */,
+				D086E25B2BE24984006C7E71 /* CDVPlugin.h */,
+				D086E25C2BE24984006C7E71 /* CDVPlugin.m */,
+				D086E25D2BE24984006C7E71 /* CDVPlugin+Resources.h */,
+				D086E25E2BE24984006C7E71 /* CDVPlugin+Resources.m */,
+				D086E25F2BE24984006C7E71 /* CDVPluginManager.h */,
+				D086E2602BE24984006C7E71 /* CDVPluginManager.m */,
+				D086E2612BE24984006C7E71 /* CDVPluginResult.h */,
+				D086E2622BE24984006C7E71 /* CDVPluginResult.m */,
+				D086E2632BE24984006C7E71 /* CDVScreenOrientationDelegate.h */,
+				D086E2642BE24984006C7E71 /* CDVURLProtocol.h */,
+				D086E2652BE24984006C7E71 /* CDVURLProtocol.m */,
+				D086E2662BE24984006C7E71 /* CDVViewController.h */,
+				D086E2672BE24984006C7E71 /* CDVViewController.m */,
+				D086E2682BE24984006C7E71 /* CDVWebViewProcessPoolFactory.h */,
+				D086E2692BE24984006C7E71 /* CDVWebViewProcessPoolFactory.m */,
+				D086E26A2BE24984006C7E71 /* NSDictionary+CordovaPreferences.h */,
+				D086E26B2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		D086E26D2BE24984006C7E71 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D086E26C2BE24984006C7E71 /* Public */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D086E2722BE24984006C7E71 /* CapacitorCordova */ = {
+			isa = PBXGroup;
+			children = (
+				D086E26D2BE24984006C7E71 /* Classes */,
+				D086E26E2BE24984006C7E71 /* CapacitorCordova.h */,
+				D086E26F2BE24984006C7E71 /* CapacitorCordova.modulemap */,
+				D086E2702BE24984006C7E71 /* Info.plist */,
+				D086E2712BE24984006C7E71 /* PrivacyInfo.xcprivacy */,
+			);
+			path = CapacitorCordova;
+			sourceTree = "<group>";
+		};
+		D086E2732BE24984006C7E71 /* CapacitorCordova */ = {
+			isa = PBXGroup;
+			children = (
+				D086E2722BE24984006C7E71 /* CapacitorCordova */,
+			);
+			name = CapacitorCordova;
+			path = "../node_modules/@capacitor/ios/CapacitorCordova";
+			sourceTree = "<group>";
+		};
+		D0B8EF1A2C7E022A003510D7 /* RTPrinterSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8EEEF2C7E022A003510D7 /* BarcodeSetting.h */,
+				D0B8EEF02C7E022A003510D7 /* BitmapSetting.h */,
+				D0B8EEF12C7E022A003510D7 /* BlueToothFactory.h */,
+				D0B8EEF22C7E022A003510D7 /* Cmd.h */,
+				D0B8EEF32C7E022A003510D7 /* CmdFactory.h */,
+				D0B8EEF42C7E022A003510D7 /* CommonSetting.h */,
+				D0B8EEF52C7E022A003510D7 /* CPCLCmd.h */,
+				D0B8EEF62C7E022A003510D7 /* CPCLFactory.h */,
+				D0B8EEF72C7E022A003510D7 /* EnumTypeDef.h */,
+				D0B8EEF82C7E022A003510D7 /* ESCCmd.h */,
+				D0B8EEF92C7E022A003510D7 /* ESCFactory.h */,
+				D0B8EEFA2C7E022A003510D7 /* EscpCmd.h */,
+				D0B8EEFB2C7E022A003510D7 /* EscpFactory.h */,
+				D0B8EEFC2C7E022A003510D7 /* Header.h */,
+				D0B8EEFD2C7E022A003510D7 /* LabelCommonSetting.h */,
+				D0B8EEFE2C7E022A003510D7 /* LabelPrinter.h */,
+				D0B8EEFF2C7E022A003510D7 /* LabelPrinterFactory.h */,
+				D0B8EF002C7E022A003510D7 /* NetworkPrinter.h */,
+				D0B8EF012C7E022A003510D7 /* ObserverObj.h */,
+				D0B8EF022C7E022A003510D7 /* PIFactory.h */,
+				D0B8EF032C7E022A003510D7 /* PinCmd.h */,
+				D0B8EF042C7E022A003510D7 /* PinCmdFactory.h */,
+				D0B8EF052C7E022A003510D7 /* PinPrinter.h */,
+				D0B8EF062C7E022A003510D7 /* PinPrinterFactory.h */,
+				D0B8EF072C7E022A003510D7 /* PlistUtils.h */,
+				D0B8EF082C7E022A003510D7 /* Printer.h */,
+				D0B8EF092C7E022A003510D7 /* PrinterFactory.h */,
+				D0B8EF0A2C7E022A003510D7 /* PrinterInterface.h */,
+				D0B8EF0B2C7E022A003510D7 /* PrinterStatusObj.h */,
+				D0B8EF0C2C7E022A003510D7 /* RTBlueToothPI.h */,
+				D0B8EF0D2C7E022A003510D7 /* RTDeviceinfo.h */,
+				D0B8EF0E2C7E022A003510D7 /* SafeMutableArray.h */,
+				D0B8EF0F2C7E022A003510D7 /* TextSetting.h */,
+				D0B8EF102C7E022A003510D7 /* ThermalPrinter.h */,
+				D0B8EF112C7E022A003510D7 /* ThermalPrinterFactory.h */,
+				D0B8EF122C7E022A003510D7 /* TSCCmd.h */,
+				D0B8EF132C7E022A003510D7 /* TSCFactory.h */,
+				D0B8EF142C7E022A003510D7 /* WIFIFactory.h */,
+				D0B8EF152C7E022A003510D7 /* WifiInterface.h */,
+				D0B8EF162C7E022A003510D7 /* XsimCmd.h */,
+				D0B8EF172C7E022A003510D7 /* XsimFactory.h */,
+				D0B8EF182C7E022A003510D7 /* ZPLCmd.h */,
+				D0B8EF192C7E022A003510D7 /* ZPLFactory.h */,
+			);
+			path = RTPrinterSDK;
+			sourceTree = "<group>";
+		};
+		D0B8EF1B2C7E022A003510D7 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8EF1A2C7E022A003510D7 /* RTPrinterSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		D0B8EF1D2C7E022A003510D7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8EF1C2C7E022A003510D7 /* ble_serial.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D0B8EF1F2C7E022A003510D7 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8EF1B2C7E022A003510D7 /* include */,
+				D0B8EF1D2C7E022A003510D7 /* Resource */,
+				D0B8EF1E2C7E022A003510D7 /* libRTPrinterSDK.a */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		50ADFF85201F53D600D50D53 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B8EF432C7E022B003510D7 /* TSCCmd.h in Headers */,
+				D0B8EF3D2C7E022B003510D7 /* RTBlueToothPI.h in Headers */,
+				D086E2902BE24984006C7E71 /* CapacitorCordova.h in Headers */,
+				D086E27B2BE24984006C7E71 /* CDVConfigParser.h in Headers */,
+				D0B8EF402C7E022B003510D7 /* TextSetting.h in Headers */,
+				D0B8EF412C7E022B003510D7 /* ThermalPrinter.h in Headers */,
+				D0B8EF212C7E022B003510D7 /* BitmapSetting.h in Headers */,
+				D0B8EF2A2C7E022B003510D7 /* ESCFactory.h in Headers */,
+				D0B8EF482C7E022B003510D7 /* XsimFactory.h in Headers */,
+				D0B8EF272C7E022B003510D7 /* CPCLFactory.h in Headers */,
+				D0B8EF342C7E022B003510D7 /* PinCmd.h in Headers */,
+				D0B8EF252C7E022B003510D7 /* CommonSetting.h in Headers */,
+				D086E2762BE24984006C7E71 /* CDV.h in Headers */,
+				D086E2852BE24984006C7E71 /* CDVPluginResult.h in Headers */,
+				D086E2832BE24984006C7E71 /* CDVPluginManager.h in Headers */,
+				D0B8EF382C7E022B003510D7 /* PlistUtils.h in Headers */,
+				D0B8EF472C7E022B003510D7 /* XsimCmd.h in Headers */,
+				D086E0DF2BE245B7006C7E71 /* BluetoothPrintPlugin.h in Headers */,
+				D0B8EF262C7E022B003510D7 /* CPCLCmd.h in Headers */,
+				D0B8EF322C7E022B003510D7 /* ObserverObj.h in Headers */,
+				D0B8EF2B2C7E022B003510D7 /* EscpCmd.h in Headers */,
+				D086E2872BE24984006C7E71 /* CDVScreenOrientationDelegate.h in Headers */,
+				D0B8EF3B2C7E022B003510D7 /* PrinterInterface.h in Headers */,
+				D0B8EF3A2C7E022B003510D7 /* PrinterFactory.h in Headers */,
+				D086E27D2BE24984006C7E71 /* CDVInvokedUrlCommand.h in Headers */,
+				D086E28A2BE24984006C7E71 /* CDVViewController.h in Headers */,
+				D0B8EF2E2C7E022B003510D7 /* LabelCommonSetting.h in Headers */,
+				D0B8EF222C7E022B003510D7 /* BlueToothFactory.h in Headers */,
+				D0B8EF282C7E022B003510D7 /* EnumTypeDef.h in Headers */,
+				D0B8EF312C7E022B003510D7 /* NetworkPrinter.h in Headers */,
+				D0B8EF462C7E022B003510D7 /* WifiInterface.h in Headers */,
+				D086E27F2BE24984006C7E71 /* CDVPlugin.h in Headers */,
+				D0B8EF492C7E022B003510D7 /* ZPLCmd.h in Headers */,
+				D0B8EF3E2C7E022B003510D7 /* RTDeviceinfo.h in Headers */,
+				D0B8EF3F2C7E022B003510D7 /* SafeMutableArray.h in Headers */,
+				D086E28E2BE24984006C7E71 /* NSDictionary+CordovaPreferences.h in Headers */,
+				D0B8EF392C7E022B003510D7 /* Printer.h in Headers */,
+				D086E2742BE24984006C7E71 /* AppDelegate.h in Headers */,
+				D0B8EF2D2C7E022B003510D7 /* Header.h in Headers */,
+				D0B8EF422C7E022B003510D7 /* ThermalPrinterFactory.h in Headers */,
+				D0B8EF2C2C7E022B003510D7 /* EscpFactory.h in Headers */,
+				D086E2792BE24984006C7E71 /* CDVCommandDelegateImpl.h in Headers */,
+				D0B8EF232C7E022B003510D7 /* Cmd.h in Headers */,
+				D086E28C2BE24984006C7E71 /* CDVWebViewProcessPoolFactory.h in Headers */,
+				D086E2882BE24984006C7E71 /* CDVURLProtocol.h in Headers */,
+				D086E2782BE24984006C7E71 /* CDVCommandDelegate.h in Headers */,
+				D0B8EF242C7E022B003510D7 /* CmdFactory.h in Headers */,
+				D0B8EF202C7E022B003510D7 /* BarcodeSetting.h in Headers */,
+				D0B8EF352C7E022B003510D7 /* PinCmdFactory.h in Headers */,
+				D086E2772BE24984006C7E71 /* CDVAvailability.h in Headers */,
+				D0B8EF292C7E022B003510D7 /* ESCCmd.h in Headers */,
+				D0B8EF302C7E022B003510D7 /* LabelPrinterFactory.h in Headers */,
+				D0B8EF442C7E022B003510D7 /* TSCFactory.h in Headers */,
+				D0B8EF372C7E022B003510D7 /* PinPrinterFactory.h in Headers */,
+				D0B8EF332C7E022B003510D7 /* PIFactory.h in Headers */,
+				D0B8EF452C7E022B003510D7 /* WIFIFactory.h in Headers */,
+				D0B8EF4A2C7E022B003510D7 /* ZPLFactory.h in Headers */,
+				D0B8EF2F2C7E022B003510D7 /* LabelPrinter.h in Headers */,
+				D086E2812BE24984006C7E71 /* CDVPlugin+Resources.h in Headers */,
+				D0B8EF362C7E022B003510D7 /* PinPrinter.h in Headers */,
+				D0B8EF3C2C7E022B003510D7 /* PrinterStatusObj.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		50ADFF87201F53D600D50D53 /* Plugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50ADFF9C201F53D600D50D53 /* Build configuration list for PBXNativeTarget "Plugin" */;
+			buildPhases = (
+				AB5B3E54B4E897F32C2279DA /* [CP] Check Pods Manifest.lock */,
+				50ADFF83201F53D600D50D53 /* Sources */,
+				50ADFF84201F53D600D50D53 /* Frameworks */,
+				50ADFF85201F53D600D50D53 /* Headers */,
+				50ADFF86201F53D600D50D53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plugin;
+			productName = Plugin;
+			productReference = 50ADFF88201F53D600D50D53 /* Plugin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		50ADFF90201F53D600D50D53 /* PluginTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50ADFF9F201F53D600D50D53 /* Build configuration list for PBXNativeTarget "PluginTests" */;
+			buildPhases = (
+				0596884F929ED6F1DE134961 /* [CP] Check Pods Manifest.lock */,
+				50ADFF8D201F53D600D50D53 /* Sources */,
+				50ADFF8E201F53D600D50D53 /* Frameworks */,
+				50ADFF8F201F53D600D50D53 /* Resources */,
+				8E97F58B69A94C6503FC9C85 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50ADFF94201F53D600D50D53 /* PBXTargetDependency */,
+			);
+			name = PluginTests;
+			productName = PluginTests;
+			productReference = 50ADFF91201F53D600D50D53 /* PluginTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50ADFF7F201F53D600D50D53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Max Lynch";
+				TargetAttributes = {
+					50ADFF87201F53D600D50D53 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
+					};
+					50ADFF90201F53D600D50D53 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 50ADFF82201F53D600D50D53 /* Build configuration list for PBXProject "Plugin" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50ADFF7E201F53D600D50D53;
+			productRefGroup = 50ADFF89201F53D600D50D53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50ADFF87201F53D600D50D53 /* Plugin */,
+				50ADFF90201F53D600D50D53 /* PluginTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50ADFF86201F53D600D50D53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B8EF4B2C7E022B003510D7 /* ble_serial.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ADFF8F201F53D600D50D53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0596884F929ED6F1DE134961 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PluginTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E97F58B69A94C6503FC9C85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PluginTests/Pods-PluginTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Capacitor/Capacitor.framework",
+				"${BUILT_PRODUCTS_DIR}/CapacitorCordova/Cordova.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Capacitor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PluginTests/Pods-PluginTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB5B3E54B4E897F32C2279DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Plugin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50ADFF83201F53D600D50D53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A574F42BFE204800F1D97B /* PrinterManager.swift in Sources */,
+				D086E28B2BE24984006C7E71 /* CDVViewController.m in Sources */,
+				D086E2842BE24984006C7E71 /* CDVPluginManager.m in Sources */,
+				D086E2862BE24984006C7E71 /* CDVPluginResult.m in Sources */,
+				D086E27A2BE24984006C7E71 /* CDVCommandDelegateImpl.m in Sources */,
+				D086E27E2BE24984006C7E71 /* CDVInvokedUrlCommand.m in Sources */,
+				D086E28F2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m in Sources */,
+				D086E0E12BE245B7006C7E71 /* BluetoothPrintPlugin.m in Sources */,
+				D086E2822BE24984006C7E71 /* CDVPlugin+Resources.m in Sources */,
+				D086E2752BE24984006C7E71 /* AppDelegate.m in Sources */,
+				D086E0E72BE245B7006C7E71 /* BluetoothPrintPlugin.swift in Sources */,
+				D086E27C2BE24984006C7E71 /* CDVConfigParser.m in Sources */,
+				D086E2892BE24984006C7E71 /* CDVURLProtocol.m in Sources */,
+				D086E2802BE24984006C7E71 /* CDVPlugin.m in Sources */,
+				D086E28D2BE24984006C7E71 /* CDVWebViewProcessPoolFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ADFF8D201F53D600D50D53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ADFF97201F53D600D50D53 /* BluetoothPrintTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50ADFF94201F53D600D50D53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50ADFF87201F53D600D50D53 /* Plugin */;
+			targetProxy = 50ADFF93201F53D600D50D53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		50ADFF9A201F53D600D50D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"${BUILT_PRODUCTS_DIR}/Capacitor\"",
+					"\"${BUILT_PRODUCTS_DIR}/CapacitorCordova\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRELINK_LIBS = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Plugin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		50ADFF9B201F53D600D50D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"${BUILT_PRODUCTS_DIR}/Capacitor\"",
+					"\"${BUILT_PRODUCTS_DIR}/CapacitorCordova\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRELINK_LIBS = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Plugin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		50ADFF9D201F53D600D50D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Plugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)\n$(FRAMEWORK_SEARCH_PATHS)\n$(FRAMEWORK_SEARCH_PATHS)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Plugin/SDK",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.Plugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Plugin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50ADFF9E201F53D600D50D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Plugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Plugin/SDK",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.Plugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Plugin-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50ADFFA0201F53D600D50D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PluginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.PluginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50ADFFA1201F53D600D50D53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PluginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.PluginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50ADFF82201F53D600D50D53 /* Build configuration list for PBXProject "Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ADFF9A201F53D600D50D53 /* Debug */,
+				50ADFF9B201F53D600D50D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50ADFF9C201F53D600D50D53 /* Build configuration list for PBXNativeTarget "Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ADFF9D201F53D600D50D53 /* Debug */,
+				50ADFF9E201F53D600D50D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50ADFF9F201F53D600D50D53 /* Build configuration list for PBXNativeTarget "PluginTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ADFFA0201F53D600D50D53 /* Debug */,
+				50ADFFA1201F53D600D50D53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50ADFF7F201F53D600D50D53 /* Project object */;
+}
