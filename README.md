@@ -1,11 +1,14 @@
-# bluetooth-print
+# Capacitor RTPrinter Lab
 
-Bluetooth Printer.
+An unofficial fast and reliable [Rongta](https://www.rongtatech.com/) Printer plugin implementation for Capacitor. Both on Android and iOS!
+- [x] Using the official RTPrinter SDK
+- [x] Cross-platform compatibility (Android & iOS)
+- [x] ***Swift*** speeds on iOS of [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) **(known for it's pain-in-the-ass speed)**
 
 ## Install
 
 ```bash
-npm install bluetooth-print
+npm install capacitor-rtprinter-lab
 npx cap sync
 ```
 
