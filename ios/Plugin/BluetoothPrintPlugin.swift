@@ -141,11 +141,23 @@ public class BluetoothPrintPlugin: CAPPlugin {
     }
     
     @objc func writeImage(_ call: CAPPluginCall) {
-        guard let data = parseCallData(call) else { return };
+        guard let dataurl = call.getString("data") else { call.reject("Invalid Data"); return }
+        
+        var data: Data? = nil;
+        if let i = dataurl.firstIndex(of: ",") {
+            
+            data = Data(
+                base64Encoded: String(dataurl[dataurl.index(after: i)...])
+            )
+        }
+        if data == nil {
+            call.reject("Malformed Image Data")
+            return
+        }
         
         self._writeRaw(call) {
             (cmd, _ts, bs) in
-            cmd.getBitMapCmd(bs, image: UIImage(data: data))
+            cmd.getBitMapCmd(bs, image: UIImage(data: data.unsafelyUnwrapped))
         };
     }
     @objc func writeText(_ call: CAPPluginCall) {

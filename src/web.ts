@@ -17,7 +17,7 @@ export class BluetoothPrintWeb
   disconnect(): Promise<void> {
     throw new Error('Method not implemented.');
   }
-  writeImage(options: { data: number[]; }): Promise<void> {
+  writeImage(options: { data: string; }): Promise<void> {
     throw new Error('Method not implemented.');
   }
   writeRaw(options: { data: number[]; }): Promise<void> {

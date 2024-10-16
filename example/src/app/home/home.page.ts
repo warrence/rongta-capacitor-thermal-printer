@@ -70,10 +70,10 @@ export class HomePage {
       const reader = new FileReader();
       reader.onload = async () => {
         BluetoothPrint.writeImage({
-          data: Array.from(new Uint8Array(reader.result as ArrayBuffer))
+          data: reader.result as string
         }).catch(e => this.catchPrintError(e));;
       }
-      reader.readAsArrayBuffer(fileInput!.files![0]);
+      reader.readAsDataURL(fileInput!.files![0]);
     };
     fileInput.addEventListener('change', fileHandler)
     fileInput.click()

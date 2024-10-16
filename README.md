@@ -20,9 +20,9 @@ npx cap sync
 * [`stopScan()`](#stopscan)
 * [`connect(...)`](#connect)
 * [`disconnect()`](#disconnect)
+* [`writeText(...)`](#writetext)
 * [`writeImage(...)`](#writeimage)
 * [`writeRaw(...)`](#writeraw)
-* [`writeText(...)`](#writetext)
 * [`addListener('discoverDevices', ...)`](#addlistenerdiscoverdevices-)
 * [`addListener('datachanged', ...)`](#addlistenerdatachanged-)
 * [`addListener('connected', ...)`](#addlistenerconnected-)
@@ -73,15 +73,28 @@ disconnect() => Promise<void>
 --------------------
 
 
+### writeText(...)
+
+```typescript
+writeText(options: { data: string; }) => Promise<void>
+```
+
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ data: string; }</code> |
+
+--------------------
+
+
 ### writeImage(...)
 
 ```typescript
-writeImage(options: { data: number[]; }) => Promise<void>
+writeImage(options: { data: string; }) => Promise<void>
 ```
 
-| Param         | Type                             |
-| ------------- | -------------------------------- |
-| **`options`** | <code>{ data: number[]; }</code> |
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ data: string; }</code> |
 
 --------------------
 
@@ -95,19 +108,6 @@ writeRaw(options: { data: number[]; }) => Promise<void>
 | Param         | Type                             |
 | ------------- | -------------------------------- |
 | **`options`** | <code>{ data: number[]; }</code> |
-
---------------------
-
-
-### writeText(...)
-
-```typescript
-writeText(options: { data: string; }) => Promise<void>
-```
-
-| Param         | Type                           |
-| ------------- | ------------------------------ |
-| **`options`** | <code>{ data: string; }</code> |
 
 --------------------
 
