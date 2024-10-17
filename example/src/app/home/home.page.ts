@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { BluetoothPrint } from 'bluetooth-print';
+import { BluetoothPrint } from 'capacitor-thermal-printer';
 
 Object.assign(window, { BluetoothPrint });
 

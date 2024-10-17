@@ -1,5 +1,5 @@
 {
-  "name": "bluetooth-print",
+  "name": "capacitor-thermal-printer",
   "version": "0.0.1",
   "description": "Bluetooth Printer.",
   "main": "dist/plugin.cjs.js",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Malik12tree/bluetooth-print.git"
+    "url": "git+https://github.com/Malik12tree/capacitor-thermal-printer.git"
   },
   "bugs": {
-    "url": "https://github.com/Malik12tree/bluetooth-print/issues"
+    "url": "https://github.com/Malik12tree/capacitor-thermal-printer/issues"
   },
   "keywords": [
     "capacitor",

@@ -1,4 +1,4 @@
-# Capacitor RTPrinter Lab
+# Capacitor Thermal Printer
 
 An unofficial fast and reliable [Rongta](https://www.rongtatech.com/) Printer plugin implementation for Capacitor. Both on Android and iOS!
 - [x] Using the official RTPrinter SDK
@@ -8,7 +8,7 @@ An unofficial fast and reliable [Rongta](https://www.rongtatech.com/) Printer pl
 ## Install
 
 ```bash
-npm install capacitor-rtprinter-lab
+npm install capacitor-thermal-printer
 npx cap sync
 ```
 
