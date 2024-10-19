@@ -16,155 +16,488 @@ npx cap sync
 
 <docgen-index>
 
-* [`startScan()`](#startscan)
-* [`stopScan()`](#stopscan)
-* [`connect(...)`](#connect)
-* [`disconnect()`](#disconnect)
-* [`writeText(...)`](#writetext)
-* [`writeImage(...)`](#writeimage)
-* [`writeRaw(...)`](#writeraw)
-* [`addListener('discoverDevices', ...)`](#addlistenerdiscoverdevices-)
-* [`addListener('datachanged', ...)`](#addlistenerdatachanged-)
-* [`addListener('connected', ...)`](#addlistenerconnected-)
-* [`addListener('disconnected', ...)`](#addlistenerdisconnected-)
+* [`bold(...)`](#bold)
+* [`underline(...)`](#underline)
+* [`doubleWidth(...)`](#doublewidth)
+* [`doubleHeight(...)`](#doubleheight)
+* [`inverse(...)`](#inverse)
+* [`dpi(...)`](#dpi)
+* [`limitWidth(...)`](#limitwidth)
+* [`align(...)`](#align)
+* [`charSpacing(...)`](#charspacing)
+* [`lineSpacing(...)`](#linespacing)
+* [`font(...)`](#font)
+* [`position(...)`](#position)
+* [`clearFormatting()`](#clearformatting)
+* [`barcodeWidth(...)`](#barcodewidth)
+* [`barcodeHeight(...)`](#barcodeheight)
+* [`barcodeTextPlacement(...)`](#barcodetextplacement)
+* [`text(...)`](#text)
+* [`image(...)`](#image)
+* [`qr(...)`](#qr)
+* [`barcode(...)`](#barcode)
+* [`raw(...)`](#raw)
+* [`raw(...)`](#raw)
+* [`selfTest()`](#selftest)
+* [`beep()`](#beep)
+* [`openDrawer()`](#opendrawer)
+* [`cutPaper(...)`](#cutpaper)
+* [`feedCutPaper(...)`](#feedcutpaper)
+* [`begin()`](#begin)
+* [`write()`](#write)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### startScan()
+### bold(...)
 
 ```typescript
-startScan() => Promise<void>
+bold(enabled?: IsEnabled | undefined) => this
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`enabled`** | <code><a href="#isenabled">IsEnabled</a></code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### underline(...)
+
+```typescript
+underline(enabled?: IsEnabled | undefined) => this
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`enabled`** | <code><a href="#isenabled">IsEnabled</a></code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### doubleWidth(...)
+
+```typescript
+doubleWidth(enabled?: IsEnabled | undefined) => this
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`enabled`** | <code><a href="#isenabled">IsEnabled</a></code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### doubleHeight(...)
+
+```typescript
+doubleHeight(enabled?: IsEnabled | undefined) => this
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`enabled`** | <code><a href="#isenabled">IsEnabled</a></code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### inverse(...)
+
+```typescript
+inverse(enabled?: IsEnabled | undefined) => this
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`enabled`** | <code><a href="#isenabled">IsEnabled</a></code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### dpi(...)
+
+```typescript
+dpi(dpi: PrinterDPI) => this
+```
+
+| Param     | Type                    |
+| --------- | ----------------------- |
+| **`dpi`** | <code>200 \| 300</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### limitWidth(...)
+
+```typescript
+limitWidth(width: number) => this
+```
+
+| Param       | Type                |
+| ----------- | ------------------- |
+| **`width`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### align(...)
+
+```typescript
+align(alignment: PrintAlignment) => this
+```
+
+| Param           | Type                                       |
+| --------------- | ------------------------------------------ |
+| **`alignment`** | <code>'left' \| 'center' \| 'right'</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### charSpacing(...)
+
+```typescript
+charSpacing(charSpacing: number) => this
+```
+
+| Param             | Type                |
+| ----------------- | ------------------- |
+| **`charSpacing`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### lineSpacing(...)
+
+```typescript
+lineSpacing(lineSpacing: number) => this
+```
+
+| Param             | Type                |
+| ----------------- | ------------------- |
+| **`lineSpacing`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### font(...)
+
+```typescript
+font(font: PrinterFont) => this
+```
+
+| Param      | Type                    |
+| ---------- | ----------------------- |
+| **`font`** | <code>'A' \| 'B'</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### position(...)
+
+```typescript
+position(x: number, y: number) => this
+```
+
+| Param   | Type                |
+| ------- | ------------------- |
+| **`x`** | <code>number</code> |
+| **`y`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### clearFormatting()
+
+```typescript
+clearFormatting() => this
+```
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### barcodeWidth(...)
+
+```typescript
+barcodeWidth(width: number) => this
+```
+
+| Param       | Type                |
+| ----------- | ------------------- |
+| **`width`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### barcodeHeight(...)
+
+```typescript
+barcodeHeight(height: number) => this
+```
+
+| Param        | Type                |
+| ------------ | ------------------- |
+| **`height`** | <code>number</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### barcodeTextPlacement(...)
+
+```typescript
+barcodeTextPlacement(placement: BarcodeTextPlacement) => this
+```
+
+| Param           | Type                                                |
+| --------------- | --------------------------------------------------- |
+| **`placement`** | <code>'none' \| 'above' \| 'below' \| 'both'</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### text(...)
+
+```typescript
+text(text: string) => this
+```
+
+| Param      | Type                |
+| ---------- | ------------------- |
+| **`text`** | <code>string</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### image(...)
+
+```typescript
+image(dataURL: string) => this
+```
+
+| Param         | Type                |
+| ------------- | ------------------- |
+| **`dataURL`** | <code>string</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### qr(...)
+
+```typescript
+qr(data: string) => this
+```
+
+| Param      | Type                |
+| ---------- | ------------------- |
+| **`data`** | <code>string</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### barcode(...)
+
+```typescript
+barcode(type: BarcodeType, data: string) => this
+```
+
+| Param      | Type                                                                                     |
+| ---------- | ---------------------------------------------------------------------------------------- |
+| **`type`** | <code>'UPC_A' \| 'EAN8' \| 'EAN13' \| 'CODE39' \| 'ITF' \| 'CODABAR' \| 'CODE128'</code> |
+| **`data`** | <code>string</code>                                                                      |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### raw(...)
+
+```typescript
+raw(base64: string) => this
+```
+
+| Param        | Type                |
+| ------------ | ------------------- |
+| **`base64`** | <code>string</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### raw(...)
+
+```typescript
+raw(buffer: number[]) => this
+```
+
+| Param        | Type                  |
+| ------------ | --------------------- |
+| **`buffer`** | <code>number[]</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### selfTest()
+
+```typescript
+selfTest() => this
+```
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### beep()
+
+```typescript
+beep() => this
+```
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### openDrawer()
+
+```typescript
+openDrawer() => this
+```
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### cutPaper(...)
+
+```typescript
+cutPaper(half?: boolean | undefined) => this
+```
+
+| Param      | Type                 |
+| ---------- | -------------------- |
+| **`half`** | <code>boolean</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### feedCutPaper(...)
+
+```typescript
+feedCutPaper(half?: boolean | undefined) => this
+```
+
+| Param      | Type                 |
+| ---------- | -------------------- |
+| **`half`** | <code>boolean</code> |
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### begin()
+
+```typescript
+begin() => this
+```
+
+**Returns:** <code>this</code>
+
+--------------------
+
+
+### write()
+
+```typescript
+write() => Promise<void>
 ```
 
 --------------------
 
 
-### stopScan()
-
-```typescript
-stopScan() => Promise<void>
-```
-
---------------------
+### Type Aliases
 
 
-### connect(...)
+#### IsEnabled
 
-```typescript
-connect(options: { address: string; }) => Promise<void>
-```
+When `"default"`, uses default internal printer settings.
 
-| Param         | Type                              |
-| ------------- | --------------------------------- |
-| **`options`** | <code>{ address: string; }</code> |
-
---------------------
+<code>boolean | 'default'</code>
 
 
-### disconnect()
+#### PrinterDPI
 
-```typescript
-disconnect() => Promise<void>
-```
-
---------------------
+<code>typeof PrinterDPIs[number]</code>
 
 
-### writeText(...)
+#### PrintAlignment
 
-```typescript
-writeText(options: { data: string; }) => Promise<void>
-```
-
-| Param         | Type                           |
-| ------------- | ------------------------------ |
-| **`options`** | <code>{ data: string; }</code> |
-
---------------------
+<code>typeof PrintAlignments[number]</code>
 
 
-### writeImage(...)
+#### PrinterFont
 
-```typescript
-writeImage(options: { data: string; }) => Promise<void>
-```
+- A's Size: 12x24
+- B's Size: 9x24
 
-| Param         | Type                           |
-| ------------- | ------------------------------ |
-| **`options`** | <code>{ data: string; }</code> |
-
---------------------
+<code>typeof PrinterFonts[number]</code>
 
 
-### writeRaw(...)
+#### BarcodeTextPlacement
 
-```typescript
-writeRaw(options: { data: number[]; }) => Promise<void>
-```
-
-| Param         | Type                             |
-| ------------- | -------------------------------- |
-| **`options`** | <code>{ data: number[]; }</code> |
-
---------------------
+<code>typeof BarcodeTextPlacements[number]</code>
 
 
-### addListener('discoverDevices', ...)
+#### BarcodeType
 
-```typescript
-addListener(event: 'discoverDevices', handler: (data: { devices: any[]; }) => void) => void
-```
-
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
-| **`event`**   | <code>'discoverDevices'</code>                      |
-| **`handler`** | <code>(data: { devices: any[]; }) =&gt; void</code> |
-
---------------------
-
-
-### addListener('datachanged', ...)
-
-```typescript
-addListener(event: 'datachanged', handler: () => void) => void
-```
-
-| Param         | Type                       |
-| ------------- | -------------------------- |
-| **`event`**   | <code>'datachanged'</code> |
-| **`handler`** | <code>() =&gt; void</code> |
-
---------------------
-
-
-### addListener('connected', ...)
-
-```typescript
-addListener(event: 'connected', handler: () => void) => void
-```
-
-| Param         | Type                       |
-| ------------- | -------------------------- |
-| **`event`**   | <code>'connected'</code>   |
-| **`handler`** | <code>() =&gt; void</code> |
-
---------------------
-
-
-### addListener('disconnected', ...)
-
-```typescript
-addListener(event: 'disconnected', handler: () => void) => void
-```
-
-| Param         | Type                        |
-| ------------- | --------------------------- |
-| **`event`**   | <code>'disconnected'</code> |
-| **`handler`** | <code>() =&gt; void</code>  |
-
---------------------
+<code>typeof BarcodeTypes[number]</code>
 
 </docgen-api>

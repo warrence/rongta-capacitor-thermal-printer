@@ -28,13 +28,18 @@ import com.getcapacitor.annotation.PermissionCallback;
 import com.rt.printerlibrary.bean.BluetoothEdrConfigBean;
 import com.rt.printerlibrary.bean.Position;
 import com.rt.printerlibrary.cmd.Cmd;
+import com.rt.printerlibrary.cmd.EscCmd;
 import com.rt.printerlibrary.cmd.EscFactory;
 import com.rt.printerlibrary.connect.PrinterInterface;
+import com.rt.printerlibrary.enumerate.BarcodeStringPosition;
+import com.rt.printerlibrary.enumerate.BarcodeType;
 import com.rt.printerlibrary.enumerate.BmpPrintMode;
 import com.rt.printerlibrary.enumerate.CommonEnum;
 import com.rt.printerlibrary.enumerate.ConnectStateEnum;
+import com.rt.printerlibrary.enumerate.ESCBarcodeFontTypeEnum;
 import com.rt.printerlibrary.enumerate.ESCFontTypeEnum;
 import com.rt.printerlibrary.enumerate.SettingEnum;
+import com.rt.printerlibrary.exception.SdkException;
 import com.rt.printerlibrary.factory.cmd.CmdFactory;
 import com.rt.printerlibrary.factory.connect.BluetoothFactory;
 import com.rt.printerlibrary.factory.connect.PIFactory;
@@ -42,14 +47,17 @@ import com.rt.printerlibrary.factory.printer.ThermalPrinterFactory;
 import com.rt.printerlibrary.observer.PrinterObserver;
 import com.rt.printerlibrary.observer.PrinterObserverManager;
 import com.rt.printerlibrary.printer.RTPrinter;
+import com.rt.printerlibrary.setting.BarcodeSetting;
 import com.rt.printerlibrary.setting.BitmapSetting;
 import com.rt.printerlibrary.setting.TextSetting;
 
 import org.json.JSONException;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
-import java.util.Date;
+import java.util.List;
 
 @CapacitorPlugin(
         name = "BluetoothPrint",
@@ -89,6 +97,12 @@ import java.util.Date;
 )
 public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     private static final String TAG = "BluetoothPrintPlugin";
+    static final List<String> alignments = Arrays.asList("left", "center", "right");
+    static final List<String> fonts = Arrays.asList("A", "B");
+    static final List<String> placements = Arrays.asList("none", "above", "below", "both");
+    static final ESCFontTypeEnum[] fontEnumValues = ESCFontTypeEnum.values();
+    static final ESCBarcodeFontTypeEnum[] dataFontEnumValues = ESCBarcodeFontTypeEnum.values();
+    static final BarcodeStringPosition[] placementEnumValues = BarcodeStringPosition.values();
 
     BluetoothManager bluetoothManager = null;
     BluetoothAdapter mBluetoothAdapter = null;
@@ -99,6 +113,11 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     BluetoothEdrConfigBean bluetoothEdrConfigBean = null;
     BroadcastReceiver mBluetoothReceiver = null;
     boolean mRegistered = false;
+
+    Cmd cmd = new EscCmd();
+    TextSetting textSetting = new TextSetting();
+    BitmapSetting bitmapSetting = new BitmapSetting();
+    BarcodeSetting dataCodeSetting = new BarcodeSetting();
 
     private class BluetoothDeviceReceiver extends BroadcastReceiver {
 
@@ -169,16 +188,16 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         if (!bluetoothCheck(call)) return;
 
         devices = new ArrayList<>();
-        mBluetoothReceiver = new BluetoothDeviceReceiver();
-        IntentFilter mBluetoothIntentFilter = new IntentFilter();
-        mBluetoothIntentFilter.addAction(BluetoothDevice.ACTION_FOUND);
-        mBluetoothIntentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-
-        getContext().registerReceiver(mBluetoothReceiver, mBluetoothIntentFilter);
         boolean success = mBluetoothAdapter.startDiscovery();
-        mRegistered = true;
+        mRegistered = success;
 
         if (success) {
+            mBluetoothReceiver = new BluetoothDeviceReceiver();
+            IntentFilter mBluetoothIntentFilter = new IntentFilter();
+            mBluetoothIntentFilter.addAction(BluetoothDevice.ACTION_FOUND);
+            mBluetoothIntentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+
+            getContext().registerReceiver(mBluetoothReceiver, mBluetoothIntentFilter);
             call.resolve();
         } else {
             call.reject("Failed to start scan!");
@@ -238,71 +257,326 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
     }
 
-    @PluginMethod
-    public void writeText(PluginCall call) {
-        String data = call.getString("data");
-        if (data == null) {
+    //region Text Formatting
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void bold(PluginCall call) {
+        textSetting.setBold(parseIsEnabled(call));
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void underline(PluginCall call) {
+        textSetting.setUnderline(parseIsEnabled(call));
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void doubleWidth(PluginCall call) {
+        textSetting.setDoubleWidth(parseIsEnabled(call));
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void doubleHeight(PluginCall call) {
+        textSetting.setDoubleHeight(parseIsEnabled(call));
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void inverse(PluginCall call) {
+        textSetting.setIsAntiWhite(parseIsEnabled(call));
+    }
+
+    //endregion
+
+    //region Image Formatting
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void dpi(PluginCall call) {
+        Integer dpi = call.getInt("dpi");
+        if (dpi == null) {
+            dpi = 0;
+        }
+
+        bitmapSetting.setBmpDpi(dpi);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void limitWidth(PluginCall call) {
+        Integer width = call.getInt("width");
+        if (width == null) {
+            width = 0;
+        }
+
+        bitmapSetting.setBimtapLimitWidth(width * 8);
+    }
+    //    endregion
+
+    //region Hybrid Formatting
+    public void align() {
+        align(CommonEnum.ALIGN_LEFT);
+    }
+
+    public void lineSpacing() {
+        lineSpacing(30);
+    }
+
+    public void charSpacing() {
+        charSpacing(1);
+    }
+
+    public void align(int alignment) {
+        if (alignment > 2 || alignment < 0) alignment = 0;
+
+        cmd.append(new byte[]{27, 97, (byte) alignment});
+    }
+
+    public void lineSpacing(int spacing) {
+        if (spacing < 0) spacing = 0;
+        if (spacing > 255) spacing = 255;
+
+        cmd.append(new byte[]{27, 51, (byte) spacing});
+    }
+
+    public void charSpacing(int spacing) {
+        if (spacing < 0) spacing = 0;
+        if (spacing > 30) spacing = 30;
+
+        cmd.append(new byte[]{27, 32, (byte) spacing});
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void align(PluginCall call) {
+        String alignmentName = call.getString("alignment");
+        int alignment = alignments.indexOf(alignmentName);
+        if (alignment == -1) {
+            call.reject("Invalid Alignment");
+            return;
+        }
+
+        this.align(alignment);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void lineSpacing(PluginCall call) {
+        int spacing = call.getInt("lineSpacing", 0);
+        lineSpacing(spacing);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void charSpacing(PluginCall call) {
+        int spacing = call.getInt("charSpacing", 0);
+        charSpacing(spacing);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void font(PluginCall call) {
+        String fontName = call.getString("font", "A");
+        int font = fonts.indexOf(fontName);
+        if (font == -1) {
+            call.reject("Invalid Font");
+            return;
+        }
+
+        textSetting.setEscFontType(fontEnumValues[font]);
+        dataCodeSetting.setEscBarcodFont(dataFontEnumValues[font]);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void position(PluginCall call) {
+        Integer x = call.getInt("x", 0);
+        if (x == null) x = 0;
+        Integer y = call.getInt("y", 0);
+        if (y == null) y = 0;
+
+        bitmapSetting.setPrintPostion(new Position(x, y));
+        textSetting.setTxtPrintPosition(new Position(x, y));
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void clearFormatting(PluginCall call) {
+        textSetting = new TextSetting();
+        bitmapSetting = new BitmapSetting();
+        dataCodeSetting = new BarcodeSetting();
+
+        bitmapSetting.setBimtapLimitWidth(45 * 8);
+        // Reset Action Formatters
+        this.align();
+        this.lineSpacing();
+        this.charSpacing();
+    }
+    //endregion
+
+    //region Data Code Formatting
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void barcodeWidth(PluginCall call) {
+        Integer width = call.getInt("width");
+        if (width == null) return;
+
+        dataCodeSetting.setBarcodeWidth(width);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void barcodeHeight(PluginCall call) {
+        Integer height = call.getInt("height");
+        if (height == null) return;
+
+        dataCodeSetting.setHeightInDot(height);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void barcodeTextPlacement(PluginCall call) {
+        String placementName = call.getString("placement");
+        int placement = placements.indexOf(placementName);
+        if (placement == -1) {
+            call.reject("Invalid Placement");
+            return;
+        }
+
+        dataCodeSetting.setBarcodeStringPosition(placementEnumValues[placement]);
+    }
+    //endregion
+
+    //region Content
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void text(PluginCall call) {
+        String text = call.getString("text");
+        if (text == null) return;
+
+        try {
+            cmd.append(cmd.getTextCmd(textSetting, text, "UTF-8"));
+        } catch (UnsupportedEncodingException ignored) {
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void image(PluginCall call) {
+        String image = call.getString("image");
+        if (image == null) return;
+
+        bitmapSetting.setBmpPrintMode(BmpPrintMode.MODE_SINGLE_COLOR);
+
+        byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
+        try {
+            cmd.append(cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length)));
+        } catch (SdkException ignored) {
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void raw(PluginCall call) {
+        String base64 = call.getString("data");
+        if (base64 != null) {
+            cmd.append(Base64.getDecoder().decode(base64));
+            return;
+        }
+
+        JSArray dataArray = call.getArray("data");
+        if (dataArray == null) {
             call.reject("Invalid Data");
             return;
         }
 
-        TextSetting textSetting = new TextSetting();
-        textSetting.setUnderline(SettingEnum.Disable);
-        textSetting.setEscFontType(ESCFontTypeEnum.FONT_A_12x24);
-        _writeRaw(call, (cmd) -> {
-            return cmd.getTextCmd(textSetting, data, "UTF-8");
-        });
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @PluginMethod
-    public void writeImage(PluginCall call) {
-        String data = call.getString("data");
-        if (data == null) return;
-
-        BitmapSetting bitmapSetting = new BitmapSetting();
-        bitmapSetting.setPrintPostion(new Position(0, 0));
-        bitmapSetting.setBimtapLimitWidth(45 * 8);
-        bitmapSetting.setBmpPrintMode(BmpPrintMode.MODE_SINGLE_COLOR);
-
-
-        var d = Base64.getDecoder().decode(data.substring(data.indexOf(",") + 1));
-        _writeRaw(call, (cmd) -> {
-            return cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length));
-        });
-    }
-
-    byte[] parseCallData(PluginCall call) {
-        var start = new Date();
-
-        Log.d(TAG, "Getting Data");
-        JSArray dataArray = call.getArray("data");
-        if (dataArray == null) {
-            call.reject("Invalid Data");
-            return null;
-        }
-        Log.d(TAG, "Got Data");
-
-        var data = new byte[dataArray.length()];
+        byte[] data = new byte[dataArray.length()];
         for (int i = 0; i < dataArray.length(); i++) {
             try {
                 data[i] = (byte) (dataArray.getInt(i) & 0xff);
             } catch (JSONException e) {
                 call.reject("Invalid Data");
-                return null;
+                return;
             }
         }
-        var end = new Date();
-        Log.d(TAG, "Parsing Took: " + (end.getTime() - start.getTime()) + "s");
 
-        return data;
+        cmd.append(data);
     }
 
-    private interface DataFn {
-        byte[] getData(Cmd cmd) throws Exception;
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void qr(PluginCall call) {
+        String data = call.getString("data", "");
+        try {
+            cmd.append(cmd.getBarcodeCmd(BarcodeType.QR_CODE, dataCodeSetting, data));
+        } catch (SdkException ignored) {
+        }
     }
 
-    private void _writeRaw(PluginCall call, DataFn dataFn) {
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void barcode(PluginCall call) {
+        String typeName = call.getString("type");
+        Log.d(TAG, "Barcode " + typeName);
+        BarcodeType type;
+        try {
+            type = BarcodeType.valueOf(typeName);
+        } catch (Exception ignored) {
+            return;
+        }
+        Log.d(TAG, "Barcode " + type);
+
+        if (type == BarcodeType.QR_CODE) return;
+        String data = call.getString("data", "");
+        Log.d(TAG, "Barcode " + data);
+
+        try {
+            cmd.append(cmd.getBarcodeCmd(type, dataCodeSetting, data));
+        } catch (SdkException ignored) {
+        }
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void selfTest(PluginCall call) {
+        cmd.append(cmd.getSelfTestCmd());
+    }
+
+    //endregion
+
+    //region Content Actions
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void beep(PluginCall call) {
+        cmd.append(cmd.getBeepCmd());
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void openDrawer(PluginCall call) {
+        cmd.append(cmd.getOpenMoneyBoxCmd());
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void cutPaper(PluginCall call) {
+        boolean half = Boolean.TRUE.equals(call.getBoolean("half", false));
+        cmd.append(half ? cmd.getHalfCutCmd() : cmd.getAllCutCmd());
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void feedCutPaper(PluginCall call) {
+        cmd.append(new byte[]{(byte) '\n'});
+        cutPaper(call);
+    }
+
+    //endregion
+
+    //region Printing Actions
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    public void begin(PluginCall call) {
+        cmd = new EscCmd();
+        clearFormatting(call);
+    }
+
+    @PluginMethod(returnType = PluginMethod.RETURN_PROMISE)
+    public void write(PluginCall call) {
+        _writeRaw(call, cmd.getAppendCmds());
+        call.resolve();
+    }
+    //endregion
+
+
+    //region Utils
+    SettingEnum parseIsEnabled(PluginCall call) {
+        if ("default".equals(call.getString("enabled"))) return SettingEnum.NoSetting;
+
+        Boolean enabled = call.getBoolean("enabled", true);
+        if (enabled == null) return SettingEnum.NoSetting;
+
+        return enabled ? SettingEnum.Enable : SettingEnum.Disable;
+    }
+
+    private void _writeRaw(PluginCall call, byte[] data) {
         if (rtPrinter.getPrinterInterface() == null || rtPrinter.getPrinterInterface().getConnectState() != ConnectStateEnum.Connected) {
             call.reject("Printer is not connected!");
             return;
@@ -312,14 +586,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         Cmd escCmd = escFac.create();
         escCmd.append(escCmd.getHeaderCmd());
         escCmd.setChartsetName("UTF-8");
-
-
-        try {
-            escCmd.append(dataFn.getData(escCmd));
-        } catch (Exception e) {
-            call.reject("Failed to generate print");
-            return;
-        }
+        escCmd.append(data);
         escCmd.append(escCmd.getLFCRCmd());
         escCmd.append(escCmd.getLFCRCmd());
         escCmd.append(escCmd.getLFCRCmd());
@@ -404,6 +671,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                 break;
             case CommonEnum.CONNECT_STATE_INTERRUPTED:
                 notifyListeners("disconnected", null);
+                rtPrinter.setPrinterInterface(null);
                 break;
         }
     }
@@ -411,4 +679,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     @Override
     public void printerReadMsgCallback(PrinterInterface printerInterface, byte[] bytes) {
     }
+
+    //endregion
 }
