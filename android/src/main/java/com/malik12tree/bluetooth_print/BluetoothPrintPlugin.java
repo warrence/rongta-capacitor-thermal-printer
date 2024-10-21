@@ -434,8 +434,8 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
         bitmapSetting.setBmpPrintMode(BmpPrintMode.MODE_SINGLE_COLOR);
 
-        byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
         try {
+            byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
             cmd.append(cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length)));
         } catch (SdkException ignored) {
         }
@@ -446,7 +446,10 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     public void raw(PluginCall call) {
         String base64 = call.getString("data");
         if (base64 != null) {
-            cmd.append(Base64.getDecoder().decode(base64));
+            try {
+                cmd.append(Base64.getDecoder().decode(base64));
+            } catch (Exception ignored) {
+            }
             return;
         }
 
