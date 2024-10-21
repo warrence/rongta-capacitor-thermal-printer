@@ -60,48 +60,48 @@ export interface BluetoothPrintPlugin {
   disconnect(): Promise<void>;
 
   /**
-   * @category Event Listeners
-   * @categoryDescription
    * Emitted when new devices are discovered.
    *
    * @remarks
    * If you're using Angular as your framework of choice, the handler doesn't run in zone.
+   *
+   * @category Event Listeners
    */
   addListener(
     event: 'discoverDevices',
     handler: (data: { devices: BluetoothDevice[] }) => void,
   ): Promise<PluginListenerHandle>;
   /**
-   * @category Event Listeners
-   * @categoryDescription
    * Emitted when the printer status changes. Currently not meaningful at all.
    *
    * @remarks
    * If you're using Angular as your framework of choice, the handler doesn't run in zone.
+   *
+   * @category Event Listeners
    */
   addListener(
     event: 'datachanged',
     handler: () => void,
   ): Promise<PluginListenerHandle>;
   /**
-   * @category Event Listeners
-   * @categoryDescription
    * Emitted when a printer is successfully connected.
    *
    * @remarks
    * If you're using Angular as your framework of choice, the handler doesn't run in zone.
+   *
+   * @category Event Listeners
    */
   addListener(
     event: 'connected',
     handler: () => void,
   ): Promise<PluginListenerHandle>;
   /**
-   * @category Event Listeners
-   * @categoryDescription
    * Emitted when a printer is disconnected.
    *
    * @remarks
    * If you're using Angular as your framework of choice, the handler doesn't run in zone.
+   *
+   * @category Event Listeners
    */
   addListener(
     event: 'disconnected',
@@ -110,30 +110,28 @@ export interface BluetoothPrintPlugin {
 
   //#region Text Formatting
   /**
-   * @category Text Formatting
-   * @categoryDescription
    * Formats following texts as bold.
    *
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
    * @see {@linkcode BluetoothPrintPlugin.text}
+   *
+   * @category Text Formatting
    */
   bold(enabled?: IsEnabled): this;
   /**
-   * @category Text Formatting
-   * @categoryDescription
    * Formats following texts as underlined.
    *
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
    * @see {@linkcode BluetoothPrintPlugin.text}
+   *
+   * @category Text Formatting
    * */
   underline(enabled?: IsEnabled): this;
   /**
-   * @category Text Formatting
-   * @categoryDescription
    * Formats following texts with double width of each character.
    *
    * @param enabled - Defaults to `true` if not specified.
@@ -141,11 +139,11 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode IsEnabled}
    * @see {@linkcode BluetoothPrintPlugin.text}
    * @see {@linkcode BluetoothPrintPlugin.doubleHeight}
+   *
+   * @category Text Formatting
    */
   doubleWidth(enabled?: IsEnabled): this;
   /**
-   * @category Text Formatting
-   * @categoryDescription
    * Formats following texts with double height of each character.
    *
    * @param enabled - Defaults to `true` if not specified.
@@ -153,26 +151,28 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode IsEnabled}
    * @see {@linkcode BluetoothPrintPlugin.text}
    * @see {@linkcode BluetoothPrintPlugin.doubleWidth}
+   *
+   * @category Text Formatting
    */
   doubleHeight(enabled?: IsEnabled): this;
 
   /**
-   * @category Text Formatting
-   * @categoryDescription
    * Formats following texts with inverted colors. (white text on black background)
    *
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
    * @see {@linkcode BluetoothPrintPlugin.text}
+   *
+   * @category Text Formatting
    */
   inverse(enabled?: IsEnabled): this;
   //#endregion
 
   //#region Image Formatting
   /**
+   *
    * @category Image Formatting
-   * @categoryDescription
    * Sets the DPI used to correctly encode the width of the image used in {@linkcode BluetoothPrintPlugin.limitWidth} based on the printer.
    *
    * @param dpi - The DPI value.
@@ -188,8 +188,6 @@ export interface BluetoothPrintPlugin {
    */
   dpi(dpi: PrinterDPI): this;
   /**
-   * @category Image Formatting
-   * @categoryDescription
    * Limits the width of following images.
    *
    * @param width - The maximum width of the image in millimeters ranging from 1mm to 880mm.
@@ -201,14 +199,14 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode BluetoothPrintPlugin.dpi}
    * @see {@linkcode BluetoothPrintPlugin.image}
+   *
+   * @category Image Formatting
    */
   limitWidth(width: number): this;
   //#endregion
 
   //#region Hybrid Formatting
   /**
-   * @category Hybrid Formatting
-   * @categoryDescription
    * Aligns following texts, images, qr codes and barcodes with the given alignment.
    *
    * @param alignment - Alignment to use.
@@ -219,11 +217,11 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode BluetoothPrintPlugin.image}
    * @see {@linkcode BluetoothPrintPlugin.qr}
    * @see {@linkcode BluetoothPrintPlugin.barcode}
+   *
+   * @category Hybrid Formatting
    */
   align(alignment: PrintAlignment): this;
   /**
-   * @category Hybrid Formatting
-   * @categoryDescription
    * Sets the character spacing of following texts and barcode texts.
    *
    * @param charSpacing - The character spacing in millimeters ranging from 0mm to 30mm.
@@ -235,11 +233,11 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode BluetoothPrintPlugin.text}
    * @see {@linkcode BluetoothPrintPlugin.barcode}
+   *
+   * @category Hybrid Formatting
    */
   charSpacing(charSpacing: number): this;
   /**
-   * @category Hybrid Formatting
-   * @categoryDescription
    * Sets the line spacing of following texts, images, qr codes, barcodes with the given spacing.
    *
    * @param lineSpacing - The line spacing in millimeters ranging from 0mm to 255mm.
@@ -253,11 +251,11 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode BluetoothPrintPlugin.image}
    * @see {@linkcode BluetoothPrintPlugin.qr}
    * @see {@linkcode BluetoothPrintPlugin.barcode}
+   *
+   * @category Hybrid Formatting
    */
   lineSpacing(lineSpacing: number): this;
   /**
-   * @category Hybrid Formatting
-   * @categoryDescription
    * Formats following texts and barcode texts with the given font.
    *
    * @param font - Font to use.
@@ -266,20 +264,20 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode PrinterFonts}
    * @see {@linkcode BluetoothPrintPlugin.text}
    * @see {@linkcode BluetoothPrintPlugin.barcode}
+   *
+   * @category Hybrid Formatting
    */
   font(font: PrinterFont): this;
   /**
-   * @category Hybrid Formatting
-   * @categoryDescription
    * Clears all formatting.
+   *
+   * @category Hybrid Formatting
    */
   clearFormatting(): this;
   //#endregion
 
   //#region Data Code Formatting
   /**
-   * @category Barcode Formatting
-   * @categoryDescription
    * Sets the width of following barcodes.
    *
    * @param width - Width of barcode ranging from 3 to 6.
@@ -290,11 +288,11 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode BluetoothPrintPlugin.barcode}
    * @see {@linkcode BluetoothPrintPlugin.barcodeHeight}
+   *
+   * @category Barcode Formatting
    */
   barcodeWidth(width: number): this;
   /**
-   * @category Barcode Formatting
-   * @categoryDescription
    * Sets the height of following barcodes.
    *
    * @param height - Height of barcode in millimeters ranging from 1mm to 255mm.
@@ -306,11 +304,11 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode BluetoothPrintPlugin.barcode}
    * @see {@linkcode BluetoothPrintPlugin.barcodeWidth}
+   *
+   * @category Barcode Formatting
    */
   barcodeHeight(height: number): this;
   /**
-   * @category Barcode Formatting
-   * @categoryDescription
    * Sets the placement of following barcode texts.
    *
    * @param placement - Placement to use.
@@ -318,25 +316,25 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode BarcodeTextPlacement}
    * @see {@linkcode BarcodeTextPlacements}
    * @see {@linkcode BluetoothPrintPlugin.barcode}
+   *
+   * @category Barcode Formatting
    */
   barcodeTextPlacement(placement: BarcodeTextPlacement): this;
   //#endregion
 
   //#region Content
   /**
-   * @category Content
-   * @categoryDescription
    * Adds text to the print queue.
    *
    * @param text - Text to use.
    *
    * @remarks
    * To print a newline, explicitly end the text with a newline character (`\n`).
+   *
+   * @category Content
    */
   text(text: string): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds an image to the print queue.
    *
    * @param dataURLOrBase64 - Image data URL or base64.
@@ -346,19 +344,19 @@ export interface BluetoothPrintPlugin {
    * For maximum compatibility, use PNG and JPEG formats.
    *
    * @see {@linkcode BluetoothPrintPlugin.limitWidth}
+   *
+   * @category Content
    */
   image(dataURLOrBase64: string): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds a QR code to the print queue.
    *
    * @param data - QR code data.
+   *
+   * @category Content
    */
   qr(data: string): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds a barcode to the print queue.
    *
    * @param type - Barcode type.
@@ -368,61 +366,61 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode DataCodeType}
    * @see {@linkcode BarcodeTypes}
    * @see {@linkcode DataCodeTypes}
+   *
+   * @category Content
    */
   barcode(type: BarcodeType, data: string): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds raw data (base64 encoded) to the print queue. Use only if you know what you are doing.
    * Using base64 encoding can greatly improve the speed of data transfer through the Capacitor plugin bridge.
    *
    * @param base64 - Base64 encoded data.
+   *
+   * @category Content
    */
   raw(base64: string): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds raw data (buffer) to the print queue. Use only if you know what you are doing.
    *
    * @param buffer - Buffer containing the data.
    *
    * @remarks
    * Each byte will be truncated/wrapped if it's outside the range of 0 to 255.
+   *
+   * @category Content
    */
   raw(buffer: number[]): this;
   /**
-   * @category Content
-   * @categoryDescription
    * Adds a self-test instruction to the print queue which usually prints general information about the printer and its capabilities.
    *
    * @remarks
    * The printer may not support this instruction and fail silently.
+   *
+   * @category Content
    */
   selfTest(): this;
   //#endregion
 
   //#region Content Actions
   /**
-   * @category Content Actions
-   * @categoryDescription
    * Adds a beep instruction to the print queue.
    *
    * @remarks
    * The printer may not support this instruction and fail silently.
+   *
+   * @category Content Actions
    */
   beep(): this;
   /**
-   * @category Content Actions
-   * @categoryDescription
    * Adds an open drawer instruction to the print queue.
    *
    * @remarks
    * The printer may not support this instruction and fail silently.
+   *
+   * @category Content Actions
    */
   openDrawer(): this;
   /**
-   * @category Content Actions
-   * @categoryDescription
    * Adds a cut instruction to the print queue.
    *
    * @param half - If true, performs a half cut depending on the printer model.
@@ -432,11 +430,11 @@ export interface BluetoothPrintPlugin {
    * - The printer may not support the half cut instruction and fail silently.
    *
    * @see {@linkcode BluetoothPrintPlugin.feedCutPaper}
+   *
+   * @category Content Actions
    */
   cutPaper(half?: boolean): this;
   /**
-   * @category Content Actions
-   * @categoryDescription
    * Adds a cut instruction to the print queue preceded by a line feed.
    *
    * @param half - If true, performs a half cut depending on the printer model.
@@ -445,29 +443,31 @@ export interface BluetoothPrintPlugin {
    * - The printer may not support the half cut instruction and fail silently.
    *
    * @see {@linkcode BluetoothPrintPlugin.cutPaper}
+   *
+   * @category Content Actions
    */
   feedCutPaper(half?: boolean): this;
   //#endregion
 
   //#region Printing Actions
   /**
-   * @category Printing Actions
-   * @categoryDescription
    * Resets the print queue while clearing all formatting.
    *
    * @see {@linkcode BluetoothPrintPlugin.write}
    * @see {@linkcode BluetoothPrintPlugin.clearFormatting}
+   *
+   * @category Printing Actions
    */
   begin(): this;
   /**
-   * @category Printing Actions
-   * @categoryDescription
    * Writes the print queue to the printer.
    *
    * @remarks
    * Calling this method doesn't reset the print queue
    *
    * @see {@linkcode BluetoothPrintPlugin.begin}
+   *
+   * @category Printing Actions
    */
   write(): Promise<void>;
   //#endregion
