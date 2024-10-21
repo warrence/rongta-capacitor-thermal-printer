@@ -224,22 +224,15 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     @SuppressLint("MissingPermission")
     @PluginMethod
     public void connect(PluginCall call) {
+        if (!bluetoothCheck(call)) return;
+
         String address = call.getString("address");
         if (address == null) {
             call.reject("Please provide address!");
         }
 
-        BluetoothDevice device = null;
-        for (BluetoothDevice currentDevice : devices) {
-            if (currentDevice.getAddress().equals(address)) {
-                device = currentDevice;
-                break;
-            }
-        }
-        if (device == null) {
-            call.reject("Device not found!");
-            return;
-        }
+        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
+        Log.d(TAG, "Connecting to " + device);
 
         bluetoothEdrConfigBean = new BluetoothEdrConfigBean(device);
 
