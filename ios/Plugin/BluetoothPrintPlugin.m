@@ -25,7 +25,6 @@ CAP_PLUGIN(BluetoothPrintPlugin, "BluetoothPrint",
            CAP_PLUGIN_METHOD(charSpacing, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(lineSpacing, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(font, CAPPluginReturnNone);
-           CAP_PLUGIN_METHOD(position, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(clearFormatting, CAPPluginReturnNone);
            
            CAP_PLUGIN_METHOD(text, CAPPluginReturnNone);

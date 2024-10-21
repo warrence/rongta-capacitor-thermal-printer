@@ -26,7 +26,6 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 import com.rt.printerlibrary.bean.BluetoothEdrConfigBean;
-import com.rt.printerlibrary.bean.Position;
 import com.rt.printerlibrary.cmd.Cmd;
 import com.rt.printerlibrary.cmd.EscCmd;
 import com.rt.printerlibrary.cmd.EscFactory;
@@ -375,17 +374,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
         textSetting.setEscFontType(fontEnumValues[font]);
         dataCodeSetting.setEscBarcodFont(dataFontEnumValues[font]);
-    }
-
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
-    public void position(PluginCall call) {
-        Integer x = call.getInt("x", 0);
-        if (x == null) x = 0;
-        Integer y = call.getInt("y", 0);
-        if (y == null) y = 0;
-
-        bitmapSetting.setPrintPostion(new Position(x, y));
-        textSetting.setTxtPrintPosition(new Position(x, y));
     }
 
     @PluginMethod(returnType = PluginMethod.RETURN_NONE)

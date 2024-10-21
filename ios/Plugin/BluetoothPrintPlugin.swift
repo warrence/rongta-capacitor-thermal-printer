@@ -232,15 +232,6 @@ public class BluetoothPrintPlugin: CAPPlugin {
             call.reject("Invalid Font");
         }
     }
-    @objc func position(_ call: CAPPluginCall) {
-        let x = call.getInt("x", 0);
-        let y = call.getInt("y", 0);
-        
-        bitmapSetting.pos_X = x;
-        bitmapSetting.pos_Y = y;
-        textSetting.x_start = x;
-        textSetting.y_start = y;
-    }
     @objc func clearFormatting(_ call: CAPPluginCall) {
         textSetting = TextSetting()
         bitmapSetting = BitmapSetting()

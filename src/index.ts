@@ -1,6 +1,7 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { BluetoothPrintPlugin, WrappedMethodsMap } from './definitions';
+import type { BluetoothPrintPlugin } from './definitions';
+import type { WrappedMethodsMap } from './private-definitions';
 
 const BluetoothPrintImplementation = registerPlugin<any>('BluetoothPrint');
 
@@ -12,7 +13,7 @@ const wrappedMethods: WrappedMethodsMap = {
   doubleHeight: ['enabled'],
   inverse: ['enabled'],
   //#endregion
-  
+
   //#region Image Formatting
   dpi: ['dpi'],
   limitWidth: ['width'],
@@ -23,13 +24,12 @@ const wrappedMethods: WrappedMethodsMap = {
   barcodeHeight: ['height'],
   barcodeTextPlacement: ['placement'],
   //#endregion
-  
+
   //#region Hybrid Formatting
   align: ['alignment'],
   charSpacing: ['charSpacing'],
   lineSpacing: ['lineSpacing'],
   font: ['font'],
-  position: ['x', 'y'],
   clearFormatting: [],
   //#endregion
 
