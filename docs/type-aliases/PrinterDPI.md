@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[definitions.ts:27](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L27)
+[definitions.ts:27](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L27)

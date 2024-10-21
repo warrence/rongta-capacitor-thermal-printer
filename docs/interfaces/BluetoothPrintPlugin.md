@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[definitions.ts:48](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L48)
+[definitions.ts:48](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L48)
 
 ***
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[definitions.ts:52](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L52)
+[definitions.ts:52](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L52)
 
 ***
 
@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[definitions.ts:56](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L56)
+[definitions.ts:56](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L56)
 
 ***
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[definitions.ts:60](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L60)
+[definitions.ts:60](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L60)
 
 ## Event Listeners
 
@@ -76,6 +76,8 @@
 #### addListener(event, handler)
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
+
+Emitted when new devices are discovered.
 
 ##### Parameters
 
@@ -88,21 +90,19 @@
 
 `Promise`\<`PluginListenerHandle`\>
 
-##### Category Description
-
-Emitted when new devices are discovered.
-
 ##### Remarks
 
 If you're using Angular as your framework of choice, the handler doesn't run in zone.
 
 ##### Defined in
 
-[definitions.ts:70](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L70)
+[definitions.ts:70](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L70)
 
 #### addListener(event, handler)
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
+
+Emitted when the printer status changes. Currently not meaningful at all.
 
 ##### Parameters
 
@@ -115,21 +115,19 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 `Promise`\<`PluginListenerHandle`\>
 
-##### Category Description
-
-Emitted when the printer status changes. Currently not meaningful at all.
-
 ##### Remarks
 
 If you're using Angular as your framework of choice, the handler doesn't run in zone.
 
 ##### Defined in
 
-[definitions.ts:82](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L82)
+[definitions.ts:82](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L82)
 
 #### addListener(event, handler)
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
+
+Emitted when a printer is successfully connected.
 
 ##### Parameters
 
@@ -142,21 +140,19 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 `Promise`\<`PluginListenerHandle`\>
 
-##### Category Description
-
-Emitted when a printer is successfully connected.
-
 ##### Remarks
 
 If you're using Angular as your framework of choice, the handler doesn't run in zone.
 
 ##### Defined in
 
-[definitions.ts:94](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L94)
+[definitions.ts:94](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L94)
 
 #### addListener(event, handler)
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
+
+Emitted when a printer is disconnected.
 
 ##### Parameters
 
@@ -169,17 +165,13 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 `Promise`\<`PluginListenerHandle`\>
 
-##### Category Description
-
-Emitted when a printer is disconnected.
-
 ##### Remarks
 
 If you're using Angular as your framework of choice, the handler doesn't run in zone.
 
 ##### Defined in
 
-[definitions.ts:106](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L106)
+[definitions.ts:106](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L106)
 
 ## Text Formatting
 
@@ -187,6 +179,8 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 > **bold**(`enabled`?): `this`
 
+Formats following texts as bold.
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -197,10 +191,6 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 `this`
 
-#### Category Description
-
-Formats following texts as bold.
-
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
@@ -208,7 +198,7 @@ Formats following texts as bold.
 
 #### Defined in
 
-[definitions.ts:122](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L122)
+[definitions.ts:122](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L122)
 
 ***
 
@@ -216,6 +206,8 @@ Formats following texts as bold.
 
 > **underline**(`enabled`?): `this`
 
+Formats following texts as underlined.
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -225,10 +217,6 @@ Formats following texts as bold.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Formats following texts as underlined.
 
 #### See
 
@@ -237,13 +225,15 @@ Formats following texts as underlined.
 
 #### Defined in
 
-[definitions.ts:133](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L133)
+[definitions.ts:133](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L133)
 
 ***
 
 ### doubleWidth()
 
 > **doubleWidth**(`enabled`?): `this`
+
+Formats following texts with double width of each character.
 
 #### Parameters
 
@@ -254,10 +244,6 @@ Formats following texts as underlined.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Formats following texts with double width of each character.
 
 #### See
 
@@ -267,13 +253,15 @@ Formats following texts with double width of each character.
 
 #### Defined in
 
-[definitions.ts:145](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L145)
+[definitions.ts:145](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L145)
 
 ***
 
 ### doubleHeight()
 
 > **doubleHeight**(`enabled`?): `this`
+
+Formats following texts with double height of each character.
 
 #### Parameters
 
@@ -284,10 +272,6 @@ Formats following texts with double width of each character.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Formats following texts with double height of each character.
 
 #### See
 
@@ -297,13 +281,15 @@ Formats following texts with double height of each character.
 
 #### Defined in
 
-[definitions.ts:157](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L157)
+[definitions.ts:157](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L157)
 
 ***
 
 ### inverse()
 
 > **inverse**(`enabled`?): `this`
+
+Formats following texts with inverted colors. (white text on black background)
 
 #### Parameters
 
@@ -315,10 +301,6 @@ Formats following texts with double height of each character.
 
 `this`
 
-#### Category Description
-
-Formats following texts with inverted colors. (white text on black background)
-
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
@@ -326,49 +308,15 @@ Formats following texts with inverted colors. (white text on black background)
 
 #### Defined in
 
-[definitions.ts:169](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L169)
+[definitions.ts:169](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L169)
 
 ## Image Formatting
-
-### dpi()
-
-> **dpi**(`dpi`): `this`
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `dpi` | `200` \| `300` | The DPI value. |
-
-#### Returns
-
-`this`
-
-#### Category Description
-
-Sets the DPI used to correctly encode the width of the image used in [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth) based on the printer.
-
-#### Remarks
-
-- The initial DPI is 200.
-- Must be either 200 or 300. Any other value will be treated as 200.
-
-#### See
-
- - [`PrinterDPI`](../type-aliases/PrinterDPI.md)
- - [`PrinterDPIs`](../variables/PrinterDPIs.md)
- - [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
-
-#### Defined in
-
-[definitions.ts:189](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L189)
-
-***
 
 ### limitWidth()
 
 > **limitWidth**(`width`): `this`
+
+Limits the width of following images.
 
 #### Parameters
 
@@ -379,10 +327,6 @@ Sets the DPI used to correctly encode the width of the image used in [`Bluetooth
 #### Returns
 
 `this`
-
-#### Category Description
-
-Limits the width of following images.
 
 #### Remarks
 
@@ -397,13 +341,15 @@ Limits the width of following images.
 
 #### Defined in
 
-[definitions.ts:205](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L205)
+[definitions.ts:205](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L205)
 
 ## Barcode Formatting
 
 ### barcodeWidth()
 
 > **barcodeWidth**(`width`): `this`
+
+Sets the width of following barcodes.
 
 #### Parameters
 
@@ -414,10 +360,6 @@ Limits the width of following images.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Sets the width of following barcodes.
 
 #### Remarks
 
@@ -431,13 +373,15 @@ Sets the width of following barcodes.
 
 #### Defined in
 
-[definitions.ts:294](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L294)
+[definitions.ts:294](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L294)
 
 ***
 
 ### barcodeHeight()
 
 > **barcodeHeight**(`height`): `this`
+
+Sets the height of following barcodes.
 
 #### Parameters
 
@@ -448,10 +392,6 @@ Sets the width of following barcodes.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Sets the height of following barcodes.
 
 #### Remarks
 
@@ -466,13 +406,15 @@ Sets the height of following barcodes.
 
 #### Defined in
 
-[definitions.ts:310](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L310)
+[definitions.ts:310](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L310)
 
 ***
 
 ### barcodeTextPlacement()
 
 > **barcodeTextPlacement**(`placement`): `this`
+
+Sets the placement of following barcode texts.
 
 #### Parameters
 
@@ -484,10 +426,6 @@ Sets the height of following barcodes.
 
 `this`
 
-#### Category Description
-
-Sets the placement of following barcode texts.
-
 #### See
 
  - [`BarcodeTextPlacement`](../type-aliases/BarcodeTextPlacement.md)
@@ -496,13 +434,15 @@ Sets the placement of following barcode texts.
 
 #### Defined in
 
-[definitions.ts:322](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L322)
+[definitions.ts:322](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L322)
 
 ## Hybrid Formatting
 
 ### align()
 
 > **align**(`alignment`): `this`
+
+Aligns following texts, images, qr codes and barcodes with the given alignment.
 
 #### Parameters
 
@@ -513,10 +453,6 @@ Sets the placement of following barcode texts.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Aligns following texts, images, qr codes and barcodes with the given alignment.
 
 #### See
 
@@ -529,13 +465,15 @@ Aligns following texts, images, qr codes and barcodes with the given alignment.
 
 #### Defined in
 
-[definitions.ts:223](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L223)
+[definitions.ts:223](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L223)
 
 ***
 
 ### charSpacing()
 
 > **charSpacing**(`charSpacing`): `this`
+
+Sets the character spacing of following texts and barcode texts.
 
 #### Parameters
 
@@ -546,10 +484,6 @@ Aligns following texts, images, qr codes and barcodes with the given alignment.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Sets the character spacing of following texts and barcode texts.
 
 #### Remarks
 
@@ -564,13 +498,15 @@ Sets the character spacing of following texts and barcode texts.
 
 #### Defined in
 
-[definitions.ts:239](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L239)
+[definitions.ts:239](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L239)
 
 ***
 
 ### lineSpacing()
 
 > **lineSpacing**(`lineSpacing`): `this`
+
+Sets the line spacing of following texts, images, qr codes, barcodes with the given spacing.
 
 #### Parameters
 
@@ -581,10 +517,6 @@ Sets the character spacing of following texts and barcode texts.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Sets the line spacing of following texts, images, qr codes, barcodes with the given spacing.
 
 #### Remarks
 
@@ -601,13 +533,15 @@ Sets the line spacing of following texts, images, qr codes, barcodes with the gi
 
 #### Defined in
 
-[definitions.ts:257](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L257)
+[definitions.ts:257](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L257)
 
 ***
 
 ### font()
 
 > **font**(`font`): `this`
+
+Formats following texts and barcode texts with the given font.
 
 #### Parameters
 
@@ -619,10 +553,6 @@ Sets the line spacing of following texts, images, qr codes, barcodes with the gi
 
 `this`
 
-#### Category Description
-
-Formats following texts and barcode texts with the given font.
-
 #### See
 
  - [`PrinterFont`](../type-aliases/PrinterFont.md)
@@ -632,7 +562,7 @@ Formats following texts and barcode texts with the given font.
 
 #### Defined in
 
-[definitions.ts:270](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L270)
+[definitions.ts:270](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L270)
 
 ***
 
@@ -640,23 +570,23 @@ Formats following texts and barcode texts with the given font.
 
 > **clearFormatting**(): `this`
 
+Clears all formatting.
+
 #### Returns
 
 `this`
 
-#### Category Description
-
-Clears all formatting.
-
 #### Defined in
 
-[definitions.ts:276](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L276)
+[definitions.ts:276](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L276)
 
 ## Content
 
 ### text()
 
 > **text**(`text`): `this`
+
+Adds text to the print queue.
 
 #### Parameters
 
@@ -668,23 +598,21 @@ Clears all formatting.
 
 `this`
 
-#### Category Description
-
-Adds text to the print queue.
-
 #### Remarks
 
 To print a newline, explicitly end the text with a newline character (`\n`).
 
 #### Defined in
 
-[definitions.ts:336](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L336)
+[definitions.ts:336](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L336)
 
 ***
 
 ### image()
 
 > **image**(`dataURLOrBase64`): `this`
+
+Adds an image to the print queue.
 
 #### Parameters
 
@@ -695,10 +623,6 @@ To print a newline, explicitly end the text with a newline character (`\n`).
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds an image to the print queue.
 
 #### Remarks
 
@@ -711,13 +635,15 @@ For maximum compatibility, use PNG and JPEG formats.
 
 #### Defined in
 
-[definitions.ts:350](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L350)
+[definitions.ts:350](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L350)
 
 ***
 
 ### qr()
 
 > **qr**(`data`): `this`
+
+Adds a QR code to the print queue.
 
 #### Parameters
 
@@ -729,19 +655,17 @@ For maximum compatibility, use PNG and JPEG formats.
 
 `this`
 
-#### Category Description
-
-Adds a QR code to the print queue.
-
 #### Defined in
 
-[definitions.ts:358](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L358)
+[definitions.ts:358](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L358)
 
 ***
 
 ### barcode()
 
 > **barcode**(`type`, `data`): `this`
+
+Adds a barcode to the print queue.
 
 #### Parameters
 
@@ -754,10 +678,6 @@ Adds a QR code to the print queue.
 
 `this`
 
-#### Category Description
-
-Adds a barcode to the print queue.
-
 #### See
 
  - [`BarcodeType`](../type-aliases/BarcodeType.md)
@@ -767,7 +687,7 @@ Adds a barcode to the print queue.
 
 #### Defined in
 
-[definitions.ts:372](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L372)
+[definitions.ts:372](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L372)
 
 ***
 
@@ -776,6 +696,9 @@ Adds a barcode to the print queue.
 #### raw(base64)
 
 > **raw**(`base64`): `this`
+
+Adds raw data (base64 encoded) to the print queue. Use only if you know what you are doing.
+Using base64 encoding can greatly improve the speed of data transfer through the Capacitor plugin bridge.
 
 ##### Parameters
 
@@ -787,18 +710,15 @@ Adds a barcode to the print queue.
 
 `this`
 
-##### Category Description
-
-Adds raw data (base64 encoded) to the print queue. Use only if you know what you are doing.
-Using base64 encoding can greatly improve the speed of data transfer through the Capacitor plugin bridge.
-
 ##### Defined in
 
-[definitions.ts:381](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L381)
+[definitions.ts:381](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L381)
 
 #### raw(buffer)
 
 > **raw**(`buffer`): `this`
+
+Adds raw data (buffer) to the print queue. Use only if you know what you are doing.
 
 ##### Parameters
 
@@ -810,17 +730,13 @@ Using base64 encoding can greatly improve the speed of data transfer through the
 
 `this`
 
-##### Category Description
-
-Adds raw data (buffer) to the print queue. Use only if you know what you are doing.
-
 ##### Remarks
 
 Each byte will be truncated/wrapped if it's outside the range of 0 to 255.
 
 ##### Defined in
 
-[definitions.ts:392](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L392)
+[definitions.ts:392](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L392)
 
 ***
 
@@ -828,13 +744,11 @@ Each byte will be truncated/wrapped if it's outside the range of 0 to 255.
 
 > **selfTest**(): `this`
 
+Adds a self-test instruction to the print queue which usually prints general information about the printer and its capabilities.
+
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds a self-test instruction to the print queue which usually prints general information about the printer and its capabilities.
 
 #### Remarks
 
@@ -842,7 +756,7 @@ The printer may not support this instruction and fail silently.
 
 #### Defined in
 
-[definitions.ts:401](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L401)
+[definitions.ts:401](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L401)
 
 ## Content Actions
 
@@ -850,13 +764,11 @@ The printer may not support this instruction and fail silently.
 
 > **beep**(): `this`
 
+Adds a beep instruction to the print queue.
+
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds a beep instruction to the print queue.
 
 #### Remarks
 
@@ -864,7 +776,7 @@ The printer may not support this instruction and fail silently.
 
 #### Defined in
 
-[definitions.ts:413](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L413)
+[definitions.ts:413](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L413)
 
 ***
 
@@ -872,13 +784,11 @@ The printer may not support this instruction and fail silently.
 
 > **openDrawer**(): `this`
 
+Adds an open drawer instruction to the print queue.
+
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds an open drawer instruction to the print queue.
 
 #### Remarks
 
@@ -886,13 +796,15 @@ The printer may not support this instruction and fail silently.
 
 #### Defined in
 
-[definitions.ts:422](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L422)
+[definitions.ts:422](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L422)
 
 ***
 
 ### cutPaper()
 
 > **cutPaper**(`half`?): `this`
+
+Adds a cut instruction to the print queue.
 
 #### Parameters
 
@@ -903,10 +815,6 @@ The printer may not support this instruction and fail silently.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds a cut instruction to the print queue.
 
 #### Remarks
 
@@ -919,13 +827,15 @@ Adds a cut instruction to the print queue.
 
 #### Defined in
 
-[definitions.ts:436](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L436)
+[definitions.ts:436](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L436)
 
 ***
 
 ### feedCutPaper()
 
 > **feedCutPaper**(`half`?): `this`
+
+Adds a cut instruction to the print queue preceded by a line feed.
 
 #### Parameters
 
@@ -936,10 +846,6 @@ Adds a cut instruction to the print queue.
 #### Returns
 
 `this`
-
-#### Category Description
-
-Adds a cut instruction to the print queue preceded by a line feed.
 
 #### Remarks
 
@@ -952,7 +858,7 @@ Adds a cut instruction to the print queue preceded by a line feed.
 
 #### Defined in
 
-[definitions.ts:449](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L449)
+[definitions.ts:449](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L449)
 
 ## Printing Actions
 
@@ -960,13 +866,11 @@ Adds a cut instruction to the print queue preceded by a line feed.
 
 > **begin**(): `this`
 
+Resets the print queue while clearing all formatting.
+
 #### Returns
 
 `this`
-
-#### Category Description
-
-Resets the print queue while clearing all formatting.
 
 #### See
 
@@ -975,7 +879,7 @@ Resets the print queue while clearing all formatting.
 
 #### Defined in
 
-[definitions.ts:461](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L461)
+[definitions.ts:461](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L461)
 
 ***
 
@@ -983,13 +887,11 @@ Resets the print queue while clearing all formatting.
 
 > **write**(): `Promise`\<`void`\>
 
+Writes the print queue to the printer.
+
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Category Description
-
-Writes the print queue to the printer.
 
 #### Remarks
 
@@ -1001,4 +903,37 @@ Calling this method doesn't reset the print queue
 
 #### Defined in
 
-[definitions.ts:472](https://github.com/Malik12tree/capacitor-thermal-printer/blob/13f24ad9c51afbc330a0f5ba3a6781455547e5a3/src/definitions.ts#L472)
+[definitions.ts:472](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L472)
+
+## Image Formatting
+Sets the DPI used to correctly encode the width of the image used in {@linkcode BluetoothPrintPlugin.limitWidth} based on the printer.
+
+### dpi()
+
+> **dpi**(`dpi`): `this`
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `dpi` | `200` \| `300` | The DPI value. |
+
+#### Returns
+
+`this`
+
+#### Remarks
+
+- The initial DPI is 200.
+- Must be either 200 or 300. Any other value will be treated as 200.
+
+#### See
+
+ - [`PrinterDPI`](../type-aliases/PrinterDPI.md)
+ - [`PrinterDPIs`](../variables/PrinterDPIs.md)
+ - [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
+ - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
+
+#### Defined in
+
+[definitions.ts:189](https://github.com/Malik12tree/capacitor-thermal-printer/blob/af31b0e716868386a8424fb880f64e23e92fe16a/src/definitions.ts#L189)
