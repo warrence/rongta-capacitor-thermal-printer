@@ -1,0 +1,21 @@
+{
+  "plugin": ["typedoc-plugin-markdown"],
+  "sortEntryPoints": false,
+  "sort": ["source-order"],
+  "readme": "none",
+  "categoryOrder": [
+    "Connectivity",
+    "Event Listeners",
+    "Text Formatting",
+    "Image Formatting",
+    "Barcode Formatting",
+    "Hybrid Formatting",
+    "Content",
+    "Content Actions",
+    "Printing Actions"
+  ],
+  "interfacePropertiesFormat": "table",
+  "parametersFormat": "table",
+  "out": "./docs",
+  "entryPoints": ["./src/index.ts"]
+}
