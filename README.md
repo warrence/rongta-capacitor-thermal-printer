@@ -1,8 +1,8 @@
 # Capacitor Thermal Printer
 
-An unofficial fast and reliable [Rongta](https://www.rongtatech.com/) Printer & Encoder plugin implementation for Capacitor. Both on Android and iOS!
+High-speed, reliable bluetooth ESC thermal printer and encoder Capacitor plugin. Both on Android and iOS!
 
-- [x] Using the official RTPrinter SDK
+- [x] Using the official RTPrinter SDK by [Rongta Technology](https://www.rongtatech.com/) <3
 - [x] Cross-platform compatibility (Android & iOS)
 - [x] **_Swift_** speeds on iOS of [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) **(known for it's pain-in-the-ass speed)**
 

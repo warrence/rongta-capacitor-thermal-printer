@@ -1,13 +1,14 @@
 {
   "name": "capacitor-thermal-printer",
   "version": "0.0.1",
-  "description": "Bluetooth Printer.",
+  "description": "High-speed, reliable bluetooth ESC thermal printer and encoder Capacitor plugin.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
     "android/src/main/",
+    "android/libs/",
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
@@ -25,7 +26,14 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "bluetooth",
+    "esc",
+    "thermal",
+    "printer",
+    "encoder",
+    "android",
+    "ios"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
