@@ -82,6 +82,32 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
 
+Emitted when device discovery finishes.
+
+##### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `event` | `"discoveryFinish"` |
+| `handler` | () => `void` |
+
+##### Returns
+
+`Promise`\<`PluginListenerHandle`\>
+
+##### Remarks
+
+If you're using Angular as your framework of choice, the handler doesn't run in zone.
+
+##### See
+
+ - [`BluetoothPrintPlugin.startScan`](BluetoothPrintPlugin.md#startscan)
+ - [`BluetoothPrintPlugin.stopScan`](BluetoothPrintPlugin.md#stopscan)
+
+#### addListener(event, handler)
+
+> **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
+
 Emitted when the printer status changes. Currently not meaningful at all.
 
 ##### Parameters
