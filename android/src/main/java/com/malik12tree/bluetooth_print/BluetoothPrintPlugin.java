@@ -141,6 +141,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                     put("devices", getJsonDevices());
                 }});
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                notifyListeners("discoveryFinish", null);
                 mBluetoothAdapter.cancelDiscovery();
                 getContext().unregisterReceiver(mBluetoothReceiver);
                 mRegistered = false;
@@ -186,6 +187,11 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     public void startScan(PluginCall call) {
         if (!bluetoothCheck(call)) return;
 
+        if (mRegistered) {
+            call.reject("Already Scanning!");
+            return;
+        }
+
         devices = new ArrayList<>();
         boolean success = mBluetoothAdapter.startDiscovery();
         mRegistered = success;
@@ -209,10 +215,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         if (!bluetoothCheck(call)) return;
 
         boolean success = mBluetoothAdapter.cancelDiscovery();
-        if (mRegistered) {
-            getContext().unregisterReceiver(mBluetoothReceiver);
-            mRegistered = false;
-        }
 
         if (success) {
             call.resolve();

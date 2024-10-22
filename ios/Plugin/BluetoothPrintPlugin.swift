@@ -39,6 +39,9 @@ public class BluetoothPrintPlugin: CAPPlugin {
     var textSetting = TextSetting();
     var bitmapSetting = BitmapSetting();
     var dataCodeSetting = BarcodeSetting();
+   
+    var isScanning = false;
+    var discoveryFinish: DispatchWorkItem?;
     
     public override init() {
         super.init()
@@ -107,11 +110,35 @@ public class BluetoothPrintPlugin: CAPPlugin {
     }
     
     @objc func startScan(_ call: CAPPluginCall) {
-        blueToothPI.startScan(30, isclear: false)
+        if (isScanning) {
+            call.reject("Already Scanning!");
+            return;
+        }
+
+        isScanning = true;
+        blueToothPI.startScan(30, isclear: true)
+        
+        discoveryFinish = DispatchWorkItem(block: {
+            if  self.discoveryFinish == nil ||
+                self.discoveryFinish!.isCancelled {
+                return
+            }
+            
+            self.discoveryFinish!.cancel();
+    
+            self.discoveryFinish = nil;
+            self.isScanning = false;
+            self.notifyListeners("discoveryFinish", data: nil);
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30, execute: discoveryFinish!);
+        
         call.resolve()
     }
     @objc func stopScan(_ call: CAPPluginCall) {
         blueToothPI.stopScan()
+
+        discoveryFinish?.perform()
         call.resolve()
     }
     
@@ -160,6 +187,10 @@ public class BluetoothPrintPlugin: CAPPlugin {
     }
 
     // MARK: - Data Code Formatting
+    @objc func qrDotSize(_ call: CAPPluginCall) {
+        let size = call.getInt("size", 0);
+        dataCodeSetting.qrcodeDotSize = size;
+    }
     @objc func barcodeWidth(_ call: CAPPluginCall) {
         let width = call.getInt("width", 0);
         dataCodeSetting.coord.width = width;
@@ -231,6 +262,15 @@ public class BluetoothPrintPlugin: CAPPlugin {
         } else {
             call.reject("Invalid Font");
         }
+    }
+    @objc func position(_ call: CAPPluginCall) {
+        let x = call.getInt("x", 0);
+        let y = call.getInt("y", 0);
+        
+        bitmapSetting.pos_X = x;
+        bitmapSetting.pos_Y = y;
+        textSetting.x_start = x;
+        textSetting.y_start = y;
     }
     @objc func clearFormatting(_ call: CAPPluginCall) {
         textSetting = TextSetting()

@@ -71,6 +71,22 @@ export interface BluetoothPrintPlugin {
     event: 'discoverDevices',
     handler: (data: { devices: BluetoothDevice[] }) => void,
   ): Promise<PluginListenerHandle>;
+
+  /**
+   * Emitted when device discovery finishes.
+   *
+   * @remarks
+   * If you're using Angular as your framework of choice, the handler doesn't run in zone.
+   *
+   * @see {@linkcode BluetoothPrintPlugin.startScan}
+   * @see {@linkcode BluetoothPrintPlugin.stopScan}
+   *
+   * @category Event Listeners
+   */
+  addListener(
+    event: 'discoveryFinish',
+    handler: () => void,
+  ): Promise<PluginListenerHandle>;
   /**
    * Emitted when the printer status changes. Currently not meaningful at all.
    *

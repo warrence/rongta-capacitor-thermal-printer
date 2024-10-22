@@ -5,7 +5,7 @@ import {
   BarcodeTextPlacements,
   BluetoothPrint,
   DataCodeType,
-  DataCodeTypes
+  DataCodeTypes,
 } from 'capacitor-thermal-printer';
 
 Object.assign(window, { BluetoothPrint });
@@ -21,6 +21,7 @@ export class HomePage {
 
   selectedDataCodeType: DataCodeType = 'QR';
   devices: any = [];
+  isScanning = false;
   constructor(zone: NgZone, private toastController: ToastController) {
     BluetoothPrint.addListener('discoverDevices', async ({ devices }) => {
       zone.run(() => {
@@ -56,15 +57,27 @@ export class HomePage {
 
       await toast.present();
     });
+    BluetoothPrint.addListener('discoveryFinish', () => {
+      zone.run(() => {
+        this.isScanning = false;
+      });
+    });
   }
   async connectDevice(device: any) {
     await BluetoothPrint.connect({
       address: device.address,
     });
   }
-  getDevices() {
+  startScan() {
+    // startScan throws an error if it's already scanning
+    if (this.isScanning) return;
+
     this.devices = [];
-    BluetoothPrint.startScan();
+    BluetoothPrint.startScan().then(() => (this.isScanning = true));
+  }
+  stopScan() {
+    // stopScan already dispatches the discoveryFinish event
+    BluetoothPrint.stopScan();
   }
 
   printImage() {

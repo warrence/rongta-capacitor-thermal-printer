@@ -6,6 +6,9 @@
   </ion-header>
   <div class="wrapper">
     <ion-list class="devices">
+      @if (isScanning) {
+        <ion-spinner color="primary"></ion-spinner>
+      }
       @for (device of devices; track device.address) {
         <ion-item (click)="connectDevice(device)" class="device" lines="none" detail="false" [button]="true">
           <ion-icon slot="start" name="print"></ion-icon>
@@ -46,10 +49,17 @@
         <ion-icon slot="start" name="sparkles"></ion-icon>
         <ion-label>Print Showcase</ion-label>
       </ion-button>
-      <ion-button fill="outline" (click)="getDevices()">
-        <ion-icon slot="start" name="search"></ion-icon>
-        <ion-label>Scan Devices</ion-label>
-      </ion-button>
+      @if (!isScanning) {
+        <ion-button fill="outline" (click)="startScan()">
+          <ion-icon slot="start" name="search"></ion-icon>
+          <ion-label>Scan Devices</ion-label>
+        </ion-button>
+      } @else {
+        <ion-button fill="outline" color="warning" (click)="stopScan()">
+          <ion-icon slot="start" name="stop-circle"></ion-icon>
+          <ion-label>Stop Scanning</ion-label>
+        </ion-button>
+      }
     </ion-col>
   </div>
 </div>

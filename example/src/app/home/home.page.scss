@@ -8,6 +8,11 @@
     .devices {
       padding: 1rem;
 
+      ion-spinner {
+        display: block;
+        margin: auto;
+      }
+
       .device {
         .device-wrapper {
           display: flex;
