@@ -3,6 +3,7 @@
   "sortEntryPoints": false,
   "sort": ["source-order"],
   "readme": "none",
+  "disableSources": true,
   "categoryOrder": [
     "Connectivity",
     "Event Listeners",
