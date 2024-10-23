@@ -12,6 +12,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
+    "ios/Bridging-Header.h",
     "BluetoothPrint.podspec"
   ],
   "author": "Malik12tree",
