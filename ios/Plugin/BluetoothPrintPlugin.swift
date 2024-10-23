@@ -159,18 +159,23 @@ public class BluetoothPrintPlugin: CAPPlugin {
     // MARK: - Text Formatting
     @objc func bold(_ call: CAPPluginCall) {
         textSetting.isBold = parseIsEnabled(call);
+        call.resolve();
     }
     @objc func underline(_ call: CAPPluginCall) {
         textSetting.isUnderline = parseIsEnabled(call);
+        call.resolve();
     }
     @objc func doubleWidth(_ call: CAPPluginCall) {
         textSetting.isTimes_Wide = parseIsEnabled(call);
+        call.resolve();
     }
     @objc func doubleHeight(_ call: CAPPluginCall) {
         textSetting.isTimes_Heigh = parseIsEnabled(call);
+        call.resolve();
     }
     @objc func inverse(_ call: CAPPluginCall) {
         textSetting.isInverse = parseIsEnabled(call);
+        call.resolve();
     }
     
     // MARK: - Image Formatting
@@ -179,30 +184,31 @@ public class BluetoothPrintPlugin: CAPPlugin {
         let dpi = call.getInt("dpi");
         
         currentDPI = dpi == 300 ? 12: 8;
+        call.resolve();
     }
     @objc func limitWidth(_ call: CAPPluginCall) {
-        guard let width = call.getInt("width") else { return };
+        let width = call.getInt("width", 1);
 
         bitmapSetting.limitWidth = width * currentDPI;
+        call.resolve();
     }
 
     // MARK: - Data Code Formatting
-    @objc func qrDotSize(_ call: CAPPluginCall) {
-        let size = call.getInt("size", 0);
-        dataCodeSetting.qrcodeDotSize = size;
-    }
     @objc func barcodeWidth(_ call: CAPPluginCall) {
         let width = call.getInt("width", 0);
         dataCodeSetting.coord.width = width;
+        call.resolve();
     }
     @objc func barcodeHeight(_ call: CAPPluginCall) {
         let height = call.getInt("height", 0);
         dataCodeSetting.coord.height = height;
+        call.resolve();
     }
     @objc func barcodeTextPlacement(_ call: CAPPluginCall) {
         let placement = placements.firstIndex(of: call.getString("placement", "none"));
         if let placement = placement {
             dataCodeSetting.hriPos = placementEnumValues[placement];
+            call.resolve();
         } else {
             call.reject("Invalid Placement");
         }
@@ -241,6 +247,7 @@ public class BluetoothPrintPlugin: CAPPlugin {
         let alignment = alignments.firstIndex(of: alignmentName);
         if let alignment = alignment {
             _align(alignment)
+            call.resolve();
         } else {
             call.reject("Invalid Alignment");
         }
@@ -248,10 +255,12 @@ public class BluetoothPrintPlugin: CAPPlugin {
     @objc func lineSpacing(_ call: CAPPluginCall) {
         let spacing = call.getInt("lineSpacing", 0);
         _lineSpacing(spacing)
+        call.resolve();
     }
     @objc func charSpacing(_ call: CAPPluginCall) {
         let spacing = call.getInt("charSpacing", 0);
         _charSpacing(spacing)
+        call.resolve();
     }
     
     @objc func font(_ call: CAPPluginCall) {
@@ -259,18 +268,10 @@ public class BluetoothPrintPlugin: CAPPlugin {
         if let font = font {
             textSetting.escFonttype = fontEnumValues[font];
             dataCodeSetting.hriFonttype = fontEnumValues[font];
+            call.resolve();
         } else {
             call.reject("Invalid Font");
         }
-    }
-    @objc func position(_ call: CAPPluginCall) {
-        let x = call.getInt("x", 0);
-        let y = call.getInt("y", 0);
-        
-        bitmapSetting.pos_X = x;
-        bitmapSetting.pos_Y = y;
-        textSetting.x_start = x;
-        textSetting.y_start = y;
     }
     @objc func clearFormatting(_ call: CAPPluginCall) {
         textSetting = TextSetting()
@@ -293,51 +294,71 @@ public class BluetoothPrintPlugin: CAPPlugin {
         _align(0);
         _lineSpacing(30);
         _charSpacing(1);
+
+        call.resolve();
     }
     
     // MARK: - Content
     @objc func text(_ call: CAPPluginCall) {
-        guard let text = call.getString("text") else { return; }
+        let text = call.getString("text", "");
 
         cmd.append(cmd.getTextCmd(textSetting, text: text))
+        call.resolve();
     }
     @objc func image(_ call: CAPPluginCall) {
-        guard let dataurl = call.getString("image") else { return }
+        let dataurl = call.getString("image", "");
 
+        let base64: String;
         if let i = dataurl.firstIndex(of: ",") {
-            
-            let data = Data(
-                base64Encoded: String(dataurl[dataurl.index(after: i)...])
-            )
-            if let data = data {
-                let img = UIImage(data: data);
-                cmd.append(cmd.getBitMapCmd(bitmapSetting, image: img));
-            }
+            base64 = String(dataurl[dataurl.index(after: i)...]);
+        } else {
+            base64 = dataurl;
+        }
 
+        let data = Data(base64Encoded: base64);
+        if let data = data {
+            let img = UIImage(data: data);
+            cmd.append(cmd.getBitMapCmd(bitmapSetting, image: img));
+            call.resolve();
+        } else {
+            call.reject("Invalid Image");
         }
     }
     
     @objc func qr(_ call: CAPPluginCall) {
-        guard let data = call.getString("data") else { return; }
+        let data = call.getString("data", "");
 
         let error: UnsafeMutablePointer<PrinterCodeError> = UnsafeMutablePointer.allocate(capacity: 1);
         let bytes = cmd.getBarCodeCmd(dataCodeSetting, codeType: BarcodeTypeQrcode, scode: data, codeError: error);
-        cmd.append(bytes)
+
+        error.deallocate();
+
+        cmd.append(bytes);        
+        call.resolve();
     }
     @objc func barcode(_ call: CAPPluginCall) {
-        guard let type = barcodeTypes.firstIndex(of: call.getString("type", "")) else { return };
-        guard let data = call.getString("data") else { return; }
+        guard let type = barcodeTypes.firstIndex(of: call.getString("type", "")) else { call.reject("Invalid Type"); return };
+        let data = call.getString("data", "");
 
         let error: UnsafeMutablePointer<PrinterCodeError> = UnsafeMutablePointer.allocate(capacity: 1);
         let bytes = cmd.getBarCodeCmd(dataCodeSetting, codeType: barcodeTypeEnumValues[type], scode: data, codeError: error);
-        cmd.append(bytes)
+
+        error.deallocate();
+
+        cmd.append(bytes);
+        call.resolve();
     }
     
     @objc func raw(_ call: CAPPluginCall) {
         let base64 = call.getString("data");
         if let base64 = base64 {
-            cmd.append(Data(base64Encoded: base64))
-            return
+            if let data = Data(base64Encoded: base64) {
+                cmd.append(data);
+                call.resolve();
+            } else {
+                call.reject("Invalid Data");
+            }
+            return;
         }
         guard let dataArray = call.getArray("data") as! [NSNumber]? else { call.reject("Invalid Data"); return }
         
@@ -346,25 +367,31 @@ public class BluetoothPrintPlugin: CAPPlugin {
             data[i] = UInt8(truncating: dataArray[i]);
         }
 
-        cmd.append(data)
+        cmd.append(data);
+        call.resolve();
     }
     @objc func selfTest(_ call: CAPPluginCall) {
         cmd.append(cmd.getSelftestCmd())
+        call.resolve();
     }
     // MARK: - Content Actions
     @objc func beep(_ call: CAPPluginCall) {
         cmd.append(cmd.getBeepCmd(1, interval: 3))
+        call.resolve();
     }
     @objc func openDrawer(_ call: CAPPluginCall) {
         cmd.append(cmd.getOpenDrawerCmd(0, startTime: 32, endTime: 1))
+        call.resolve();
     }
     @objc func cutPaper(_ call: CAPPluginCall) {
         let half = call.getBool("half", false);
         cmd.append(cmd.getCutPaperCmd(half ? CutterMode_half: CutterMode_Full))
+        call.resolve();
     }
     @objc func feedCutPaper(_ call: CAPPluginCall) {
         cmd.append(Data([10 /* character code of "\n" */]))
         cutPaper(call)
+        call.resolve();
     }
 
     // MARK: Printing Actions

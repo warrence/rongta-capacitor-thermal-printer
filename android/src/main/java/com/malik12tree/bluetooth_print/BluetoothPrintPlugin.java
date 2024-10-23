@@ -127,7 +127,12 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
             // When discovery finds a device
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 // Get the BluetoothDevice object from the Intent
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                BluetoothDevice device = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);                } else {
+                    device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                }
+                if (device == null) return;
                 int devType = device.getBluetoothClass().getMajorDeviceClass();
                 if (devType != BluetoothClass.Device.Major.IMAGING) {
                     return;
@@ -252,35 +257,40 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     }
 
     //region Text Formatting
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void bold(PluginCall call) {
         textSetting.setBold(parseIsEnabled(call));
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void underline(PluginCall call) {
         textSetting.setUnderline(parseIsEnabled(call));
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void doubleWidth(PluginCall call) {
         textSetting.setDoubleWidth(parseIsEnabled(call));
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void doubleHeight(PluginCall call) {
         textSetting.setDoubleHeight(parseIsEnabled(call));
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void inverse(PluginCall call) {
         textSetting.setIsAntiWhite(parseIsEnabled(call));
+        call.resolve();
     }
 
     //endregion
 
     //region Image Formatting
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void dpi(PluginCall call) {
         Integer dpi = call.getInt("dpi");
         if (dpi == null) {
@@ -288,9 +298,10 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         bitmapSetting.setBmpDpi(dpi);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void limitWidth(PluginCall call) {
         Integer width = call.getInt("width");
         if (width == null) {
@@ -298,6 +309,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         bitmapSetting.setBimtapLimitWidth(width * 8);
+        call.resolve();
     }
     //    endregion
 
@@ -334,7 +346,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         cmd.append(new byte[]{27, 32, (byte) spacing});
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void align(PluginCall call) {
         String alignmentName = call.getString("alignment");
         int alignment = alignments.indexOf(alignmentName);
@@ -344,21 +356,24 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         this.align(alignment);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void lineSpacing(PluginCall call) {
         int spacing = call.getInt("lineSpacing", 0);
         lineSpacing(spacing);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void charSpacing(PluginCall call) {
         int spacing = call.getInt("charSpacing", 0);
         charSpacing(spacing);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void font(PluginCall call) {
         String fontName = call.getString("font", "A");
         int font = fonts.indexOf(fontName);
@@ -369,9 +384,10 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
         textSetting.setEscFontType(fontEnumValues[font]);
         dataCodeSetting.setEscBarcodFont(dataFontEnumValues[font]);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void clearFormatting(PluginCall call) {
         textSetting = new TextSetting();
         bitmapSetting = new BitmapSetting();
@@ -382,28 +398,30 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         this.align();
         this.lineSpacing();
         this.charSpacing();
+        call.resolve();
     }
     //endregion
 
     //region Data Code Formatting
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void barcodeWidth(PluginCall call) {
-        Integer width = call.getInt("width");
-        if (width == null) return;
-
-        dataCodeSetting.setBarcodeWidth(width);
+        Integer width = call.getInt("width", 0);
+        if (width != null)
+            dataCodeSetting.setBarcodeWidth(width);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void barcodeHeight(PluginCall call) {
         Integer height = call.getInt("height");
-        if (height == null) return;
+        if (height != null)
+            dataCodeSetting.setHeightInDot(height);
 
-        dataCodeSetting.setHeightInDot(height);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void barcodeTextPlacement(PluginCall call) {
         String placementName = call.getString("placement");
         int placement = placements.indexOf(placementName);
@@ -413,45 +431,52 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         dataCodeSetting.setBarcodeStringPosition(placementEnumValues[placement]);
+        call.resolve();
     }
     //endregion
 
     //region Content
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void text(PluginCall call) {
         String text = call.getString("text");
-        if (text == null) return;
 
         try {
-            cmd.append(cmd.getTextCmd(textSetting, text, "UTF-8"));
+            if (text != null)
+                cmd.append(cmd.getTextCmd(textSetting, text, "UTF-8"));
         } catch (UnsupportedEncodingException ignored) {
         }
+        call.resolve();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void image(PluginCall call) {
         String image = call.getString("image");
-        if (image == null) return;
 
         bitmapSetting.setBmpPrintMode(BmpPrintMode.MODE_SINGLE_COLOR);
 
         try {
-            byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
-            cmd.append(cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length)));
+            if (image != null) {
+                byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
+                cmd.append(cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length)));
+            }
         } catch (SdkException ignored) {
         }
+        call.resolve();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void raw(PluginCall call) {
         String base64 = call.getString("data");
         if (base64 != null) {
             try {
                 cmd.append(Base64.getDecoder().decode(base64));
             } catch (Exception ignored) {
+                call.reject("Invalid Base64");
+                return;
             }
+            call.resolve();
             return;
         }
 
@@ -472,64 +497,75 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         cmd.append(data);
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void qr(PluginCall call) {
         String data = call.getString("data", "");
         try {
             cmd.append(cmd.getBarcodeCmd(BarcodeType.QR_CODE, dataCodeSetting, data));
         } catch (SdkException ignored) {
         }
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void barcode(PluginCall call) {
         String typeName = call.getString("type");
-        Log.d(TAG, "Barcode " + typeName);
+
         BarcodeType type;
         try {
             type = BarcodeType.valueOf(typeName);
         } catch (Exception ignored) {
+            call.reject("Invalid Type");
             return;
         }
-        Log.d(TAG, "Barcode " + type);
 
-        if (type == BarcodeType.QR_CODE) return;
+        if (type == BarcodeType.QR_CODE) {
+            call.reject("Invalid Type");
+            return;
+        }
         String data = call.getString("data", "");
-        Log.d(TAG, "Barcode " + data);
 
         try {
             cmd.append(cmd.getBarcodeCmd(type, dataCodeSetting, data));
         } catch (SdkException ignored) {
         }
+
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void selfTest(PluginCall call) {
         cmd.append(cmd.getSelfTestCmd());
+        call.resolve();
     }
 
     //endregion
 
     //region Content Actions
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void beep(PluginCall call) {
         cmd.append(cmd.getBeepCmd());
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void openDrawer(PluginCall call) {
         cmd.append(cmd.getOpenMoneyBoxCmd());
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void cutPaper(PluginCall call) {
         boolean half = Boolean.TRUE.equals(call.getBoolean("half", false));
         cmd.append(half ? cmd.getHalfCutCmd() : cmd.getAllCutCmd());
+
+        call.resolve();
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void feedCutPaper(PluginCall call) {
         cmd.append(new byte[]{(byte) '\n'});
         cutPaper(call);
@@ -538,16 +574,15 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     //endregion
 
     //region Printing Actions
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     public void begin(PluginCall call) {
         cmd = new EscCmd();
         clearFormatting(call);
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_PROMISE)
+    @PluginMethod
     public void write(PluginCall call) {
         _writeRaw(call, cmd.getAppendCmds());
-        call.resolve();
     }
     //endregion
 
@@ -578,6 +613,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         escCmd.append(escCmd.getLFCRCmd());
         escCmd.append(escCmd.getEndCmd());
         rtPrinter.writeMsgAsync(escCmd.getAppendCmds());
+        call.resolve();
     }
 
     private boolean bluetoothCheck(PluginCall call) {
