@@ -284,7 +284,7 @@ public class BluetoothPrintPlugin: CAPPlugin {
         textSetting.isUnderline = Set_DisEnable
         textSetting.isBold = Set_DisEnable
         bitmapSetting.alignmode = Align_NoSetting
-        bitmapSetting.limitWidth = 45 * 8;
+        bitmapSetting.limitWidth = 48 * 8;
         currentDPI = 8;
         dataCodeSetting.alignmode = Align_NoSetting;
         dataCodeSetting.coord.width = 3;

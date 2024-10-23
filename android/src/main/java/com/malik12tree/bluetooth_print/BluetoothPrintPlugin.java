@@ -393,7 +393,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         bitmapSetting = new BitmapSetting();
         dataCodeSetting = new BarcodeSetting();
 
-        bitmapSetting.setBimtapLimitWidth(45 * 8);
+        bitmapSetting.setBimtapLimitWidth(48 * 8);
         // Reset Action Formatters
         this.align();
         this.lineSpacing();
