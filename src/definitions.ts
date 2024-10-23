@@ -188,7 +188,6 @@ export interface BluetoothPrintPlugin {
   //#region Image Formatting
   /**
    *
-   * @category Image Formatting
    * Sets the DPI used to correctly encode the width of the image used in {@linkcode BluetoothPrintPlugin.limitWidth} based on the printer.
    *
    * @param dpi - The DPI value.
@@ -201,6 +200,8 @@ export interface BluetoothPrintPlugin {
    * @see {@linkcode PrinterDPIs}
    * @see {@linkcode BluetoothPrintPlugin.limitWidth}
    * @see {@linkcode BluetoothPrintPlugin.image}
+   *
+   * @category Image Formatting
    */
   dpi(dpi: PrinterDPI): this;
   /**

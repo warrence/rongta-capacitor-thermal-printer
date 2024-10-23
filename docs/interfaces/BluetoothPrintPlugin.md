@@ -286,6 +286,36 @@ Formats following texts with inverted colors. (white text on black background)
 
 ## Image Formatting
 
+### dpi()
+
+> **dpi**(`dpi`): `this`
+
+Sets the DPI used to correctly encode the width of the image used in [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth) based on the printer.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `dpi` | `200` \| `300` | The DPI value. |
+
+#### Returns
+
+`this`
+
+#### Remarks
+
+- The initial DPI is 200.
+- Must be either 200 or 300. Any other value will be treated as 200.
+
+#### See
+
+ - [`PrinterDPI`](../type-aliases/PrinterDPI.md)
+ - [`PrinterDPIs`](../variables/PrinterDPIs.md)
+ - [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
+ - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
+
+***
+
 ### limitWidth()
 
 > **limitWidth**(`width`): `this`
@@ -790,32 +820,3 @@ Calling this method doesn't reset the print queue
 #### See
 
 [`BluetoothPrintPlugin.begin`](BluetoothPrintPlugin.md#begin)
-
-## Image Formatting
-Sets the DPI used to correctly encode the width of the image used in {@linkcode BluetoothPrintPlugin.limitWidth} based on the printer.
-
-### dpi()
-
-> **dpi**(`dpi`): `this`
-
-#### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `dpi` | `200` \| `300` | The DPI value. |
-
-#### Returns
-
-`this`
-
-#### Remarks
-
-- The initial DPI is 200.
-- Must be either 200 or 300. Any other value will be treated as 200.
-
-#### See
-
- - [`PrinterDPI`](../type-aliases/PrinterDPI.md)
- - [`PrinterDPIs`](../variables/PrinterDPIs.md)
- - [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
