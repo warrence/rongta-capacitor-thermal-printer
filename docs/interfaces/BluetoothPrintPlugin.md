@@ -108,27 +108,6 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 > **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
 
-Emitted when the printer status changes. Currently not meaningful at all.
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `event` | `"datachanged"` |
-| `handler` | () => `void` |
-
-##### Returns
-
-`Promise`\<`PluginListenerHandle`\>
-
-##### Remarks
-
-If you're using Angular as your framework of choice, the handler doesn't run in zone.
-
-#### addListener(event, handler)
-
-> **addListener**(`event`, `handler`): `Promise`\<`PluginListenerHandle`\>
-
 Emitted when a printer is successfully connected.
 
 ##### Parameters

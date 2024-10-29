@@ -96,12 +96,6 @@ public class BluetoothPrintPlugin: CAPPlugin {
             case NSNotification.Name.PrinterDisconnected:
                 self.notifyListeners("disconnected", data: nil)
                 break;
-            case NSNotification.Name(BleDeviceDataChanged):
-                let status = (notification.object as! ObserverObj).msgobj as! PrinterStatusObj;
-                
-                self.notifyListeners("datachanged", data: nil)
-                break;
-                
             default:
                 break;
             }

@@ -58,15 +58,6 @@ export class HomePage {
 
       await toast.present();
     });
-    BluetoothPrint.addListener('datachanged', async () => {
-      const toast = await this.toastController.create({
-        message: 'Data Changed!',
-        duration: 1500,
-        position: 'bottom',
-      });
-
-      await toast.present();
-    });
     BluetoothPrint.addListener('discoveryFinish', () => {
       zone.run(() => {
         this.isScanning = false;

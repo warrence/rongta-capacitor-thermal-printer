@@ -73,15 +73,6 @@ export interface BluetoothPrintPlugin {
    */
   addListener(event: 'discoveryFinish', handler: () => void): Promise<PluginListenerHandle>;
   /**
-   * Emitted when the printer status changes. Currently not meaningful at all.
-   *
-   * @remarks
-   * If you're using Angular as your framework of choice, the handler doesn't run in zone.
-   *
-   * @category Event Listeners
-   */
-  addListener(event: 'datachanged', handler: () => void): Promise<PluginListenerHandle>;
-  /**
    * Emitted when a printer is successfully connected.
    *
    * @remarks
