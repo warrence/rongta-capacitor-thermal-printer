@@ -3,38 +3,25 @@ import type { PluginListenerHandle } from '@capacitor/core';
 export const PrinterDPIs = [200, 300] as const;
 export const PrintAlignments = ['left', 'center', 'right'] as const;
 export const PrinterFonts = ['A', 'B'] as const;
-export const BarcodeTextPlacements = [
-  'none',
-  'above',
-  'below',
-  'both',
-] as const;
-export const BarcodeTypes = [
-  'UPC_A',
-  'EAN8',
-  'EAN13',
-  'CODE39',
-  'ITF',
-  'CODABAR',
-  'CODE128',
-] as const;
+export const BarcodeTextPlacements = ['none', 'above', 'below', 'both'] as const;
+export const BarcodeTypes = ['UPC_A', 'EAN8', 'EAN13', 'CODE39', 'ITF', 'CODABAR', 'CODE128'] as const;
 export const DataCodeTypes = ['QR', ...BarcodeTypes] as const;
 
 /**
  * When `"default"`, uses default internal printer settings.
  */
 export type IsEnabled = boolean | 'default';
-export type PrinterDPI = typeof PrinterDPIs[number];
-export type PrintAlignment = typeof PrintAlignments[number];
-export type BarcodeTextPlacement = typeof BarcodeTextPlacements[number];
+export type PrinterDPI = (typeof PrinterDPIs)[number];
+export type PrintAlignment = (typeof PrintAlignments)[number];
+export type BarcodeTextPlacement = (typeof BarcodeTextPlacements)[number];
 /**
  * Available printer font types.
  * - `A`: Size of 12x24.
  * - `B`: Size of 9x24.
  * */
-export type PrinterFont = typeof PrinterFonts[number];
-export type BarcodeType = typeof BarcodeTypes[number];
-export type DataCodeType = typeof DataCodeTypes[number];
+export type PrinterFont = (typeof PrinterFonts)[number];
+export type BarcodeType = (typeof BarcodeTypes)[number];
+export type DataCodeType = (typeof DataCodeTypes)[number];
 export type Base64Encodable = string | Blob | BufferSource | number[];
 
 export interface BluetoothDevice {
@@ -84,10 +71,7 @@ export interface BluetoothPrintPlugin {
    *
    * @category Event Listeners
    */
-  addListener(
-    event: 'discoveryFinish',
-    handler: () => void,
-  ): Promise<PluginListenerHandle>;
+  addListener(event: 'discoveryFinish', handler: () => void): Promise<PluginListenerHandle>;
   /**
    * Emitted when the printer status changes. Currently not meaningful at all.
    *
@@ -96,10 +80,7 @@ export interface BluetoothPrintPlugin {
    *
    * @category Event Listeners
    */
-  addListener(
-    event: 'datachanged',
-    handler: () => void,
-  ): Promise<PluginListenerHandle>;
+  addListener(event: 'datachanged', handler: () => void): Promise<PluginListenerHandle>;
   /**
    * Emitted when a printer is successfully connected.
    *
@@ -108,10 +89,7 @@ export interface BluetoothPrintPlugin {
    *
    * @category Event Listeners
    */
-  addListener(
-    event: 'connected',
-    handler: () => void,
-  ): Promise<PluginListenerHandle>;
+  addListener(event: 'connected', handler: () => void): Promise<PluginListenerHandle>;
   /**
    * Emitted when a printer is disconnected.
    *
@@ -120,10 +98,7 @@ export interface BluetoothPrintPlugin {
    *
    * @category Event Listeners
    */
-  addListener(
-    event: 'disconnected',
-    handler: () => void,
-  ): Promise<PluginListenerHandle>;
+  addListener(event: 'disconnected', handler: () => void): Promise<PluginListenerHandle>;
 
   //#region Text Formatting
   /**

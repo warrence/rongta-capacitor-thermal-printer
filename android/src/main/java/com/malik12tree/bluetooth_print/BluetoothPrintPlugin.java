@@ -13,9 +13,7 @@ import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
-
 import androidx.annotation.RequiresApi;
-
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PermissionState;
@@ -49,52 +47,26 @@ import com.rt.printerlibrary.printer.RTPrinter;
 import com.rt.printerlibrary.setting.BarcodeSetting;
 import com.rt.printerlibrary.setting.BitmapSetting;
 import com.rt.printerlibrary.setting.TextSetting;
-
-import org.json.JSONException;
-
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
+import org.json.JSONException;
 
 @CapacitorPlugin(
-        name = "BluetoothPrint",
-        permissions = {
-                @Permission(
-                        strings = {
-                                Manifest.permission.ACCESS_COARSE_LOCATION
-                        }, alias = "ACCESS_COARSE_LOCATION"
-                ),
-                @Permission(
-                        strings = {
-                                Manifest.permission.ACCESS_FINE_LOCATION
-                        }, alias = "ACCESS_FINE_LOCATION"
-                ),
-                @Permission(
-                        strings = {
-                                Manifest.permission.BLUETOOTH
-                        }, alias = "BLUETOOTH"
-                ),
-                @Permission(
-                        strings = {
-                                Manifest.permission.BLUETOOTH_ADMIN
-                        }, alias = "BLUETOOTH_ADMIN"
-                ),
-                @Permission(
-                        strings = {
-                                Manifest.permission.BLUETOOTH_SCAN
-                        }, alias = "BLUETOOTH_SCAN"
-                ),
-                @Permission(
-                        strings = {
-                                Manifest.permission.BLUETOOTH_CONNECT
-                        }, alias = "BLUETOOTH_CONNECT"
-                )
-        }
-
+    name = "BluetoothPrint",
+    permissions = {
+        @Permission(strings = { Manifest.permission.ACCESS_COARSE_LOCATION }, alias = "ACCESS_COARSE_LOCATION"),
+        @Permission(strings = { Manifest.permission.ACCESS_FINE_LOCATION }, alias = "ACCESS_FINE_LOCATION"),
+        @Permission(strings = { Manifest.permission.BLUETOOTH }, alias = "BLUETOOTH"),
+        @Permission(strings = { Manifest.permission.BLUETOOTH_ADMIN }, alias = "BLUETOOTH_ADMIN"),
+        @Permission(strings = { Manifest.permission.BLUETOOTH_SCAN }, alias = "BLUETOOTH_SCAN"),
+        @Permission(strings = { Manifest.permission.BLUETOOTH_CONNECT }, alias = "BLUETOOTH_CONNECT")
+    }
 )
 public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
+
     private static final String TAG = "BluetoothPrintPlugin";
     static final List<String> alignments = Arrays.asList("left", "center", "right");
     static final List<String> fonts = Arrays.asList("A", "B");
@@ -129,7 +101,8 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                 // Get the BluetoothDevice object from the Intent
                 BluetoothDevice device = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-                    device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);                } else {
+                    device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);
+                } else {
                     device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 }
                 if (device == null) return;
@@ -142,9 +115,14 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                     devices.add(device);
                 }
 
-                BluetoothPrintPlugin.this.notifyListeners("discoverDevices", new JSObject() {{
-                    put("devices", getJsonDevices());
-                }});
+                BluetoothPrintPlugin.this.notifyListeners(
+                        "discoverDevices",
+                        new JSObject() {
+                            {
+                                put("devices", getJsonDevices());
+                            }
+                        }
+                    );
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 notifyListeners("discoveryFinish", null);
                 mBluetoothAdapter.cancelDiscovery();
@@ -156,7 +134,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
     public BluetoothPrintPlugin() {
         super();
-
         PrinterObserverManager.getInstance().add(this);
         ThermalPrinterFactory printerFactory = new ThermalPrinterFactory();
         rtPrinter = printerFactory.create();
@@ -173,7 +150,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
 
         Log.d(TAG, "Loading Bluetooth Permissions: " + bluetoothPermissions);
-
     }
 
     @Override
@@ -185,7 +161,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
         PrinterObserverManager.getInstance().remove(this);
     }
-
 
     @PluginMethod
     @SuppressLint("MissingPermission")
@@ -256,6 +231,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
             call.reject("Failed to connect!");
         }
     }
+
     @PluginMethod
     public void disconnect(PluginCall call) {
         if (rtPrinter != null && rtPrinter.getConnectState() == ConnectStateEnum.Connected) {
@@ -265,7 +241,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
             call.reject("Not Connected!");
         }
     }
-
 
     //region Text Formatting
     @PluginMethod
@@ -322,6 +297,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         bitmapSetting.setBimtapLimitWidth(width * 8);
         call.resolve();
     }
+
     //    endregion
 
     //region Hybrid Formatting
@@ -340,21 +316,21 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     public void align(int alignment) {
         if (alignment > 2 || alignment < 0) alignment = 0;
 
-        cmd.append(new byte[]{27, 97, (byte) alignment});
+        cmd.append(new byte[] { 27, 97, (byte) alignment });
     }
 
     public void lineSpacing(int spacing) {
         if (spacing < 0) spacing = 0;
         if (spacing > 255) spacing = 255;
 
-        cmd.append(new byte[]{27, 51, (byte) spacing});
+        cmd.append(new byte[] { 27, 51, (byte) spacing });
     }
 
     public void charSpacing(int spacing) {
         if (spacing < 0) spacing = 0;
         if (spacing > 30) spacing = 30;
 
-        cmd.append(new byte[]{27, 32, (byte) spacing});
+        cmd.append(new byte[] { 27, 32, (byte) spacing });
     }
 
     @PluginMethod
@@ -411,6 +387,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         this.charSpacing();
         call.resolve();
     }
+
     //endregion
 
     //region Data Code Formatting
@@ -418,16 +395,14 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     @PluginMethod
     public void barcodeWidth(PluginCall call) {
         Integer width = call.getInt("width", 0);
-        if (width != null)
-            dataCodeSetting.setBarcodeWidth(width);
+        if (width != null) dataCodeSetting.setBarcodeWidth(width);
         call.resolve();
     }
 
     @PluginMethod
     public void barcodeHeight(PluginCall call) {
         Integer height = call.getInt("height");
-        if (height != null)
-            dataCodeSetting.setHeightInDot(height);
+        if (height != null) dataCodeSetting.setHeightInDot(height);
 
         call.resolve();
     }
@@ -444,6 +419,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         dataCodeSetting.setBarcodeStringPosition(placementEnumValues[placement]);
         call.resolve();
     }
+
     //endregion
 
     //region Content
@@ -452,10 +428,8 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         String text = call.getString("text");
 
         try {
-            if (text != null)
-                cmd.append(cmd.getTextCmd(textSetting, text, "UTF-8"));
-        } catch (UnsupportedEncodingException ignored) {
-        }
+            if (text != null) cmd.append(cmd.getTextCmd(textSetting, text, "UTF-8"));
+        } catch (UnsupportedEncodingException ignored) {}
         call.resolve();
     }
 
@@ -471,8 +445,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                 byte[] d = Base64.getDecoder().decode(image.substring(image.indexOf(",") + 1));
                 cmd.append(cmd.getBitmapCmd(bitmapSetting, BitmapFactory.decodeByteArray(d, 0, d.length)));
             }
-        } catch (SdkException ignored) {
-        }
+        } catch (SdkException ignored) {}
         call.resolve();
     }
 
@@ -516,8 +489,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         String data = call.getString("data", "");
         try {
             cmd.append(cmd.getBarcodeCmd(BarcodeType.QR_CODE, dataCodeSetting, data));
-        } catch (SdkException ignored) {
-        }
+        } catch (SdkException ignored) {}
         call.resolve();
     }
 
@@ -541,8 +513,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
         try {
             cmd.append(cmd.getBarcodeCmd(type, dataCodeSetting, data));
-        } catch (SdkException ignored) {
-        }
+        } catch (SdkException ignored) {}
 
         call.resolve();
     }
@@ -578,7 +549,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
 
     @PluginMethod
     public void feedCutPaper(PluginCall call) {
-        cmd.append(new byte[]{(byte) '\n'});
+        cmd.append(new byte[] { (byte) '\n' });
         cutPaper(call);
     }
 
@@ -595,8 +566,8 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     public void write(PluginCall call) {
         _writeRaw(call, cmd.getAppendCmds());
     }
-    //endregion
 
+    //endregion
 
     //region Utils
     SettingEnum parseIsEnabled(PluginCall call) {
@@ -633,14 +604,9 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
             mBluetoothAdapter = bluetoothManager.getAdapter();
         }
 
-
         Log.d(TAG, "Has Bluetooth Permissions: " + hasBluetoothPermission());
         if (!hasBluetoothPermission()) {
-            requestPermissionForAliases(
-                    bluetoothPermissions.toArray(new String[]{}),
-                    call,
-                    "permissionCallback"
-            );
+            requestPermissionForAliases(bluetoothPermissions.toArray(new String[] {}), call, "permissionCallback");
 
             return false;
         }
@@ -655,7 +621,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     }
 
     private boolean hasBluetoothPermission() {
-//        return getPermissionState("bluetooth") == PermissionState.GRANTED;
+        //        return getPermissionState("bluetooth") == PermissionState.GRANTED;
         for (String permission : bluetoothPermissions) {
             if (getPermissionState(permission) != PermissionState.GRANTED) {
                 return false;
@@ -669,9 +635,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     protected void permissionCallback(PluginCall call) {
         if (hasBluetoothPermission()) {
             try {
-                BluetoothPrintPlugin.class
-                        .getMethod(call.getMethodName(), PluginCall.class)
-                        .invoke(this, call);
+                BluetoothPrintPlugin.class.getMethod(call.getMethodName(), PluginCall.class).invoke(this, call);
             } catch (Exception e) {
                 call.reject("Bluetooth method doesn't exit?!");
             }
@@ -680,15 +644,18 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
     }
 
-
     @SuppressLint("MissingPermission")
     private JSArray getJsonDevices() {
         JSArray array = new JSArray();
         for (BluetoothDevice device : devices) {
-            array.put(new JSObject() {{
-                put("name", device.getName());
-                put("address", device.getAddress());
-            }});
+            array.put(
+                new JSObject() {
+                    {
+                        put("name", device.getName());
+                        put("address", device.getAddress());
+                    }
+                }
+            );
         }
 
         return array;
@@ -710,8 +677,6 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     }
 
     @Override
-    public void printerReadMsgCallback(PrinterInterface printerInterface, byte[] bytes) {
-    }
-
+    public void printerReadMsgCallback(PrinterInterface printerInterface, byte[] bytes) {}
     //endregion
 }
