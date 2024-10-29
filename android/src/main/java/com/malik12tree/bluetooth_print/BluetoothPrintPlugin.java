@@ -236,6 +236,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         String address = call.getString("address");
         if (address == null) {
             call.reject("Please provide address!");
+            return;
         }
 
         BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
@@ -255,6 +256,16 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
             call.reject("Failed to connect!");
         }
     }
+    @PluginMethod
+    public void disconnect(PluginCall call) {
+        if (rtPrinter != null && rtPrinter.getConnectState() == ConnectStateEnum.Connected) {
+            rtPrinter.disConnect();
+            call.resolve();
+        } else {
+            call.reject("Not Connected!");
+        }
+    }
+
 
     //region Text Formatting
     @PluginMethod

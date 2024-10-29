@@ -22,6 +22,7 @@ export class HomePage {
   selectedDataCodeType: DataCodeType = 'QR';
   devices: any = [];
   isScanning = false;
+  isConnected = false;
   constructor(zone: NgZone, private toastController: ToastController) {
     BluetoothPrint.addListener('discoverDevices', async ({ devices }) => {
       zone.run(() => {
@@ -29,6 +30,9 @@ export class HomePage {
       });
     });
     BluetoothPrint.addListener('connected', async () => {
+      zone.run(() => {
+        this.isConnected = true;
+      });
       const toast = await this.toastController.create({
         message: 'Connected!',
         duration: 1500,
@@ -39,6 +43,9 @@ export class HomePage {
       await toast.present();
     });
     BluetoothPrint.addListener('disconnected', async () => {
+      zone.run(() => {
+        this.isConnected = false;
+      });
       const toast = await this.toastController.create({
         message: 'Disconnected!',
         duration: 1500,
@@ -78,6 +85,9 @@ export class HomePage {
   stopScan() {
     // stopScan already dispatches the discoveryFinish event
     BluetoothPrint.stopScan();
+  }
+  disconnect() {
+    BluetoothPrint.disconnect();
   }
 
   printImage() {

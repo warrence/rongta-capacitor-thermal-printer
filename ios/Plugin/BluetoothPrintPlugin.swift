@@ -146,14 +146,34 @@ public class BluetoothPrintPlugin: CAPPlugin {
         guard let address = call.getString("address") else { call.reject("Please provide address!"); return }
         
         
-        //        blueToothPI.stopScan()
         manager.connectBLE(address: address)
         NSLog("CONNECT %@", address)
         
         call.resolve()
     }
-    @objc func disconnect() {
-        manager.disconnect()
+    @objc func disconnect(_ call: CAPPluginCall) {
+        if manager.currentPrinter.isOpen {
+            blueToothPI.stopScan()
+            discoveryFinish?.perform()
+
+            let devices = self.blueToothPI.getBleDevicelist() as! [RTDeviceinfo];
+            
+            let exists = devices.contains(where: { $0.uuidString == manager.currentPrinter.printerPi.address });
+            
+            manager.disconnect()
+            // Since manager.disconnect() doesn't trigger
+            // PrinterDisconnected notification if the
+            // device doesn't exist in the device list.
+            // Thus, we manually trigger the notification.
+            if !exists {
+                self.notifyListeners("disconnected", data: nil);
+            }
+
+            
+            call.resolve()
+        } else {
+            call.reject("Not Connected!")
+        }
     }
     
     // MARK: - Text Formatting

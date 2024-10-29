@@ -60,6 +60,12 @@
           <ion-label>Stop Scanning</ion-label>
         </ion-button>
       }
+      @if (isConnected) {
+        <ion-button fill="outline" color="danger" (click)="disconnect()">
+          <ion-icon slot="start" name="power"></ion-icon>
+          <ion-label>Disconnect</ion-label>
+        </ion-button>
+      }
     </ion-col>
   </div>
 </div>
