@@ -1,4 +1,20 @@
-# Capacitor Thermal Printer
+<h1 align="center">
+  <img
+    src="https://raw.githubusercontent.com/Malik12tree/capacitor-thermal-printer/main/assets/Logo.png"
+    width="64"
+    valign="middle"
+  />
+  <code>capacitor-thermal-printer</code>
+  <br>
+  <img src="https://img.shields.io/badge/bluetooth-6796f9?&logo=bluetooth&logoColor=white">
+  <img src="https://img.shields.io/badge/Capacitor-119EFF?logo=Capacitor&logoColor=white">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white">
+  <img src="https://img.shields.io/badge/iOS-157EFB?logo=apple&logoColor=white">
+  <br>
+  <img src="https://img.shields.io/github/license/Malik12tree/capacitor-thermal-printer?color=orange">
+
+</h1>
 
 High-speed, reliable bluetooth ESC thermal printer and encoder Capacitor plugin. Both on Android and iOS!
 
@@ -26,11 +42,12 @@ import { BluetoothPrint } from 'capacitor-thermal-printer';
 ### 2. Connect to printer
 
 ```ts
+BluetoothPrint.addListener('connected', () => {
+  console.log('Connected!');
+});
 await BluetoothPrint.connect({
   address: 'XX:XX:XX:XX:XX:XX',
-})
-  .then(() => console.log('Connected!'))
-  .catch(e => console.error('Failed to connect!', e));
+});
 ```
 
 You can also use the `startScan` method to discover nearby devices.
@@ -39,7 +56,7 @@ You can also use the `startScan` method to discover nearby devices.
 - On iOS, all bluetooth devices will be discovered.
 
 ```ts
-await BluetoothPrint.addListener('discoverDevices', devices => {
+BluetoothPrint.addListener('discoverDevices', (devices) => {
   console.log('Discovered devices list:', devices);
 });
 
@@ -52,7 +69,7 @@ await BluetoothPrint.startScan();
 await BluetoothPrint.begin()
   .align('center')
 
-  .image('...')
+  .image('https://raw.githubusercontent.com/Malik12tree/capacitor-thermal-printer/main/assets/Logo-Black.png')
 
   .bold()
   .underline()
@@ -76,7 +93,7 @@ await BluetoothPrint.begin()
 
   .write()
   .then(() => console.log('Printed!'))
-  .catch(e => console.error('Failed to print!', e));
+  .catch((e) => console.error('Failed to print!', e));
 ```
 
 ## Documentation
