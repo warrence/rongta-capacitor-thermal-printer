@@ -35,6 +35,7 @@ export type BarcodeTextPlacement = typeof BarcodeTextPlacements[number];
 export type PrinterFont = typeof PrinterFonts[number];
 export type BarcodeType = typeof BarcodeTypes[number];
 export type DataCodeType = typeof DataCodeTypes[number];
+export type Base64Encodable = string | Blob | BufferSource | number[];
 
 export interface BluetoothDevice {
   name: string;
@@ -354,7 +355,7 @@ export interface BluetoothPrintPlugin {
   /**
    * Adds an image to the print queue.
    *
-   * @param dataURLOrBase64 - Image data URL or base64.
+   * @param data - Image data. Can be a URL, a data URL, a Base64, a Blob, a BufferSource or a number array.
    *
    * @remarks
    * The supported image formats the running platform's supported formats.
@@ -364,7 +365,7 @@ export interface BluetoothPrintPlugin {
    *
    * @category Content
    */
-  image(dataURLOrBase64: string): this;
+  image(data: Base64Encodable): this;
   /**
    * Adds a QR code to the print queue.
    *
@@ -388,25 +389,16 @@ export interface BluetoothPrintPlugin {
    */
   barcode(type: BarcodeType, data: string): this;
   /**
-   * Adds raw data (base64 encoded) to the print queue. Use only if you know what you are doing.
-   * Using base64 encoding can greatly improve the speed of data transfer through the Capacitor plugin bridge.
+   * Adds raw data to the print queue. Use only if you know what you are doing.
    *
-   * @param base64 - Base64 encoded data.
-   *
-   * @category Content
-   */
-  raw(base64: string): this;
-  /**
-   * Adds raw data (buffer) to the print queue. Use only if you know what you are doing.
-   *
-   * @param buffer - Buffer containing the data.
+   * @param data - The data. Can be a URL, a data URL, a Base64, a Blob, a BufferSource or a number array.
    *
    * @remarks
    * Each byte will be truncated/wrapped if it's outside the range of 0 to 255.
    *
    * @category Content
    */
-  raw(buffer: number[]): this;
+  raw(data: Base64Encodable): this;
   /**
    * Adds a self-test instruction to the print queue which usually prints general information about the printer and its capabilities.
    *

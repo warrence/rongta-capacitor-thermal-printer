@@ -1,12 +1,13 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { BluetoothPrintPlugin } from './definitions';
-import type { WrappedMethodsMap } from './private-definitions';
+import type { BluetoothPrintPlugin, Base64Encodable } from './definitions';
+import { WrappedMethodsArgsMap, WrappedMethodsMiddlewareMap } from './private-definitions';
 import CallablePromise from './utils/CallablePromise';
+import Encoding from './utils/Encoding';
 
 const BluetoothPrintImplementation = registerPlugin<any>('BluetoothPrint');
 
-const wrappedMethods: WrappedMethodsMap = {
+const wrappedMethodsArgNames = {
   //#region Text Formatting
   bold: ['enabled'],
   underline: ['enabled'],
@@ -54,7 +55,53 @@ const wrappedMethods: WrappedMethodsMap = {
   begin: [],
   write: [],
   //#endregion
-} as const;
+} as const satisfies WrappedMethodsArgsMap;
+
+const wrappedMethodsMiddleware = {
+  async image(data: Base64Encodable) {
+    return { image: await Encoding.toBase64(data) };
+  },
+  async raw(data: Base64Encodable) {
+    return { data: await Encoding.toBase64(data) };
+  },
+} as const satisfies WrappedMethodsMiddlewareMap<typeof wrappedMethodsArgNames>;
+
+function mapArgs(key: string, args: any[]) {
+  if (key in wrappedMethodsMiddleware) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return wrappedMethodsMiddleware[key](...args);
+  }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const argNames = wrappedMethodsArgNames[key] as string[];
+
+  return Object.fromEntries(argNames.map((name, index) => [name, structuredClone(args[index])]));
+}
+
+const wrappedMethods: any = {};
+
+for (const key in wrappedMethodsArgNames) {
+  wrappedMethods[key] = (...args: any[]) => {
+    // Capture and clone the arguments before anything.
+    const options = mapArgs(key, args);
+
+    const trailingLock = callQueue.pop();
+    const lock = new CallablePromise<void>();
+    callQueue.push(lock);
+
+    const promise = Promise.resolve(trailingLock).then(async () => {
+      try {
+        await BluetoothPrintImplementation[key](await options);
+      } finally {
+        lock.resolve();
+      }
+    });
+    if (key === 'write') return promise;
+
+    return BluetoothPrint;
+  };
+}
 
 /// ! To preserve the builder pattern while maintaining thread safety,
 /// ! each method call is queued asynchronously before being executed.
@@ -65,34 +112,11 @@ const BluetoothPrint = new Proxy(
   {},
   {
     get(_, prop) {
-      if (!(prop in wrappedMethods)) {
-        return BluetoothPrintImplementation[prop];
+      if (prop in wrappedMethods) {
+        return wrappedMethods[prop];
       }
 
-      const argNames = wrappedMethods[prop as keyof typeof wrappedMethods];
-
-      // TODO: Memoize
-      return (...args: any[]) => {
-        // Capture and clone the arguments before anything.
-        const options = Object.fromEntries(
-          argNames.map((name, index) => [name, structuredClone(args[index])]),
-        );
-
-        const trailingLock = callQueue.pop();
-        const lock = new CallablePromise<void>();
-        callQueue.push(lock);
-
-        const promise = Promise.resolve(trailingLock).then(async () => {
-          try {
-            await BluetoothPrintImplementation[prop](options);
-          } finally {
-            lock.resolve();
-          }
-        });
-        if (prop === 'write') return promise;
-
-        return BluetoothPrint;
-      };
+      return BluetoothPrintImplementation[prop];
     },
   },
 ) as BluetoothPrintPlugin;

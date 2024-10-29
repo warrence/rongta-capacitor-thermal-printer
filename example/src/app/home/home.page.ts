@@ -23,7 +23,10 @@ export class HomePage {
   devices: any = [];
   isScanning = false;
   isConnected = false;
-  constructor(zone: NgZone, private toastController: ToastController) {
+  constructor(
+    zone: NgZone,
+    private toastController: ToastController,
+  ) {
     BluetoothPrint.addListener('discoverDevices', async ({ devices }) => {
       zone.run(() => {
         this.devices = devices;
@@ -99,15 +102,11 @@ export class HomePage {
 
       if (!fileInput.files!.length) return;
 
-      const reader = new FileReader();
-      reader.onload = async () => {
-        BluetoothPrint.begin()
-          .image(reader.result as string)
-          .write()
-          .then(() => this.successPrintError())
-          .catch(e => this.catchPrintError(e));
-      };
-      reader.readAsDataURL(fileInput!.files![0]);
+      BluetoothPrint.begin()
+        .image(fileInput!.files![0])
+        .write()
+        .then(() => this.successPrintError())
+        .catch((e) => this.catchPrintError(e));
     };
     fileInput.addEventListener('change', fileHandler);
     fileInput.click();
@@ -120,12 +119,9 @@ export class HomePage {
       .text(text)
       .write()
       .then(() => this.successPrintError())
-      .catch(e => this.catchPrintError(e));
+      .catch((e) => this.catchPrintError(e));
   }
-  printDataCode(
-    data: string | null | undefined,
-    placement: BarcodeTextPlacement | null,
-  ) {
+  printDataCode(data: string | null | undefined, placement: BarcodeTextPlacement | null) {
     if (!data) return;
     BluetoothPrint.begin().align('center');
     if (this.selectedDataCodeType === 'QR') {
@@ -136,21 +132,21 @@ export class HomePage {
     }
     BluetoothPrint.write()
       .then(() => this.successPrintError())
-      .catch(e => this.catchPrintError(e));
+      .catch((e) => this.catchPrintError(e));
   }
   beep() {
     BluetoothPrint.begin()
       .beep()
       .write()
       .then(() => this.successPrintError())
-      .catch(e => this.catchPrintError(e));
+      .catch((e) => this.catchPrintError(e));
   }
   cutPaper() {
     BluetoothPrint.begin()
       .feedCutPaper()
       .write()
       .then(() => this.successPrintError())
-      .catch(e => this.catchPrintError(e));
+      .catch((e) => this.catchPrintError(e));
   }
   printShowcase() {
     BluetoothPrint.begin()
@@ -173,7 +169,7 @@ export class HomePage {
       .beep()
       .write()
       .then(() => this.successPrintError())
-      .catch(e => this.catchPrintError(e));
+      .catch((e) => this.catchPrintError(e));
   }
 
   private async successPrintError() {

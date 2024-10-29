@@ -574,7 +574,7 @@ To print a newline, explicitly end the text with a newline character (`\n`).
 
 ### image()
 
-> **image**(`dataURLOrBase64`): `this`
+> **image**(`data`): `this`
 
 Adds an image to the print queue.
 
@@ -582,7 +582,7 @@ Adds an image to the print queue.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `dataURLOrBase64` | `string` | Image data URL or base64. |
+| `data` | [`Base64Encodable`](../type-aliases/Base64Encodable.md) | Image data. Can be a URL, a data URL, a Base64, a Blob, a BufferSource or a number array. |
 
 #### Returns
 
@@ -645,40 +645,21 @@ Adds a barcode to the print queue.
 
 ### raw()
 
-#### raw(base64)
+> **raw**(`data`): `this`
 
-> **raw**(`base64`): `this`
+Adds raw data to the print queue. Use only if you know what you are doing.
 
-Adds raw data (base64 encoded) to the print queue. Use only if you know what you are doing.
-Using base64 encoding can greatly improve the speed of data transfer through the Capacitor plugin bridge.
-
-##### Parameters
+#### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `base64` | `string` | Base64 encoded data. |
+| `data` | [`Base64Encodable`](../type-aliases/Base64Encodable.md) | The data. Can be a URL, a data URL, a Base64, a Blob, a BufferSource or a number array. |
 
-##### Returns
-
-`this`
-
-#### raw(buffer)
-
-> **raw**(`buffer`): `this`
-
-Adds raw data (buffer) to the print queue. Use only if you know what you are doing.
-
-##### Parameters
-
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `buffer` | `number`[] | Buffer containing the data. |
-
-##### Returns
+#### Returns
 
 `this`
 
-##### Remarks
+#### Remarks
 
 Each byte will be truncated/wrapped if it's outside the range of 0 to 255.
 

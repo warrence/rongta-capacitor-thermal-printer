@@ -18,6 +18,7 @@
 - [PrinterFont](type-aliases/PrinterFont.md)
 - [BarcodeType](type-aliases/BarcodeType.md)
 - [DataCodeType](type-aliases/DataCodeType.md)
+- [Base64Encodable](type-aliases/Base64Encodable.md)
 
 ## Variables
 
