@@ -2,9 +2,9 @@
 
 ***
 
-[capacitor-thermal-printer](../README.md) / BluetoothPrintPlugin
+[capacitor-thermal-printer](../README.md) / CapacitorThermalPrinterPlugin
 
-# Interface: BluetoothPrintPlugin
+# Interface: CapacitorThermalPrinterPlugin
 
 ## Connectivity
 
@@ -101,8 +101,8 @@ If you're using Angular as your framework of choice, the handler doesn't run in 
 
 ##### See
 
- - [`BluetoothPrintPlugin.startScan`](BluetoothPrintPlugin.md#startscan)
- - [`BluetoothPrintPlugin.stopScan`](BluetoothPrintPlugin.md#stopscan)
+ - [`CapacitorThermalPrinterPlugin.startScan`](CapacitorThermalPrinterPlugin.md#startscan)
+ - [`CapacitorThermalPrinterPlugin.stopScan`](CapacitorThermalPrinterPlugin.md#stopscan)
 
 #### addListener(event, handler)
 
@@ -167,7 +167,7 @@ Formats following texts as bold.
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
 
 ***
 
@@ -190,7 +190,7 @@ Formats following texts as underlined.
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
 
 ***
 
@@ -213,8 +213,8 @@ Formats following texts with double width of each character.
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.doubleHeight`](BluetoothPrintPlugin.md#doubleheight)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.doubleHeight`](CapacitorThermalPrinterPlugin.md#doubleheight)
 
 ***
 
@@ -237,8 +237,8 @@ Formats following texts with double height of each character.
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.doubleWidth`](BluetoothPrintPlugin.md#doublewidth)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.doubleWidth`](CapacitorThermalPrinterPlugin.md#doublewidth)
 
 ***
 
@@ -261,7 +261,7 @@ Formats following texts with inverted colors. (white text on black background)
 #### See
 
  - [`IsEnabled`](../type-aliases/IsEnabled.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
 
 ## Image Formatting
 
@@ -269,7 +269,7 @@ Formats following texts with inverted colors. (white text on black background)
 
 > **dpi**(`dpi`): `this`
 
-Sets the DPI used to correctly encode the width of the image used in [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth) based on the printer.
+Sets the DPI used to correctly encode the width of the image used in [`CapacitorThermalPrinterPlugin.limitWidth`](CapacitorThermalPrinterPlugin.md#limitwidth) based on the printer.
 
 #### Parameters
 
@@ -290,8 +290,8 @@ Sets the DPI used to correctly encode the width of the image used in [`Bluetooth
 
  - [`PrinterDPI`](../type-aliases/PrinterDPI.md)
  - [`PrinterDPIs`](../variables/PrinterDPIs.md)
- - [`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
+ - [`CapacitorThermalPrinterPlugin.limitWidth`](CapacitorThermalPrinterPlugin.md#limitwidth)
+ - [`CapacitorThermalPrinterPlugin.image`](CapacitorThermalPrinterPlugin.md#image)
 
 ***
 
@@ -319,8 +319,8 @@ Limits the width of following images.
 
 #### See
 
- - [`BluetoothPrintPlugin.dpi`](BluetoothPrintPlugin.md#dpi)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
+ - [`CapacitorThermalPrinterPlugin.dpi`](CapacitorThermalPrinterPlugin.md#dpi)
+ - [`CapacitorThermalPrinterPlugin.image`](CapacitorThermalPrinterPlugin.md#image)
 
 ## Barcode Formatting
 
@@ -347,8 +347,8 @@ Sets the width of following barcodes.
 
 #### See
 
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
- - [`BluetoothPrintPlugin.barcodeHeight`](BluetoothPrintPlugin.md#barcodeheight)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.barcodeHeight`](CapacitorThermalPrinterPlugin.md#barcodeheight)
 
 ***
 
@@ -376,8 +376,8 @@ Sets the height of following barcodes.
 
 #### See
 
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
- - [`BluetoothPrintPlugin.barcodeWidth`](BluetoothPrintPlugin.md#barcodewidth)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.barcodeWidth`](CapacitorThermalPrinterPlugin.md#barcodewidth)
 
 ***
 
@@ -401,7 +401,7 @@ Sets the placement of following barcode texts.
 
  - [`BarcodeTextPlacement`](../type-aliases/BarcodeTextPlacement.md)
  - [`BarcodeTextPlacements`](../variables/BarcodeTextPlacements.md)
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
 
 ## Hybrid Formatting
 
@@ -425,10 +425,10 @@ Aligns following texts, images, qr codes and barcodes with the given alignment.
 
  - [`PrintAlignment`](../type-aliases/PrintAlignment.md)
  - [`PrintAlignments`](../variables/PrintAlignments.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
- - [`BluetoothPrintPlugin.qr`](BluetoothPrintPlugin.md#qr)
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.image`](CapacitorThermalPrinterPlugin.md#image)
+ - [`CapacitorThermalPrinterPlugin.qr`](CapacitorThermalPrinterPlugin.md#qr)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
 
 ***
 
@@ -456,8 +456,8 @@ Sets the character spacing of following texts and barcode texts.
 
 #### See
 
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
 
 ***
 
@@ -485,10 +485,10 @@ Sets the line spacing of following texts, images, qr codes, barcodes with the gi
 
 #### See
 
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.image`](BluetoothPrintPlugin.md#image)
- - [`BluetoothPrintPlugin.qr`](BluetoothPrintPlugin.md#qr)
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.image`](CapacitorThermalPrinterPlugin.md#image)
+ - [`CapacitorThermalPrinterPlugin.qr`](CapacitorThermalPrinterPlugin.md#qr)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
 
 ***
 
@@ -512,8 +512,8 @@ Formats following texts and barcode texts with the given font.
 
  - [`PrinterFont`](../type-aliases/PrinterFont.md)
  - [`PrinterFonts`](../variables/PrinterFonts.md)
- - [`BluetoothPrintPlugin.text`](BluetoothPrintPlugin.md#text)
- - [`BluetoothPrintPlugin.barcode`](BluetoothPrintPlugin.md#barcode)
+ - [`CapacitorThermalPrinterPlugin.text`](CapacitorThermalPrinterPlugin.md#text)
+ - [`CapacitorThermalPrinterPlugin.barcode`](CapacitorThermalPrinterPlugin.md#barcode)
 
 ***
 
@@ -574,7 +574,7 @@ For maximum compatibility, use PNG and JPEG formats.
 
 #### See
 
-[`BluetoothPrintPlugin.limitWidth`](BluetoothPrintPlugin.md#limitwidth)
+[`CapacitorThermalPrinterPlugin.limitWidth`](CapacitorThermalPrinterPlugin.md#limitwidth)
 
 ***
 
@@ -715,7 +715,7 @@ Adds a cut instruction to the print queue.
 
 #### See
 
-[`BluetoothPrintPlugin.feedCutPaper`](BluetoothPrintPlugin.md#feedcutpaper)
+[`CapacitorThermalPrinterPlugin.feedCutPaper`](CapacitorThermalPrinterPlugin.md#feedcutpaper)
 
 ***
 
@@ -742,7 +742,7 @@ Adds a cut instruction to the print queue preceded by a line feed.
 
 #### See
 
-[`BluetoothPrintPlugin.cutPaper`](BluetoothPrintPlugin.md#cutpaper)
+[`CapacitorThermalPrinterPlugin.cutPaper`](CapacitorThermalPrinterPlugin.md#cutpaper)
 
 ## Printing Actions
 
@@ -758,8 +758,8 @@ Resets the print queue while clearing all formatting.
 
 #### See
 
- - [`BluetoothPrintPlugin.write`](BluetoothPrintPlugin.md#write)
- - [`BluetoothPrintPlugin.clearFormatting`](BluetoothPrintPlugin.md#clearformatting)
+ - [`CapacitorThermalPrinterPlugin.write`](CapacitorThermalPrinterPlugin.md#write)
+ - [`CapacitorThermalPrinterPlugin.clearFormatting`](CapacitorThermalPrinterPlugin.md#clearformatting)
 
 ***
 
@@ -779,4 +779,4 @@ Calling this method doesn't reset the print queue
 
 #### See
 
-[`BluetoothPrintPlugin.begin`](BluetoothPrintPlugin.md#begin)
+[`CapacitorThermalPrinterPlugin.begin`](CapacitorThermalPrinterPlugin.md#begin)

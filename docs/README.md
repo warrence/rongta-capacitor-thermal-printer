@@ -7,7 +7,7 @@
 ## Interfaces
 
 - [BluetoothDevice](interfaces/BluetoothDevice.md)
-- [BluetoothPrintPlugin](interfaces/BluetoothPrintPlugin.md)
+- [CapacitorThermalPrinterPlugin](interfaces/CapacitorThermalPrinterPlugin.md)
 
 ## Type Aliases
 
@@ -28,4 +28,4 @@
 - [BarcodeTextPlacements](variables/BarcodeTextPlacements.md)
 - [BarcodeTypes](variables/BarcodeTypes.md)
 - [DataCodeTypes](variables/DataCodeTypes.md)
-- [BluetoothPrint](variables/BluetoothPrint.md)
+- [CapacitorThermalPrinter](variables/CapacitorThermalPrinter.md)

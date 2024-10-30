@@ -55,7 +55,7 @@ import java.util.List;
 import org.json.JSONException;
 
 @CapacitorPlugin(
-    name = "BluetoothPrint",
+    name = "CapacitorThermalPrinter",
     permissions = {
         @Permission(strings = { Manifest.permission.ACCESS_COARSE_LOCATION }, alias = "ACCESS_COARSE_LOCATION"),
         @Permission(strings = { Manifest.permission.ACCESS_FINE_LOCATION }, alias = "ACCESS_FINE_LOCATION"),
@@ -65,9 +65,9 @@ import org.json.JSONException;
         @Permission(strings = { Manifest.permission.BLUETOOTH_CONNECT }, alias = "BLUETOOTH_CONNECT")
     }
 )
-public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
+public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObserver {
 
-    private static final String TAG = "BluetoothPrintPlugin";
+    private static final String TAG = "CapacitorThermalPrinterPlugin";
     static final List<String> alignments = Arrays.asList("left", "center", "right");
     static final List<String> fonts = Arrays.asList("A", "B");
     static final List<String> placements = Arrays.asList("none", "above", "below", "both");
@@ -115,7 +115,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
                     devices.add(device);
                 }
 
-                BluetoothPrintPlugin.this.notifyListeners(
+                CapacitorThermalPrinterPlugin.this.notifyListeners(
                         "discoverDevices",
                         new JSObject() {
                             {
@@ -132,7 +132,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
         }
     }
 
-    public BluetoothPrintPlugin() {
+    public CapacitorThermalPrinterPlugin() {
         super();
         PrinterObserverManager.getInstance().add(this);
         ThermalPrinterFactory printerFactory = new ThermalPrinterFactory();
@@ -635,7 +635,7 @@ public class BluetoothPrintPlugin extends Plugin implements PrinterObserver {
     protected void permissionCallback(PluginCall call) {
         if (hasBluetoothPermission()) {
             try {
-                BluetoothPrintPlugin.class.getMethod(call.getMethodName(), PluginCall.class).invoke(this, call);
+                CapacitorThermalPrinterPlugin.class.getMethod(call.getMethodName(), PluginCall.class).invoke(this, call);
             } catch (Exception e) {
                 call.reject("Bluetooth method doesn't exit?!");
             }

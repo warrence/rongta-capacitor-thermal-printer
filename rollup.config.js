@@ -4,7 +4,7 @@ export default {
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorBluetoothPrint',
+      name: 'capacitorCapacitorThermalPrinter',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },

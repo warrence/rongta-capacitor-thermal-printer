@@ -6,8 +6,8 @@ import CoreBluetooth
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
  */
-@objc(BluetoothPrintPlugin)
-public class BluetoothPrintPlugin: CAPPlugin {
+@objc(CapacitorThermalPrinterPlugin)
+public class CapacitorThermalPrinterPlugin: CAPPlugin {
     let fonts = ["A", "B"];
     let alignments = ["left", "center", "right"];
     let placements = ["none", "above", "below", "both"];
