@@ -1,5 +1,5 @@
 PODS:
-  - BluetoothPrint (0.0.1):
+  - CapacitorThermalPrinter (0.0.1):
     - Capacitor
   - Capacitor (6.0.0):
     - CapacitorCordova
@@ -14,7 +14,7 @@ PODS:
     - Capacitor
 
 DEPENDENCIES:
-  - BluetoothPrint (from `../../..`)
+  - CapacitorThermalPrinter (from `../../..`)
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
 
 EXTERNAL SOURCES:
-  BluetoothPrint:
+  CapacitorThermalPrinter:
     :path: "../../.."
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
@@ -39,7 +39,7 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/status-bar"
 
 SPEC CHECKSUMS:
-  BluetoothPrint: 45b76976d41da7dbcbc7b4c0f6f601841bad85ef
+  CapacitorThermalPrinter: 45b76976d41da7dbcbc7b4c0f6f601841bad85ef
   Capacitor: 559d073c4ca6c27f8e7002c807eea94c3ba435a9
   CapacitorApp: 9d53aec7101f7b030a950c5bdc4df8612576b279
   CapacitorCordova: 8c4bfdf69368512e85b1d8b724dd7546abeb30af

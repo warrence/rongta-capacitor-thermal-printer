@@ -13,7 +13,7 @@
     "dist/",
     "ios/Plugin/",
     "ios/Bridging-Header.h",
-    "BluetoothPrint.podspec"
+    "CapacitorThermalPrinter.podspec"
   ],
   "author": "Malik12tree",
   "license": "MIT",

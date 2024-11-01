@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
-		50ADFF97201F53D600D50D53 /* BluetoothPrintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */; };
+		50ADFF97201F53D600D50D53 /* CapacitorThermalPrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* CapacitorThermalPrinterTests.swift */; };
 		5FC74701905566BCE65B0125 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C687F51650BFA7DCD97DF1FF /* Pods_PluginTests.framework */; };
 		6CF63A3B9EFEE4BC48EEC560 /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116312F9F8331B8A8207136D /* Pods_Plugin.framework */; };
-		D086E0DF2BE245B7006C7E71 /* BluetoothPrintPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */; };
-		D086E0E12BE245B7006C7E71 /* BluetoothPrintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */; };
-		D086E0E72BE245B7006C7E71 /* BluetoothPrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */; };
+		D086E0DF2BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E0D32BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.h */; };
+		D086E0E12BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E0D62BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.m */; };
+		D086E0E72BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D086E0DD2BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.swift */; };
 		D086E2742BE24984006C7E71 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2502BE24984006C7E71 /* AppDelegate.h */; };
 		D086E2752BE24984006C7E71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D086E2512BE24984006C7E71 /* AppDelegate.m */; };
 		D086E2762BE24984006C7E71 /* CDV.h in Headers */ = {isa = PBXBuildFile; fileRef = D086E2522BE24984006C7E71 /* CDV.h */; };
@@ -108,17 +108,17 @@
 		116312F9F8331B8A8207136D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF91201F53D600D50D53 /* PluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPrintTests.swift; sourceTree = "<group>"; };
+		50ADFF96201F53D600D50D53 /* CapacitorThermalPrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacitorThermalPrinterTests.swift; sourceTree = "<group>"; };
 		50ADFF98201F53D600D50D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
 		96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C687F51650BFA7DCD97DF1FF /* Pods_PluginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PluginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00834FD2BFCF04500E507E3 /* PrinterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterManager.swift; sourceTree = "<group>"; };
-		D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothPrintPlugin.h; sourceTree = "<group>"; };
-		D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothPrintPlugin.m; sourceTree = "<group>"; };
+		D086E0D32BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapacitorThermalPrinterPlugin.h; sourceTree = "<group>"; };
+		D086E0D62BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapacitorThermalPrinterPlugin.m; sourceTree = "<group>"; };
 		D086E0DC2BE245B7006C7E71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothPrintPlugin.swift; sourceTree = "<group>"; };
+		D086E0DD2BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacitorThermalPrinterPlugin.swift; sourceTree = "<group>"; };
 		D086E2502BE24984006C7E71 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D086E2512BE24984006C7E71 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D086E2522BE24984006C7E71 /* CDV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
@@ -251,9 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				D0B8EF1F2C7E022A003510D7 /* SDK */,
-				D086E0D32BE245B7006C7E71 /* BluetoothPrintPlugin.h */,
-				D086E0D62BE245B7006C7E71 /* BluetoothPrintPlugin.m */,
-				D086E0DD2BE245B7006C7E71 /* BluetoothPrintPlugin.swift */,
+				D086E0D32BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.h */,
+				D086E0D62BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.m */,
+				D086E0DD2BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.swift */,
 				D086E0DC2BE245B7006C7E71 /* Info.plist */,
 				D00834FD2BFCF04500E507E3 /* PrinterManager.swift */,
 			);
@@ -263,7 +263,7 @@
 		50ADFF95201F53D600D50D53 /* PluginTests */ = {
 			isa = PBXGroup;
 			children = (
-				50ADFF96201F53D600D50D53 /* BluetoothPrintTests.swift */,
+				50ADFF96201F53D600D50D53 /* CapacitorThermalPrinterTests.swift */,
 				50ADFF98201F53D600D50D53 /* Info.plist */,
 			);
 			path = PluginTests;
@@ -498,7 +498,7 @@
 				D086E2832BE24984006C7E71 /* CDVPluginManager.h in Headers */,
 				D0B8EF382C7E022B003510D7 /* PlistUtils.h in Headers */,
 				D0B8EF472C7E022B003510D7 /* XsimCmd.h in Headers */,
-				D086E0DF2BE245B7006C7E71 /* BluetoothPrintPlugin.h in Headers */,
+				D086E0DF2BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.h in Headers */,
 				D0B8EF262C7E022B003510D7 /* CPCLCmd.h in Headers */,
 				D0B8EF322C7E022B003510D7 /* ObserverObj.h in Headers */,
 				D0B8EF2B2C7E022B003510D7 /* EscpCmd.h in Headers */,
@@ -717,10 +717,10 @@
 				D086E27A2BE24984006C7E71 /* CDVCommandDelegateImpl.m in Sources */,
 				D086E27E2BE24984006C7E71 /* CDVInvokedUrlCommand.m in Sources */,
 				D086E28F2BE24984006C7E71 /* NSDictionary+CordovaPreferences.m in Sources */,
-				D086E0E12BE245B7006C7E71 /* BluetoothPrintPlugin.m in Sources */,
+				D086E0E12BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.m in Sources */,
 				D086E2822BE24984006C7E71 /* CDVPlugin+Resources.m in Sources */,
 				D086E2752BE24984006C7E71 /* AppDelegate.m in Sources */,
-				D086E0E72BE245B7006C7E71 /* BluetoothPrintPlugin.swift in Sources */,
+				D086E0E72BE245B7006C7E71 /* CapacitorThermalPrinterPlugin.swift in Sources */,
 				D086E27C2BE24984006C7E71 /* CDVConfigParser.m in Sources */,
 				D086E2892BE24984006C7E71 /* CDVURLProtocol.m in Sources */,
 				D086E2802BE24984006C7E71 /* CDVPlugin.m in Sources */,
@@ -732,7 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50ADFF97201F53D600D50D53 /* BluetoothPrintTests.swift in Sources */,
+				50ADFF97201F53D600D50D53 /* CapacitorThermalPrinterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

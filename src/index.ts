@@ -1,11 +1,11 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { BluetoothPrintPlugin, Base64Encodable } from './definitions';
+import type { CapacitorThermalPrinterPlugin, Base64Encodable } from './definitions';
 import { WrappedMethodsArgsMap, WrappedMethodsMiddlewareMap } from './private-definitions';
 import CallablePromise from './utils/CallablePromise';
 import Encoding from './utils/Encoding';
 
-const BluetoothPrintImplementation = registerPlugin<any>('BluetoothPrint');
+const CapacitorThermalPrinterImplementation = registerPlugin<any>('CapacitorThermalPrinter');
 
 const wrappedMethodsArgNames = {
   //#region Text Formatting
@@ -92,14 +92,14 @@ for (const key in wrappedMethodsArgNames) {
 
     const promise = Promise.resolve(trailingLock).then(async () => {
       try {
-        await BluetoothPrintImplementation[key](await options);
+        await CapacitorThermalPrinterImplementation[key](await options);
       } finally {
         lock.resolve();
       }
     });
     if (key === 'write') return promise;
 
-    return BluetoothPrint;
+    return CapacitorThermalPrinter;
   };
 }
 
@@ -108,7 +108,7 @@ for (const key in wrappedMethodsArgNames) {
 /// ! However, a synchronous reference to the object is returned immediately
 /// ! achieving our target of a builder pattern!
 const callQueue: CallablePromise<void>[] = [];
-const BluetoothPrint = new Proxy(
+const CapacitorThermalPrinter = new Proxy(
   {},
   {
     get(_, prop) {
@@ -116,10 +116,10 @@ const BluetoothPrint = new Proxy(
         return wrappedMethods[prop];
       }
 
-      return BluetoothPrintImplementation[prop];
+      return CapacitorThermalPrinterImplementation[prop];
     },
   },
-) as BluetoothPrintPlugin;
+) as CapacitorThermalPrinterPlugin;
 
 export * from './definitions';
-export { BluetoothPrint };
+export { CapacitorThermalPrinter };

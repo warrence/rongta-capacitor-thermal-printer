@@ -3,12 +3,12 @@ import { ToastController } from '@ionic/angular';
 import {
   BarcodeTextPlacement,
   BarcodeTextPlacements,
-  BluetoothPrint,
+  CapacitorThermalPrinter,
   DataCodeType,
   DataCodeTypes,
 } from 'capacitor-thermal-printer';
 
-Object.assign(window, { BluetoothPrint });
+Object.assign(window, { CapacitorThermalPrinter });
 
 @Component({
   selector: 'app-home',
@@ -27,12 +27,12 @@ export class HomePage {
     zone: NgZone,
     private toastController: ToastController,
   ) {
-    BluetoothPrint.addListener('discoverDevices', async ({ devices }) => {
+    CapacitorThermalPrinter.addListener('discoverDevices', async ({ devices }) => {
       zone.run(() => {
         this.devices = devices;
       });
     });
-    BluetoothPrint.addListener('connected', async () => {
+    CapacitorThermalPrinter.addListener('connected', async () => {
       zone.run(() => {
         this.isConnected = true;
       });
@@ -45,7 +45,7 @@ export class HomePage {
 
       await toast.present();
     });
-    BluetoothPrint.addListener('disconnected', async () => {
+    CapacitorThermalPrinter.addListener('disconnected', async () => {
       zone.run(() => {
         this.isConnected = false;
       });
@@ -58,14 +58,14 @@ export class HomePage {
 
       await toast.present();
     });
-    BluetoothPrint.addListener('discoveryFinish', () => {
+    CapacitorThermalPrinter.addListener('discoveryFinish', () => {
       zone.run(() => {
         this.isScanning = false;
       });
     });
   }
   async connectDevice(device: any) {
-    await BluetoothPrint.connect({
+    await CapacitorThermalPrinter.connect({
       address: device.address,
     });
   }
@@ -74,14 +74,14 @@ export class HomePage {
     if (this.isScanning) return;
 
     this.devices = [];
-    BluetoothPrint.startScan().then(() => (this.isScanning = true));
+    CapacitorThermalPrinter.startScan().then(() => (this.isScanning = true));
   }
   stopScan() {
     // stopScan already dispatches the discoveryFinish event
-    BluetoothPrint.stopScan();
+    CapacitorThermalPrinter.stopScan();
   }
   disconnect() {
-    BluetoothPrint.disconnect();
+    CapacitorThermalPrinter.disconnect();
   }
 
   printImage() {
@@ -93,7 +93,7 @@ export class HomePage {
 
       if (!fileInput.files!.length) return;
 
-      BluetoothPrint.begin()
+      CapacitorThermalPrinter.begin()
         .image(fileInput!.files![0])
         .write()
         .then(() => this.successPrintError())
@@ -106,7 +106,7 @@ export class HomePage {
     if (!text) return;
     if (!text.endsWith('\n')) text += '\n';
 
-    BluetoothPrint.begin()
+    CapacitorThermalPrinter.begin()
       .text(text)
       .write()
       .then(() => this.successPrintError())
@@ -114,33 +114,33 @@ export class HomePage {
   }
   printDataCode(data: string | null | undefined, placement: BarcodeTextPlacement | null) {
     if (!data) return;
-    BluetoothPrint.begin().align('center');
+    CapacitorThermalPrinter.begin().align('center');
     if (this.selectedDataCodeType === 'QR') {
-      BluetoothPrint.qr(data);
+      CapacitorThermalPrinter.qr(data);
     } else {
-      if (placement) BluetoothPrint.barcodeTextPlacement(placement);
-      BluetoothPrint.barcode(this.selectedDataCodeType, data);
+      if (placement) CapacitorThermalPrinter.barcodeTextPlacement(placement);
+      CapacitorThermalPrinter.barcode(this.selectedDataCodeType, data);
     }
-    BluetoothPrint.write()
+    CapacitorThermalPrinter.write()
       .then(() => this.successPrintError())
       .catch((e) => this.catchPrintError(e));
   }
   beep() {
-    BluetoothPrint.begin()
+    CapacitorThermalPrinter.begin()
       .beep()
       .write()
       .then(() => this.successPrintError())
       .catch((e) => this.catchPrintError(e));
   }
   cutPaper() {
-    BluetoothPrint.begin()
+    CapacitorThermalPrinter.begin()
       .feedCutPaper()
       .write()
       .then(() => this.successPrintError())
       .catch((e) => this.catchPrintError(e));
   }
   printShowcase() {
-    BluetoothPrint.begin()
+    CapacitorThermalPrinter.begin()
       .underline()
       .bold()
       .inverse()

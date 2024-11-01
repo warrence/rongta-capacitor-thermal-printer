@@ -29,7 +29,7 @@ export interface BluetoothDevice {
   address: string;
 }
 
-export interface BluetoothPrintPlugin {
+export interface CapacitorThermalPrinterPlugin {
   /**
    * @category Connectivity
    */
@@ -66,8 +66,8 @@ export interface BluetoothPrintPlugin {
    * @remarks
    * If you're using Angular as your framework of choice, the handler doesn't run in zone.
    *
-   * @see {@linkcode BluetoothPrintPlugin.startScan}
-   * @see {@linkcode BluetoothPrintPlugin.stopScan}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.startScan}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.stopScan}
    *
    * @category Event Listeners
    */
@@ -98,7 +98,7 @@ export interface BluetoothPrintPlugin {
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
-   * @see {@linkcode BluetoothPrintPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
    *
    * @category Text Formatting
    */
@@ -109,7 +109,7 @@ export interface BluetoothPrintPlugin {
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
-   * @see {@linkcode BluetoothPrintPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
    *
    * @category Text Formatting
    * */
@@ -120,8 +120,8 @@ export interface BluetoothPrintPlugin {
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.doubleHeight}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.doubleHeight}
    *
    * @category Text Formatting
    */
@@ -132,8 +132,8 @@ export interface BluetoothPrintPlugin {
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.doubleWidth}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.doubleWidth}
    *
    * @category Text Formatting
    */
@@ -145,7 +145,7 @@ export interface BluetoothPrintPlugin {
    * @param enabled - Defaults to `true` if not specified.
    *
    * @see {@linkcode IsEnabled}
-   * @see {@linkcode BluetoothPrintPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
    *
    * @category Text Formatting
    */
@@ -155,7 +155,7 @@ export interface BluetoothPrintPlugin {
   //#region Image Formatting
   /**
    *
-   * Sets the DPI used to correctly encode the width of the image used in {@linkcode BluetoothPrintPlugin.limitWidth} based on the printer.
+   * Sets the DPI used to correctly encode the width of the image used in {@linkcode CapacitorThermalPrinterPlugin.limitWidth} based on the printer.
    *
    * @param dpi - The DPI value.
    *
@@ -165,8 +165,8 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode PrinterDPI}
    * @see {@linkcode PrinterDPIs}
-   * @see {@linkcode BluetoothPrintPlugin.limitWidth}
-   * @see {@linkcode BluetoothPrintPlugin.image}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.limitWidth}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.image}
    *
    * @category Image Formatting
    */
@@ -181,8 +181,8 @@ export interface BluetoothPrintPlugin {
    * - If the width is less than 1mm, this will fail silently.
    * - If the width is greater than 880mm it will be treated as 880mm.
    *
-   * @see {@linkcode BluetoothPrintPlugin.dpi}
-   * @see {@linkcode BluetoothPrintPlugin.image}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.dpi}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.image}
    *
    * @category Image Formatting
    */
@@ -197,10 +197,10 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode PrintAlignment}
    * @see {@linkcode PrintAlignments}
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.image}
-   * @see {@linkcode BluetoothPrintPlugin.qr}
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.image}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.qr}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
    *
    * @category Hybrid Formatting
    */
@@ -215,8 +215,8 @@ export interface BluetoothPrintPlugin {
    * - If the spacing is less than 0mm it will be treated as 0mm.
    * - If the spacing is greater than 30mm it will be treated as 30mm.
    *
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
    *
    * @category Hybrid Formatting
    */
@@ -231,10 +231,10 @@ export interface BluetoothPrintPlugin {
    * - If the spacing is less than 0mm it will be treated as 0mm.
    * - If the spacing is greater than 255mm it will be treated as 255mm.
    *
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.image}
-   * @see {@linkcode BluetoothPrintPlugin.qr}
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.image}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.qr}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
    *
    * @category Hybrid Formatting
    */
@@ -246,8 +246,8 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode PrinterFont}
    * @see {@linkcode PrinterFonts}
-   * @see {@linkcode BluetoothPrintPlugin.text}
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.text}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
    *
    * @category Hybrid Formatting
    */
@@ -270,8 +270,8 @@ export interface BluetoothPrintPlugin {
    * - The initial width is 3.
    * - Depending on the printer model, it may **halt** if the width exceeds it's printing width.
    *
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
-   * @see {@linkcode BluetoothPrintPlugin.barcodeHeight}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcodeHeight}
    *
    * @category Barcode Formatting
    */
@@ -286,8 +286,8 @@ export interface BluetoothPrintPlugin {
    * - If the height is less than 1mm it will be treated as 1mm.
    * - If the height is greater than 255mm it will be treated as 255mm.
    *
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
-   * @see {@linkcode BluetoothPrintPlugin.barcodeWidth}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcodeWidth}
    *
    * @category Barcode Formatting
    */
@@ -299,7 +299,7 @@ export interface BluetoothPrintPlugin {
    *
    * @see {@linkcode BarcodeTextPlacement}
    * @see {@linkcode BarcodeTextPlacements}
-   * @see {@linkcode BluetoothPrintPlugin.barcode}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.barcode}
    *
    * @category Barcode Formatting
    */
@@ -327,7 +327,7 @@ export interface BluetoothPrintPlugin {
    * The supported image formats the running platform's supported formats.
    * For maximum compatibility, use PNG and JPEG formats.
    *
-   * @see {@linkcode BluetoothPrintPlugin.limitWidth}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.limitWidth}
    *
    * @category Content
    */
@@ -404,7 +404,7 @@ export interface BluetoothPrintPlugin {
    * - The printer may not support the full cut instruction and fail silently.
    * - The printer may not support the half cut instruction and fail silently.
    *
-   * @see {@linkcode BluetoothPrintPlugin.feedCutPaper}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.feedCutPaper}
    *
    * @category Content Actions
    */
@@ -417,7 +417,7 @@ export interface BluetoothPrintPlugin {
    * - The printer may not support the full cut instruction and fail silently.
    * - The printer may not support the half cut instruction and fail silently.
    *
-   * @see {@linkcode BluetoothPrintPlugin.cutPaper}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.cutPaper}
    *
    * @category Content Actions
    */
@@ -428,8 +428,8 @@ export interface BluetoothPrintPlugin {
   /**
    * Resets the print queue while clearing all formatting.
    *
-   * @see {@linkcode BluetoothPrintPlugin.write}
-   * @see {@linkcode BluetoothPrintPlugin.clearFormatting}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.write}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.clearFormatting}
    *
    * @category Printing Actions
    */
@@ -440,7 +440,7 @@ export interface BluetoothPrintPlugin {
    * @remarks
    * Calling this method doesn't reset the print queue
    *
-   * @see {@linkcode BluetoothPrintPlugin.begin}
+   * @see {@linkcode CapacitorThermalPrinterPlugin.begin}
    *
    * @category Printing Actions
    */

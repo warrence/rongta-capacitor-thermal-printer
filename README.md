@@ -36,16 +36,16 @@ Make sure to check the Ionic Angular example in the [example](./example) folder.
 ### 1. Import the plugin
 
 ```ts
-import { BluetoothPrint } from 'capacitor-thermal-printer';
+import { CapacitorThermalPrinter } from 'capacitor-thermal-printer';
 ```
 
 ### 2. Connect to printer
 
 ```ts
-BluetoothPrint.addListener('connected', () => {
+CapacitorThermalPrinter.addListener('connected', () => {
   console.log('Connected!');
 });
-await BluetoothPrint.connect({
+await CapacitorThermalPrinter.connect({
   address: 'XX:XX:XX:XX:XX:XX',
 });
 ```
@@ -56,17 +56,17 @@ You can also use the `startScan` method to discover nearby devices.
 - On iOS, all bluetooth devices will be discovered.
 
 ```ts
-BluetoothPrint.addListener('discoverDevices', (devices) => {
+CapacitorThermalPrinter.addListener('discoverDevices', (devices) => {
   console.log('Discovered devices list:', devices);
 });
 
-await BluetoothPrint.startScan();
+await CapacitorThermalPrinter.startScan();
 ```
 
 ### 3. Print sample receipt
 
 ```ts
-await BluetoothPrint.begin()
+await CapacitorThermalPrinter.begin()
   .align('center')
 
   .image('https://raw.githubusercontent.com/Malik12tree/capacitor-thermal-printer/main/assets/Logo-Black.png')
