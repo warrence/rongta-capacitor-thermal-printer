@@ -56,8 +56,8 @@ import { CapacitorThermalPrinter } from 'capacitor-thermal-printer';
 ### 2. Connect to printer
 
 ```ts
-CapacitorThermalPrinter.addListener('connected', () => {
-  console.log('Connected!');
+CapacitorThermalPrinter.addListener('connected', (device) => {
+  console.log('Connected!', device.name, device.address);
 });
 await CapacitorThermalPrinter.connect({
   address: 'XX:XX:XX:XX:XX:XX',

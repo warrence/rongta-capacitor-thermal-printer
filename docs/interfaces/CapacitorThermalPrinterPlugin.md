@@ -115,7 +115,7 @@ Emitted when a printer is successfully connected.
 | Parameter | Type |
 | ------ | ------ |
 | `event` | `"connected"` |
-| `handler` | () => `void` |
+| `handler` | (`device`) => `void` |
 
 ##### Returns
 
