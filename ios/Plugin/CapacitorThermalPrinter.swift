@@ -91,7 +91,11 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
                     break;
                 }
                 
-                self.notifyListeners("connected", data: nil)
+                let pi = ((notification.object as! ObserverObj).msgobj as! RTBlueToothPI);
+                self.notifyListeners("connected", data: [
+                    "address": pi.address,
+                    "name": pi.name,
+                ]);
                 break;
             case NSNotification.Name.PrinterDisconnected:
                 self.notifyListeners("disconnected", data: nil)

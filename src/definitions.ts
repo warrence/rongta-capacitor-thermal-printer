@@ -80,7 +80,7 @@ export interface CapacitorThermalPrinterPlugin {
    *
    * @category Event Listeners
    */
-  addListener(event: 'connected', handler: () => void): Promise<PluginListenerHandle>;
+  addListener(event: 'connected', handler: (device: BluetoothDevice) => void): Promise<PluginListenerHandle>;
   /**
    * Emitted when a printer is disconnected.
    *

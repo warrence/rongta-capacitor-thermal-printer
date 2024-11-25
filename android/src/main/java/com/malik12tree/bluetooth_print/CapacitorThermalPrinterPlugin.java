@@ -661,13 +661,18 @@ public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObse
         return array;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void printerObserverCallback(PrinterInterface printerInterface, int state) {
         Log.d(TAG, "STATE CHANGE " + state);
         switch (state) {
             case CommonEnum.CONNECT_STATE_SUCCESS:
                 rtPrinter.setPrinterInterface(printerInterface);
-                notifyListeners("connected", null);
+                notifyListeners("connected", new JSObject() {{
+                    BluetoothEdrConfigBean config = ((BluetoothEdrConfigBean)printerInterface.getConfigObject());
+                    put("address", config.mBluetoothDevice.getAddress());
+                    put("name", config.mBluetoothDevice.getName());
+                }});
                 break;
             case CommonEnum.CONNECT_STATE_INTERRUPTED:
                 notifyListeners("disconnected", null);
