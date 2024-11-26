@@ -53,6 +53,16 @@
 
 `Promise`\<`void`\>
 
+***
+
+### isConnected()
+
+> **isConnected**(): `Promise`\<`boolean`\>
+
+#### Returns
+
+`Promise`\<`boolean`\>
+
 ## Event Listeners
 
 ### addListener()
