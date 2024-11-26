@@ -202,6 +202,13 @@ public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObse
             call.reject("Failed to stop scan!");
         }
     }
+    public void isConnected(PluginCall call) {
+        boolean state = rtPrinter.getConnectState() == ConnectStateEnum.Connected;
+
+        call.resolve(new JSObject() {{
+            put("state", state);
+        }});
+    }
 
     @SuppressLint("MissingPermission")
     @PluginMethod

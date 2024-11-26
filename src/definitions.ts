@@ -48,6 +48,11 @@ export interface CapacitorThermalPrinterPlugin {
   disconnect(): Promise<void>;
 
   /**
+   * @category Connectivity
+   */
+  isConnected(): Promise<boolean>;
+
+  /**
    * Emitted when new devices are discovered.
    *
    * @remarks

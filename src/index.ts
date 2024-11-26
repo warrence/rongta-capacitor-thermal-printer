@@ -79,7 +79,11 @@ function mapArgs(key: string, args: any[]) {
   return Object.fromEntries(argNames.map((name, index) => [name, structuredClone(args[index])]));
 }
 
-const wrappedMethods: any = {};
+const wrappedMethods: any = {
+  isConnected() {
+    return CapacitorThermalPrinterImplementation.isConnected().then(({ state }: { state: boolean }) => state);
+  },
+};
 
 for (const key in wrappedMethodsArgNames) {
   wrappedMethods[key] = (...args: any[]) => {

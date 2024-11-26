@@ -139,7 +139,13 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
         discoveryFinish?.perform()
         call.resolve()
     }
-    
+
+    @objc func isConnected(_ call: CAPPluginCall) {
+        call.resolve([
+            "state": manager.currentPrinter.isOpen
+        ])
+    }
+
     @objc func connect(_ call: CAPPluginCall) {
         guard let address = call.getString("address") else { call.reject("Please provide address!"); return }
         
