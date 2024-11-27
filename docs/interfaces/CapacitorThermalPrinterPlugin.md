@@ -30,7 +30,7 @@
 
 ### connect()
 
-> **connect**(`options`): `Promise`\<`void`\>
+> **connect**(`options`): `Promise`\<`null` \| [`BluetoothDevice`](BluetoothDevice.md)\>
 
 #### Parameters
 
@@ -41,7 +41,7 @@
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<`null` \| [`BluetoothDevice`](BluetoothDevice.md)\>
 
 ***
 
