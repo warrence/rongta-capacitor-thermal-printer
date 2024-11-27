@@ -207,15 +207,29 @@ public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObse
     public void isConnected(PluginCall call) {
         boolean state = rtPrinter.getConnectState() == ConnectStateEnum.Connected;
 
+        if (state) {
+            rtPrinter.writeMsg(new byte[]{});
+
+            state = rtPrinter.getConnectState() == ConnectStateEnum.Connected;
+        }
+
+        boolean finalState = state;
         call.resolve(new JSObject() {{
-            put("state", state);
+            put("state", finalState);
         }});
     }
+
+
+    private PluginCall currentConnectCallbacks = null;
 
     @SuppressLint("MissingPermission")
     @PluginMethod
     public void connect(PluginCall call) {
         if (!bluetoothCheck(call)) return;
+        if (currentConnectCallbacks != null) {
+            call.reject("Printer already connecting!");
+            return;
+        }
 
         String address = call.getString("address");
         if (address == null) {
@@ -233,10 +247,10 @@ public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObse
         printerInterface.setConfigObject(bluetoothEdrConfigBean);
         rtPrinter.setPrinterInterface(printerInterface);
         try {
+            currentConnectCallbacks = call;
             rtPrinter.connect(bluetoothEdrConfigBean);
-
-            call.resolve();
         } catch (Exception e) {
+            // unreachable!
             call.reject("Failed to connect!");
         }
     }
@@ -673,19 +687,34 @@ public class CapacitorThermalPrinterPlugin extends Plugin implements PrinterObse
     @SuppressLint("MissingPermission")
     @Override
     public void printerObserverCallback(PrinterInterface printerInterface, int state) {
+        JSObject deviceJSON = printerInterface != null ? new JSObject() {{
+            BluetoothEdrConfigBean config = ((BluetoothEdrConfigBean)printerInterface.getConfigObject());
+            put("address", config.mBluetoothDevice.getAddress());
+            put("name", config.mBluetoothDevice.getName());
+        }}: null;
+
         Log.d(TAG, "STATE CHANGE " + state);
         switch (state) {
             case CommonEnum.CONNECT_STATE_SUCCESS:
                 rtPrinter.setPrinterInterface(printerInterface);
-                notifyListeners("connected", new JSObject() {{
-                    BluetoothEdrConfigBean config = ((BluetoothEdrConfigBean)printerInterface.getConfigObject());
-                    put("address", config.mBluetoothDevice.getAddress());
-                    put("name", config.mBluetoothDevice.getName());
-                }});
+
+                if (currentConnectCallbacks != null) {
+                    currentConnectCallbacks.resolve(deviceJSON);
+                    currentConnectCallbacks = null;
+                }
+
+                notifyListeners("connected", deviceJSON);
+
                 break;
             case CommonEnum.CONNECT_STATE_INTERRUPTED:
-                notifyListeners("disconnected", null);
                 rtPrinter.setPrinterInterface(null);
+
+                if (currentConnectCallbacks != null) {
+                    currentConnectCallbacks.resolve(null);
+                    currentConnectCallbacks = null;
+                } else {
+                    notifyListeners("disconnected", null);
+                }
                 break;
         }
     }

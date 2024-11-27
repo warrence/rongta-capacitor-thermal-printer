@@ -42,6 +42,8 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
    
     var isScanning = false;
     var discoveryFinish: DispatchWorkItem?;
+    var connectTimeout: DispatchWorkItem?;
+    var disconnectNotificationGuard = false;
     
     public override init() {
         super.init()
@@ -92,13 +94,21 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
                 }
                 
                 let pi = ((notification.object as! ObserverObj).msgobj as! RTBlueToothPI);
+                
+                self.connectTimeout?.perform();
+
                 self.notifyListeners("connected", data: [
                     "address": pi.address,
                     "name": pi.name,
                 ]);
                 break;
             case NSNotification.Name.PrinterDisconnected:
+                if self.disconnectNotificationGaurd {
+                    self.disconnectNotificationGaurd = false;
+                    break;
+                }
                 self.notifyListeners("disconnected", data: nil)
+
                 break;
             default:
                 break;
@@ -141,19 +151,47 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
     }
 
     @objc func isConnected(_ call: CAPPluginCall) {
+        var state = manager.currentPrinter.isOpen
+        if state {
+            manager.currentPrinter.write(Data())
+
+            state = manager.currentPrinter.isOpen
+        }
         call.resolve([
-            "state": manager.currentPrinter.isOpen
+            "state": state
         ])
     }
 
     @objc func connect(_ call: CAPPluginCall) {
         guard let address = call.getString("address") else { call.reject("Please provide address!"); return }
-        
-        
+        if connectTimeout != nil {
+            call.reject("Printer already connecting!")
+            return
+        }
+
         manager.connectBLE(address: address)
-        NSLog("CONNECT %@", address)
-        
-        call.resolve()
+
+        connectTimeout = DispatchWorkItem(block: {
+            () in
+            if  self.connectTimeout == nil {
+                return
+            }
+            
+            self.connectTimeout = nil;
+            
+            
+            if self.manager.currentPrinter.isOpen {
+                call.resolve([
+                    "address": self.manager.currentPrinter.printerPi.address,
+                    "name": self.manager.currentPrinter.printerPi.name,
+                ])
+            } else {
+                self.disconnectNotificationGaurd = true;
+                self.manager.currentPrinter.close()
+                call.resolve()
+            }
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: connectTimeout!);
     }
     @objc func disconnect(_ call: CAPPluginCall) {
         if manager.currentPrinter.isOpen {
@@ -357,7 +395,7 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
 
         error.deallocate();
 
-        cmd.append(bytes);        
+        cmd.append(bytes);
         call.resolve();
     }
     @objc func barcode(_ call: CAPPluginCall) {

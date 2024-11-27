@@ -41,7 +41,7 @@ export interface CapacitorThermalPrinterPlugin {
   /**
    * @category Connectivity
    */
-  connect(options: { address: string }): Promise<void>;
+  connect(options: { address: string }): Promise<BluetoothDevice | null>;
   /**
    * @category Connectivity
    */

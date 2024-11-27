@@ -83,6 +83,9 @@ const wrappedMethods: any = {
   isConnected() {
     return CapacitorThermalPrinterImplementation.isConnected().then(({ state }: { state: boolean }) => state);
   },
+  connect(...args: any[]) {
+    return CapacitorThermalPrinterImplementation.connect(...args).then((result: unknown) => result ?? null)
+  }
 };
 
 for (const key in wrappedMethodsArgNames) {
