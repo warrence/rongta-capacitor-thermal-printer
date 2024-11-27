@@ -56,12 +56,14 @@ import { CapacitorThermalPrinter } from 'capacitor-thermal-printer';
 ### 2. Connect to printer
 
 ```ts
-CapacitorThermalPrinter.addListener('connected', (device) => {
-  console.log('Connected!', device.name, device.address);
-});
-await CapacitorThermalPrinter.connect({
+const device = await CapacitorThermalPrinter.connect({
   address: 'XX:XX:XX:XX:XX:XX',
 });
+if (device === null) {
+  console.log('Woops, failed to connect!');
+} else {
+    console.log('Connected!', device.name, device.address);
+}
 ```
 
 You can also use the `startScan` method to discover nearby devices.
