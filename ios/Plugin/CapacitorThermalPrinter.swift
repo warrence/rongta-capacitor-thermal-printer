@@ -103,8 +103,8 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
                 ]);
                 break;
             case NSNotification.Name.PrinterDisconnected:
-                if self.disconnectNotificationGaurd {
-                    self.disconnectNotificationGaurd = false;
+                if self.disconnectNotificationGuard {
+                    self.disconnectNotificationGuard = false;
                     break;
                 }
                 self.notifyListeners("disconnected", data: nil)
@@ -186,7 +186,7 @@ public class CapacitorThermalPrinterPlugin: CAPPlugin {
                     "name": self.manager.currentPrinter.printerPi.name,
                 ])
             } else {
-                self.disconnectNotificationGaurd = true;
+                self.disconnectNotificationGuard = true;
                 self.manager.currentPrinter.close()
                 call.resolve()
             }
