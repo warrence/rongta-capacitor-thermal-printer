@@ -50,7 +50,7 @@ Make sure to check the Ionic Angular example in the [example](./example) folder.
 ### 1. Import the plugin
 
 ```ts
-import { CapacitorThermalPrinter } from 'capacitor-thermal-printer';
+import { CapacitorThermalPrinter } from '../../src-capacitor/node_modules/rongta-capacitor-thermal-printer';
 ```
 
 ### 2. Connect to printer
@@ -62,7 +62,7 @@ const device = await CapacitorThermalPrinter.connect({
 if (device === null) {
   console.log('Woops, failed to connect!');
 } else {
-    console.log('Connected!', device.name, device.address);
+  console.log('Connected!', device.name, device.address);
 }
 ```
 
